@@ -1,0 +1,25 @@
+{
+  "name": "manuelddahmen/agenda",
+  "description": "Agenda",
+  "minimum-stability": "stable",
+  "license": "paie!",
+  "authors": [
+    {
+      "name": "manuelddahmen",
+      "email": "dathewolf@gmail.com"
+    }
+  ],
+  "require": {
+    "greenlion/php-sql-parser":">=v4.5.0",
+    "ext-simplexml": "*",
+    "hybridauth/hybridauth": "*",
+    "ext-sqlite": "*",
+    "ext-mysqli": "*",
+    "ext-pdo": "*",
+    "ext-sysvsem": "*",
+    "ext-curl": "*",
+    "ext-http": "*",
+    "ext-sqlite3": "*",
+    "ext-mbstring": "*"
+  }
+}

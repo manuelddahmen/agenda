@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="New version: bootstrap">
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agenda.zip" beforeDir="false" afterPath="$PROJECT_DIR$/agenda.zip" afterDir="false" />
+    </list>
+    <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)">
+      <change beforePath="$PROJECT_DIR$/data_agenda/database_agenda" beforeDir="false" afterPath="$PROJECT_DIR$/data_agenda/database_agenda" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="86f58a2f-14dd-4d64-8359-c9dfe670c1f6" />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="composer.json" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="space/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="dathewolf &lt;manuel.dahmen@gmx.com&gt;&lt;manuel.dahmen@gmx.com&gt;" />
+        <option value="dathewolf &lt;manuel.dahmen@gmx.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;manuelddahmen&quot;
+  }
+}</component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d4a01b5e-1f72-48eb-85b2-eb861b2bd24f" />
+        <option name="url" value="https://github.com/manuelddahmen/agenda.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="835ac4c1-1c33-4fdb-a1da-e18f45c6ea12" name="Unnamed" port="801" />
+    </servers>
+  </component>
+  <component name="PhpWebServerValidation" deployment_server_id="93b5a02b-a628-433a-8519-b0ddbaa6e947" path_to_validation_script="C:\Users\manue\PhpstormProjects\agenda" selected_validation_type="LOCAL" web_path_to_validation_script="http://localhost:801" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../../../PHP" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/greenlion/php-sql-parser" />
+      <path value="$PROJECT_DIR$/vendor/hybridauth/hybridauth" />
+    </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="1uOu08UwlOfXkTkel3k3RNo0WKX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;import_schema_mapping&quot;: &quot;&lt;schema-mapping&gt;\n  &lt;databases&gt;\n    &lt;list&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;bd66b5e2-9038-48dd-a323-d68624344971&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;main&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;bd66b5e2-9038-48dd-a323-d68624344971&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;main&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;a76147b6-2191-43a9-8fbf-dd9f464893bf&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;main&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;3a7b113e-d6e5-4779-928e-68df8d240217&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;main&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n    &lt;/list&gt;\n  &lt;/databases&gt;\n&lt;/schema-mapping&gt;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/PHP/PHP-8.2.12/phpdbg.exe&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;rsyncConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ],
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Markdown&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\manue\PhpstormProjects\agenda\data_agenda" />
+      <recent name="C:\Users\manue\PhpstormProjects\agenda" />
+      <recent name="C:\Users\manue\PhpstormProjects\agenda\css" />
+      <recent name="\" />
+      <recent name="C:\Users\manue\PhpstormProjects\agenda\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\manue\PhpstormProjects\agenda\src" />
+      <recent name="C:\Users\manue\PhpstormProjects\agenda\js" />
+      <recent name="C:\Users\manue\PhpstormProjects\agenda" />
+      <recent name="C:\Users\manue\PhpstormProjects\agenda\css" />
+      <recent name="C:\Users\manue\PhpstormProjects\agenda\data_agenda" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="escapeString" />
+    </option>
+  </component>
+  <component name="RunManager" selected="PHP Built-in Web Server.builtin">
+    <configuration name="login.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://empty3.one/agenda/src/login.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="agenda.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="agenda.js" working-dir="$PROJECT_DIR$/src">
+      <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
+        <browser start="true" />
+      </EXTENSION>
+      <method v="2" />
+    </configuration>
+    <configuration name="builtin" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/" port="801">
+      <method v="2" />
+    </configuration>
+    <configuration name="Agenda" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Unnamed">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.login.php" />
+      <item itemvalue="Node.js.agenda.js" />
+      <item itemvalue="PHP Built-in Web Server.builtin" />
+      <item itemvalue="PHP Web Page.Agenda" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.login.php" />
+        <item itemvalue="Node.js.agenda.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpaceReviewFiltersPersistance">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;NeedsReview&quot;,
+    &quot;reviewer&quot;: {
+      &quot;id&quot;: &quot;WXsT306vOTJ&quot;,
+      &quot;fullName&quot;: &quot;Manuel Dahmen&quot;
+    }
+  }
+}</component>
+  <component name="SpaceReviewProjectSettings">
+    <option name="selectedReviewProjectId" value="2ezbLB2u8Pmi" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\manue\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="" />
+      <changelist id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="" />
+      <created>1624548731047</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624548731047</updated>
+      <workItem from="1624548732313" duration="13000" />
+      <workItem from="1645711695183" duration="12149000" />
+      <workItem from="1645795675872" duration="59627000" />
+      <workItem from="1646335466283" duration="22070000" />
+      <workItem from="1646494090786" duration="15602000" />
+      <workItem from="1646733483562" duration="15768000" />
+      <workItem from="1646899969620" duration="109918000" />
+      <workItem from="1647331480021" duration="140050000" />
+      <workItem from="1648574021935" duration="17720000" />
+      <workItem from="1648703139875" duration="82933000" />
+      <workItem from="1649409638241" duration="12402000" />
+      <workItem from="1649599696824" duration="31734000" />
+      <workItem from="1649963727573" duration="7557000" />
+      <workItem from="1650206998327" duration="613000" />
+      <workItem from="1650264880568" duration="1761000" />
+      <workItem from="1650439488396" duration="25898000" />
+      <workItem from="1650654949033" duration="4652000" />
+      <workItem from="1650816037198" duration="747000" />
+      <workItem from="1650871970323" duration="31262000" />
+      <workItem from="1651327428327" duration="14616000" />
+      <workItem from="1651662251562" duration="62366000" />
+      <workItem from="1652204476687" duration="11665000" />
+      <workItem from="1653017051942" duration="53801000" />
+      <workItem from="1653313426077" duration="24027000" />
+      <workItem from="1653503225497" duration="5140000" />
+      <workItem from="1653822988792" duration="1205000" />
+      <workItem from="1653841724524" duration="4305000" />
+      <workItem from="1654026781494" duration="1221000" />
+      <workItem from="1654066361570" duration="2722000" />
+      <workItem from="1654291003142" duration="1792000" />
+      <workItem from="1654310736636" duration="594000" />
+      <workItem from="1654366663373" duration="1227000" />
+      <workItem from="1654449787476" duration="3750000" />
+      <workItem from="1654688585905" duration="4860000" />
+      <workItem from="1654799325792" duration="2322000" />
+      <workItem from="1655008088013" duration="21658000" />
+      <workItem from="1655225048238" duration="16937000" />
+      <workItem from="1655543885562" duration="1421000" />
+      <workItem from="1655626570804" duration="68893000" />
+      <workItem from="1656492665532" duration="9153000" />
+      <workItem from="1656710686658" duration="1754000" />
+      <workItem from="1657112319236" duration="6932000" />
+      <workItem from="1657908729101" duration="2408000" />
+      <workItem from="1657990720229" duration="614000" />
+      <workItem from="1658137715260" duration="12054000" />
+      <workItem from="1658554515226" duration="6824000" />
+      <workItem from="1658648666282" duration="4363000" />
+      <workItem from="1658657595945" duration="4144000" />
+      <workItem from="1658682727223" duration="1698000" />
+      <workItem from="1662105422296" duration="13732000" />
+      <workItem from="1662275340544" duration="1181000" />
+      <workItem from="1662320206361" duration="2667000" />
+      <workItem from="1662713638891" duration="2468000" />
+      <workItem from="1662983396915" duration="6475000" />
+      <workItem from="1663238905701" duration="1207000" />
+      <workItem from="1663264909497" duration="571000" />
+      <workItem from="1663934899602" duration="9596000" />
+      <workItem from="1664269333461" duration="890000" />
+      <workItem from="1664651209594" duration="13000" />
+      <workItem from="1664712922463" duration="9593000" />
+      <workItem from="1665303242076" duration="3560000" />
+      <workItem from="1665745336195" duration="35122000" />
+      <workItem from="1665903881443" duration="44676000" />
+      <workItem from="1666199169230" duration="2676000" />
+      <workItem from="1666285955487" duration="1790000" />
+      <workItem from="1666335883171" duration="2090000" />
+      <workItem from="1666526357029" duration="1193000" />
+      <workItem from="1666674500009" duration="596000" />
+      <workItem from="1666937786420" duration="599000" />
+      <workItem from="1667577081899" duration="1848000" />
+      <workItem from="1667642567470" duration="1290000" />
+      <workItem from="1667830425791" duration="2604000" />
+      <workItem from="1667895807026" duration="714000" />
+      <workItem from="1668003444425" duration="6441000" />
+      <workItem from="1668108249254" duration="7334000" />
+      <workItem from="1668410984585" duration="1365000" />
+      <workItem from="1668671556845" duration="26822000" />
+      <workItem from="1668847649101" duration="2425000" />
+      <workItem from="1668852521734" duration="6552000" />
+      <workItem from="1668928498194" duration="5342000" />
+      <workItem from="1669001679062" duration="37269000" />
+      <workItem from="1669272277987" duration="4016000" />
+      <workItem from="1669280988688" duration="33930000" />
+      <workItem from="1669631752629" duration="2945000" />
+      <workItem from="1669696580463" duration="13190000" />
+      <workItem from="1669917111113" duration="77000" />
+      <workItem from="1669917215826" duration="15725000" />
+      <workItem from="1670015629866" duration="1197000" />
+      <workItem from="1670053014861" duration="627000" />
+      <workItem from="1670142017519" duration="15841000" />
+      <workItem from="1670258829966" duration="3788000" />
+      <workItem from="1670309512905" duration="6447000" />
+      <workItem from="1670346810208" duration="1569000" />
+      <workItem from="1670510255812" duration="2691000" />
+      <workItem from="1671099541779" duration="610000" />
+      <workItem from="1671195977009" duration="6913000" />
+      <workItem from="1671300692392" duration="1018000" />
+      <workItem from="1671390547732" duration="644000" />
+      <workItem from="1671471269508" duration="1173000" />
+      <workItem from="1671715374999" duration="6288000" />
+      <workItem from="1672516881084" duration="997000" />
+      <workItem from="1672599274939" duration="9166000" />
+      <workItem from="1672739757212" duration="907000" />
+      <workItem from="1672764855468" duration="1086000" />
+      <workItem from="1672940426498" duration="2369000" />
+      <workItem from="1673168202150" duration="1172000" />
+      <workItem from="1673263465373" duration="1611000" />
+      <workItem from="1673424280613" duration="583000" />
+      <workItem from="1674377761776" duration="1648000" />
+      <workItem from="1674660808342" duration="4849000" />
+      <workItem from="1674674270400" duration="3769000" />
+      <workItem from="1674753435936" duration="800000" />
+      <workItem from="1675012033960" duration="1011000" />
+      <workItem from="1675239952013" duration="594000" />
+      <workItem from="1675694591396" duration="37229000" />
+      <workItem from="1675856183672" duration="1184000" />
+      <workItem from="1676185641431" duration="3605000" />
+      <workItem from="1677089170746" duration="2906000" />
+      <workItem from="1678112065189" duration="12289000" />
+      <workItem from="1678349867685" duration="5231000" />
+      <workItem from="1678684022932" duration="5534000" />
+      <workItem from="1678725942584" duration="7704000" />
+      <workItem from="1681722654990" duration="2525000" />
+      <workItem from="1681741200992" duration="9101000" />
+      <workItem from="1681846308502" duration="41423000" />
+      <workItem from="1682023020247" duration="1170000" />
+      <workItem from="1682356509119" duration="1174000" />
+      <workItem from="1682518547866" duration="1196000" />
+      <workItem from="1682784704264" duration="46000" />
+      <workItem from="1683205719902" duration="3288000" />
+      <workItem from="1684058752628" duration="1804000" />
+      <workItem from="1684060618787" duration="3510000" />
+      <workItem from="1684081334188" duration="1188000" />
+      <workItem from="1684924110817" duration="588000" />
+      <workItem from="1687087877137" duration="39000" />
+      <workItem from="1687092068225" duration="593000" />
+      <workItem from="1689924453940" duration="8065000" />
+      <workItem from="1690192241924" duration="9376000" />
+      <workItem from="1690213680301" duration="19232000" />
+      <workItem from="1690441387127" duration="4772000" />
+      <workItem from="1690743777497" duration="2515000" />
+      <workItem from="1691571979066" duration="1188000" />
+      <workItem from="1691651911240" duration="595000" />
+      <workItem from="1692025425072" duration="5855000" />
+      <workItem from="1693128122295" duration="1870000" />
+      <workItem from="1696748598120" duration="9466000" />
+      <workItem from="1697273600753" duration="57000" />
+      <workItem from="1698943400802" duration="8714000" />
+      <workItem from="1699021301031" duration="27551000" />
+    </task>
+    <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
+      <created>1669148964967</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1669148964967</updated>
+    </task>
+    <task id="LOCAL-00245" summary="AgendaWebApp -&gt; multiusers">
+      <created>1669304001613</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1669304001613</updated>
+    </task>
+    <task id="LOCAL-00246" summary="AgendaWebApp -&gt; multiusers">
+      <created>1669311453426</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1669311453426</updated>
+    </task>
+    <task id="LOCAL-00247" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669402724870</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1669402724871</updated>
+    </task>
+    <task id="LOCAL-00248" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669402738311</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL-00248" />
+      <option name="project" value="LOCAL" />
+      <updated>1669402738311</updated>
+    </task>
+    <task id="LOCAL-00249" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669447854937</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL-00249" />
+      <option name="project" value="LOCAL" />
+      <updated>1669447854943</updated>
+    </task>
+    <task id="LOCAL-00250" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669538941028</created>
+      <option name="number" value="00250" />
+      <option name="presentableId" value="LOCAL-00250" />
+      <option name="project" value="LOCAL" />
+      <updated>1669538941028</updated>
+    </task>
+    <task id="LOCAL-00251" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669703986648</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1669703986648</updated>
+    </task>
+    <task id="LOCAL-00252" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669733552430</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1669733552430</updated>
+    </task>
+    <task id="LOCAL-00253" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669736972943</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1669736972943</updated>
+    </task>
+    <task id="LOCAL-00254" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669923969060</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1669923969060</updated>
+    </task>
+    <task id="LOCAL-00255" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669925375493</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL-00255" />
+      <option name="project" value="LOCAL" />
+      <updated>1669925375494</updated>
+    </task>
+    <task id="LOCAL-00256" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669928804052</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1669928804052</updated>
+    </task>
+    <task id="LOCAL-00257" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1669928996851</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1669928996853</updated>
+    </task>
+    <task id="LOCAL-00258" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1670003248724</created>
+      <option name="number" value="00258" />
+      <option name="presentableId" value="LOCAL-00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1670003248725</updated>
+    </task>
+    <task id="LOCAL-00259" summary="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page">
+      <created>1670174868312</created>
+      <option name="number" value="00259" />
+      <option name="presentableId" value="LOCAL-00259" />
+      <option name="project" value="LOCAL" />
+      <updated>1670174868314</updated>
+    </task>
+    <task id="LOCAL-00260" summary="- Round corners buttons, &quot;light&quot; theme,">
+      <created>1670180010168</created>
+      <option name="number" value="00260" />
+      <option name="presentableId" value="LOCAL-00260" />
+      <option name="project" value="LOCAL" />
+      <updated>1670180010170</updated>
+    </task>
+    <task id="LOCAL-00261" summary="- Round corners buttons, &quot;light&quot; theme,">
+      <created>1670239698392</created>
+      <option name="number" value="00261" />
+      <option name="presentableId" value="LOCAL-00261" />
+      <option name="project" value="LOCAL" />
+      <updated>1670239698394</updated>
+    </task>
+    <task id="LOCAL-00262" summary="- Round corners buttons, &quot;light&quot; theme,">
+      <created>1670248366707</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1670248366707</updated>
+    </task>
+    <task id="LOCAL-00263" summary="- Round corners buttons, &quot;light&quot; theme,">
+      <created>1670262418029</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1670262418031</updated>
+    </task>
+    <task id="LOCAL-00264" summary="- Round corners buttons, &quot;light&quot; theme, add tabs for tables edits">
+      <created>1670267398153</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1670267398153</updated>
+    </task>
+    <task id="LOCAL-00265" summary="- Round corners buttons, &quot;light&quot; theme, add tabs for tables edits">
+      <created>1670313022645</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1670313022645</updated>
+    </task>
+    <task id="LOCAL-00266" summary="- Round corners buttons, &quot;light&quot; theme, add tabs for tables edits">
+      <created>1670319513550</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1670319513550</updated>
+    </task>
+    <task id="LOCAL-00267" summary="- Round corners buttons, &quot;light&quot; theme, add tabs for tables edits">
+      <created>1671212945231</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1671212945233</updated>
+    </task>
+    <task id="LOCAL-00268" summary="- Round corners buttons, &quot;light&quot; theme, add tabs for tables edits">
+      <created>1672695400427</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1672695400429</updated>
+    </task>
+    <task id="LOCAL-00269" summary="- Round corners buttons, &quot;light&quot; theme, add tabs for tables edits">
+      <created>1672737765808</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1672737765816</updated>
+    </task>
+    <task id="LOCAL-00270" summary="Update copyright">
+      <created>1672765071330</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1672765071333</updated>
+    </task>
+    <task id="LOCAL-00271" summary="Update copyright">
+      <created>1672766142053</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1672766142057</updated>
+    </task>
+    <task id="LOCAL-00272" summary="Update copyright">
+      <created>1672766315918</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1672766315920</updated>
+    </task>
+    <task id="LOCAL-00273" summary="Update copyright">
+      <created>1673285320045</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1673285320049</updated>
+    </task>
+    <task id="LOCAL-00274" summary="Update copyright">
+      <created>1674674299899</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1674674299900</updated>
+    </task>
+    <task id="LOCAL-00275" summary="Update copyright">
+      <created>1675694663339</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1675694663339</updated>
+    </task>
+    <task id="LOCAL-00276" summary="Introducing XHTTPRequest for forms.">
+      <created>1675785143993</created>
+      <option name="number" value="00276" />
+      <option name="presentableId" value="LOCAL-00276" />
+      <option name="project" value="LOCAL" />
+      <updated>1675785143993</updated>
+    </task>
+    <task id="LOCAL-00277" summary="Introducing XHTTPRequest for forms.">
+      <created>1675790974929</created>
+      <option name="number" value="00277" />
+      <option name="presentableId" value="LOCAL-00277" />
+      <option name="project" value="LOCAL" />
+      <updated>1675790974931</updated>
+    </task>
+    <task id="LOCAL-00278" summary="Introducing XHTTPRequest for forms.">
+      <created>1675791151772</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1675791151772</updated>
+    </task>
+    <task id="LOCAL-00279" summary="Introducing XHTTPRequest for forms.">
+      <created>1675794547907</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1675794547907</updated>
+    </task>
+    <task id="LOCAL-00280" summary="Introducing XHTTPRequest for forms.">
+      <created>1675801671172</created>
+      <option name="number" value="00280" />
+      <option name="presentableId" value="LOCAL-00280" />
+      <option name="project" value="LOCAL" />
+      <updated>1675801671172</updated>
+    </task>
+    <task id="LOCAL-00281" summary="Introducing XHTTPRequest for forms.">
+      <created>1675804775247</created>
+      <option name="number" value="00281" />
+      <option name="presentableId" value="LOCAL-00281" />
+      <option name="project" value="LOCAL" />
+      <updated>1675804775247</updated>
+    </task>
+    <task id="LOCAL-00282" summary="Introducing XHTTPRequest for forms.">
+      <created>1675848265622</created>
+      <option name="number" value="00282" />
+      <option name="presentableId" value="LOCAL-00282" />
+      <option name="project" value="LOCAL" />
+      <updated>1675848265622</updated>
+    </task>
+    <task id="LOCAL-00283" summary="Introducing XHTTPRequest for forms.">
+      <created>1678118372182</created>
+      <option name="number" value="00283" />
+      <option name="presentableId" value="LOCAL-00283" />
+      <option name="project" value="LOCAL" />
+      <updated>1678118372182</updated>
+    </task>
+    <task id="LOCAL-00284" summary="Introducing XHTTPRequest for forms.">
+      <created>1678123203418</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1678123203418</updated>
+    </task>
+    <task id="LOCAL-00285" summary="Introducing XHTTPRequest for forms.">
+      <created>1678128944131</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1678128944132</updated>
+    </task>
+    <task id="LOCAL-00286" summary="Introducing XHTTPRequest for forms.">
+      <created>1678131750093</created>
+      <option name="number" value="00286" />
+      <option name="presentableId" value="LOCAL-00286" />
+      <option name="project" value="LOCAL" />
+      <updated>1678131750094</updated>
+    </task>
+    <task id="LOCAL-00287" summary="Introducing XHTTPRequest for forms.">
+      <created>1678133434898</created>
+      <option name="number" value="00287" />
+      <option name="presentableId" value="LOCAL-00287" />
+      <option name="project" value="LOCAL" />
+      <updated>1678133434899</updated>
+    </task>
+    <task id="LOCAL-00288" summary="Introducing XHTTPRequest for forms.">
+      <created>1681793964859</created>
+      <option name="number" value="00288" />
+      <option name="presentableId" value="LOCAL-00288" />
+      <option name="project" value="LOCAL" />
+      <updated>1681793964860</updated>
+    </task>
+    <task id="LOCAL-00289" summary="Introducing XHTTPRequest for forms.">
+      <created>1681794614955</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1681794614955</updated>
+    </task>
+    <task id="LOCAL-00290" summary="Introducing XHTTPRequest for forms.">
+      <created>1681847924354</created>
+      <option name="number" value="00290" />
+      <option name="presentableId" value="LOCAL-00290" />
+      <option name="project" value="LOCAL" />
+      <updated>1681847924354</updated>
+    </task>
+    <task id="LOCAL-00291" summary="Introducing XHTTPRequest for forms.">
+      <created>1681910130330</created>
+      <option name="number" value="00291" />
+      <option name="presentableId" value="LOCAL-00291" />
+      <option name="project" value="LOCAL" />
+      <updated>1681910130330</updated>
+    </task>
+    <task id="LOCAL-00292" summary="Introducing XHTTPRequest for forms.">
+      <created>1681926161729</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1681926161730</updated>
+    </task>
+    <option name="localTasksCounter" value="307" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="space/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/instances-agenda/agenda" />
+      <path value="$PROJECT_DIR$/instances-agenda/manou" />
+    </ignored-roots>
+    <MESSAGE value="New version with Google Login&#10;A faire: &#10;- vérifier les liens" />
+    <MESSAGE value="Version OK avec login Google." />
+    <MESSAGE value="Version OK avec login Google. Bug username." />
+    <MESSAGE value="Version OK avec login Google. Bug username.&#10;User data usage.&#10;++Privacy Policy" />
+    <MESSAGE value="Version OK avec login Google. Bug username.&#10;User data usage.&#10;++Privacy Policy&#10;Commentée la boucle de redirection." />
+    <MESSAGE value="Login site+google OK sauf logout." />
+    <MESSAGE value="Login site+google OK sauf logout.&#10;Changements sql voir console.sql screma.sql" />
+    <MESSAGE value="Gpg?" />
+    <MESSAGE value="getdata_2.php updated" />
+    <MESSAGE value="getdata_2.php updated&#10;Nouvelle table." />
+    <MESSAGE value="Update icons." />
+    <MESSAGE value="Bug" />
+    <MESSAGE value="Bug ???" />
+    <MESSAGE value="Aéliorations (DLr)" />
+    <MESSAGE value="Updates. PDO::preparedStatement" />
+    <MESSAGE value="AgendaWebApp -&gt; multiusers" />
+    <MESSAGE value="New mutiusers version.&#10;- Bug: create user, download data, delete user.&#10;- Next: loads events in one div of the week planning page" />
+    <MESSAGE value="- Round corners buttons, &quot;light&quot; theme," />
+    <MESSAGE value="- Round corners buttons, &quot;light&quot; theme, add tabs for tables edits" />
+    <MESSAGE value="Update copyright" />
+    <MESSAGE value="Introducing XHTTPRequest for forms." />
+    <MESSAGE value="Introducing XHTTPRequest for forms.&#10;Add mail" />
+    <MESSAGE value="Introducing XHTTPRequest for forms.&#10;Add mail recover_password.php" />
+    <MESSAGE value="Excluded (size)" />
+    <MESSAGE value="New version: bootstrap" />
+    <option name="LAST_COMMIT_MESSAGE" value="New version: bootstrap" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="agenda" type="b2602c69:ProjectViewProjectNode" />
+        <item name="agenda" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/untitled$agenda_php.dat" NAME="agenda.php Coverage Results" MODIFIED="1645719727064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="WipCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <object-set>
+    <table path="main.table_recover_password">
+      <table path="main.table_users" name="virtual_foreign_key_name" from="ref_user_id" to="id"/>
+    </table>
+    <table path="main.table_hospitalises">
+      <table path="main.table_activites" name="virtual_foreign_key_acti2" from="acti_obli_2" to="id"/>
+      <table path="main.table_activites" name="virtual_foreign_key_acti1" from="acti_obli_1" to="id"/>
+    </table>
+  </object-set>
+</data>

@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="SqlDataSourceStorage">
-    <option name="dataSources">
-      <list>
-        <State>
-          <option name="id" value="a130c326-552d-4b8f-81fc-2e225a064fe5" />
-          <option name="name" value="database_agenda (DDL)" />
-          <option name="languageId" value="SQLite" />
-          <option name="urls">
-            <array />
-          </option>
-        </State>
-      </list>
-    </option>
+  <component name="DdlMappings">
+    <mapping uuid="1b95e690-8ece-490d-af43-f8502ebea6c6" name="agenda_christine.sqlite Mapping">
+      <data-sources db="3a7b113e-d6e5-4779-928e-68df8d240217" />
+    </mapping>
   </component>
 </project>

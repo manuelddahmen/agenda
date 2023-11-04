@@ -1,0 +1,417 @@
+/*
+ * Copyright (c) 2023. Manuel Daniel Dahmen
+ *
+ *
+ *    Copyright 2012-2023 Manuel Daniel Dahmen
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+table td {
+    border-top: #440696 solid 1px;
+    border-bottom: #250450 solid 1px;
+    border-left: #3c0781 solid 1px;
+    border-right: #421a60 solid 1px;
+}
+
+td.day_week span {
+    font-size: 1em;
+}
+
+table.agenda img {
+    width: 20px;
+    height: 20px;
+}
+
+table.agenda td {
+    /*border: aqua solid 1px;*/
+}
+
+table.calendrier {
+    text-align: left;
+    float: right;
+}
+
+ul#menu-visible {
+    width: 200px;
+    visibility: visible;
+    color: #ffdcd8;
+}
+
+li.sousmenu {
+
+    display: block;
+    float: left;
+    font-size: 2em;
+    visibility: visible;
+}
+
+
+li.sousmenu a {
+    border-radius: 30px;    background: #0d1e46;
+    color: #dad3d3;
+    border: darkgreen solid 2px;
+    text-underline: #ffdcd8;
+    padding: 10px;
+    visibility: visible;
+}
+/*li.sousmenu.current,*/ li.sousmenu.current a {
+    color: #98c7c0;
+    background-color: #3c0781;
+}
+body, input, select, button, a, label {
+    background: #0e1228;
+    color: #dddcff;
+    font-size: 14pt;
+}
+
+a {
+    text-decoration: underline #5a6db9;
+}
+a:hover {
+    color: #ffdcd8;
+}
+h1, h2, h3, h4, h5 {
+
+    color: wheat;/* #e75f4f;*/
+}
+
+form * {
+    /*float: left;*/
+}
+
+.title {
+    color: black;
+    font-family: "Arial Black", serif;
+    font-weight: bold;
+}
+
+.btn-new {
+    color: greenyellow;
+    background: white;
+    font-size: 1em;
+}
+
+.btn-choose {
+    color: #ccf;
+    background: #404022;
+    font-size: 1em;
+}
+
+a.btn-choose :hover {
+    font-size: 1em;
+    color: aquamarine;
+}
+
+.btn-submit {
+    color: #51f553;
+    background: rgba(232, 215, 232, 0);
+}
+
+div#menu-visible {
+    height: 5px;
+    background-color: black;
+    float: left;
+
+}
+
+body {
+    background-color: #0e1228;
+}
+
+div.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 100px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+li.selected, #edit_tache, .edit_table_item, #edit_tache, .edit_table_item, #edit_tache option  {
+    background-color: #0e1228;
+    color: #ccf;
+}
+#edit_tache select:hover, #edit_tache input:hover, #edit_tache:hover {
+    font-size: larger;
+    color: #FFFFFF;
+    background-color: #0d1e46;
+}
+#edit_tache.error select:hover.error, #edit_tache input:hover.error, #edit_tache:hover.error,
+#edit_tache.error select.error, #edit_tache input.error, #edit_tache.error, p.error  {
+    color: #d77653;
+}
+.printTable td {
+    font-size: larger;
+}
+.printTable a.btn:hover {
+    font-size: larger;
+    color: #FFFFFF;
+    background-color: #0d1e46;
+}
+
+.menu-visible {
+    visibility: visible;
+    /*display: none;*/
+}
+
+ul#MyMenu li {
+    list-style-type: none;
+}
+
+.error {
+    color: red;
+    background: #43315a;
+}
+
+.ligne2, .ligne1 {
+    display: block;
+    text-align: left;
+    width: 100%;
+}
+
+.date-now, a.date-now, a.date-now:hover {
+    background: #97c998;
+    color: #ffdcd8;
+}
+
+.date-current, a.date-current, a.date-current:hover {
+    background: #a6978d;
+    color: #ffdcd8;
+}
+
+.date-out-of-month a {
+    color: darkgray;
+}
+
+table.calendrier {
+    width: fit-content;
+    margin: 3px;
+    padding: 1em;
+    height: 3em;
+}
+
+table.calendrier td {
+}
+
+.edit_table_item tr {
+}
+
+.edit_table_item, #edit_tache td {
+    border-left: none;
+    border-right: none;
+    border-top: #43315a;
+    border-bottom: #43315a;
+}
+table#table_tables{
+    vertical-align: auto;
+    width: 100%;
+}
+.printTable {
+    width: 100%;
+}
+table#table_tables img{
+    width: 20px;
+    height: 20px;
+}
+table.agenda td.half_hour {
+    border-left: 1px solid #97c998;
+    border-right: 1px solid #97c998;
+    /*border-top: 1px solid #97c998;
+    border-bottom: 1px solid #97c998;*/
+}
+div#signIn {
+    height: 30%;
+    float: right;
+    width: 100px;
+}
+
+input:disabled,
+input[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+#boxA, #boxB {
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    -moz-user-select: none;
+}
+
+#boxA {
+    background-color: #6633FF;
+    width: 75px;
+    height: 75px;
+}
+
+#boxB {
+    background-color: #FF6699;
+    width: 150px;
+    height: 150px;
+}
+img#help_img {
+    width: 30px;
+    height: 30px;
+}
+form#edit_note {
+    height: 2em;
+    padding: 1em;
+    border: 2px solid #0d1e46;
+    color: #ffdcd8;
+    background: #98c7c0;
+    width: 60%;
+}
+#main_menu {
+    display: block;
+    width: 200px;
+    float: left;
+    z-index: 1;
+
+}
+#main_menu a {
+    display: block;
+    width: 100px;
+    padding: 5px;
+}
+
+#login {
+    position: absolute;
+    align-self: center;
+}
+
+#login ul, ul#login_list  {
+    list-style-type: none;
+}
+
+#login img {
+    margin-left: 0;
+    width: 12em;
+    height: 2em;
+}
+
+#login_list {
+    z-index: -10;
+    font-size: 1.8em;
+    width: 12em;
+    /*height: 100%;*/
+    margin-left: 5px;
+}
+#login_list a  {
+    padding: 20px;
+    display: block;
+    background-color: white;
+    border: 2px solid #999;
+    text-underline-style: none;
+    width: 12em;
+}
+
+.edit_table_item {
+    position: relative;
+    text-align: center;
+
+    align-self: center;
+    z-index: 0;
+    /*background-color: #6633FF;*/
+}
+.edit_table_item .error{
+    border: #EE220C 2px solid;
+
+}
+table.edit_table_item, h2.edit_table_item {
+    border: #97c998 2px solid;
+    padding: 10px;
+    /*margin: 10px;*/
+}
+.edit_table_item td {
+    padding: 5px;
+}
+.edit_table_item input, .edit_table_item select, .edit_table_item option, .edit_table_item a {
+    /*background-color: #6633FF;*/
+    background-color: #0e1228;
+}
+
+#menu li.current, #menu li.current a {
+    /*background-color: #6633FF;*/
+    color: #51f553;
+}
+#login_site_link a {
+    color: #0d1e46;
+}
+select, option {
+    color: #ccf;
+    background-color: #0e1228;
+}
+
+.idrow {
+    display: none;
+}
+
+
+header {
+    background: #1c1c1c;
+    padding: 15px 20px;
+    border-radius: 30px;
+
+}
+
+/*shorter clearfix http://nicolasgallagher.com/micro-clearfix-hack/*/
+header:before,
+header:after {
+    content:"";
+    display:table;
+}
+
+header:after {
+    clear:both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+header {
+    zoom:1;
+}
+a.date {
+    text-underline-style: none;
+    display: none;
+}
+td.titre_agenda {
+    text-align: center;
+}
+table {
+    empty-cells: hide;
+}

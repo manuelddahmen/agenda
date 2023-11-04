@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'bd25b0d41a4e1e8a22d9d19c6653ade1c9919f65',
+        'name' => 'manuelddahmen/agenda',
+        'dev' => true,
+    ),
+    'versions' => array(
+        'greenlion/php-sql-parser' => array(
+            'pretty_version' => 'v4.5.0',
+            'version' => '4.5.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../greenlion/php-sql-parser',
+            'aliases' => array(),
+            'reference' => 'a5d5c292d97271c95140192e6f0e962916e39b50',
+            'dev_requirement' => false,
+        ),
+        'hybridauth/hybridauth' => array(
+            'pretty_version' => 'v3.8.0',
+            'version' => '3.8.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../hybridauth/hybridauth',
+            'aliases' => array(),
+            'reference' => 'c76bea6638376394c74a52791dd637fef4deaf08',
+            'dev_requirement' => false,
+        ),
+        'manuelddahmen/agenda' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'bd25b0d41a4e1e8a22d9d19c6653ade1c9919f65',
+            'dev_requirement' => false,
+        ),
+    ),
+);

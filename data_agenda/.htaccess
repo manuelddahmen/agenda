@@ -1,0 +1,4 @@
+<files database_agenda>
+Order allow,deny
+Deny from all
+</files>
