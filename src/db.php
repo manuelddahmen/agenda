@@ -1033,7 +1033,7 @@ function dayCalString($array0) {
 }
 */
 
-function checkMultiple(string $string, array $resultHospitalises, $resultPatientsTache, string $string1, array $array, string $string2): void
+function checkMultiple(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $ckecheds=null): void
 
 {
     $idx = 0;
@@ -1044,7 +1044,7 @@ function checkMultiple(string $string, array $resultHospitalises, $resultPatient
         if (isset($resultPatientsTache) && $id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
                 if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
-                    echo("checked");
+                    echo("checked='checked'");
                 }
             }
         }
@@ -1053,6 +1053,36 @@ function checkMultiple(string $string, array $resultHospitalises, $resultPatient
     }
 }
 
+function checkMultiple1(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $ckecheds=null): void
+
+{
+    $idx = 0;
+    global $id_tache;
+    global $id_hospitalise;
+    foreach ($resultHospitalises as $i => $rowItem) {
+        $echoed = false;
+        $valId = "patientCheck".rand(0, 1000);
+        echo "<input id='".$valId."' onclick='chkbox(this)' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        if (isset($resultPatientsTache) && $id_tache > 0) {
+            foreach ($resultPatientsTache as $j => $rowItemPatient) {
+                if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
+                    echo(" checked='checked' ");
+                    $echoed = true;
+                }
+            }
+        }
+        if($id_tache>0 && isset($id_hospitalise)) {
+            if($rowItem[$string1]==$id_hospitalise) {
+                if(!$echoed) {
+                    echo(" checked='checked' ");
+                }
+            }
+
+        }
+        echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"".$valId."\"'>&nbsp;" . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
+        $idx ++;
+    }
+}
 
 /*function checkMultiple(string $string, array $resultHospitalises, $resultPatientsTache, string $string1, array $array, string $string2): void
 {

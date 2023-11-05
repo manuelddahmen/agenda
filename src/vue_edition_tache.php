@@ -282,8 +282,8 @@ global $page;
                 <?php
                 //selectOptions("id_hospitalises", $resultHospitalises, "chambre", $id_hospitalise, array("nom", "prenom"), "refreshDataSemaineTaches()");
 
-                checkMultiple("id_hospitalises_", $resultHospitalises,
-                    $resultPatientsTache ?? array(), "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()");
+                checkMultiple1("id_hospitalises_", $resultHospitalises,
+                    $resultPatientsTache , "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()");
 
                 ?>
                 <div>
@@ -435,7 +435,7 @@ addError("Notice", $sql);
 */
 require_once "getdata_2.php";
 
-$newGetData = new getdata_2($id_hospitalise??-1, $id_hospitalises??array());
+$newGetData = new getdata_2($id_hospitalise);
 
 global $id_hospitalise;
 

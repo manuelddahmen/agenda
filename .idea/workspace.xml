@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="New version: bootstrap">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2023ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda.zip" beforeDir="false" afterPath="$PROJECT_DIR$/agenda.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_agenda" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/getdata_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/getdata_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_edition_tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_edition_tache.php" afterDir="false" />
     </list>
-    <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)">
-      <change beforePath="$PROJECT_DIR$/data_agenda/database_agenda" beforeDir="false" afterPath="$PROJECT_DIR$/data_agenda/database_agenda" afterDir="false" />
-    </list>
+    <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,7 +131,7 @@
     &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;import_schema_mapping&quot;: &quot;&lt;schema-mapping&gt;\n  &lt;databases&gt;\n    &lt;list&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;bd66b5e2-9038-48dd-a323-d68624344971&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;main&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;bd66b5e2-9038-48dd-a323-d68624344971&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;main&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;a76147b6-2191-43a9-8fbf-dd9f464893bf&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;main&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;3a7b113e-d6e5-4779-928e-68df8d240217&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;main&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n    &lt;/list&gt;\n  &lt;/databases&gt;\n&lt;/schema-mapping&gt;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/PHP/PHP-8.2.12/phpdbg.exe&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/manue/PhpstormProjects/agenda3&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -152,18 +153,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\manue\PhpstormProjects\agenda3" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda\data_agenda" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda\css" />
       <recent name="\" />
-      <recent name="C:\Users\manue\PhpstormProjects\agenda\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\manue\PhpstormProjects\agenda3" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda\src" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda\js" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda\css" />
-      <recent name="C:\Users\manue\PhpstormProjects\agenda\data_agenda" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -373,6 +374,8 @@
       <workItem from="1697273600753" duration="57000" />
       <workItem from="1698943400802" duration="8714000" />
       <workItem from="1699021301031" duration="27551000" />
+      <workItem from="1699127656723" duration="4176000" />
+      <workItem from="1699200637073" duration="1124000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -717,7 +720,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="307" />
+    <option name="localTasksCounter" value="308" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

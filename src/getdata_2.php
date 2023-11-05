@@ -613,14 +613,22 @@ function listActivitiesHtml($rowItem, $isEvent = false): string
         $dateParts = explode(":", $rowItem["dateDb"]);
         $str .= halfHourText($dateParts[2]);
     }
+    $string_hospi = "";
+    if(isset($id_hospitalise) && is_array($id_hospitalise)) {
+        foreach ($id_hospitalise as $value) {
+            $string_hospi .= "&id_hospitalise=" . $value;
+        }
+    } else if(isset($id_hospitalise) && is_numeric($id_hospitalise)) {
+        $string_hospi .= "&id_hospitalise=".$id_hospitalise;
+    }
     if (!$isEvent) {
-        $url = addToGetUrl("?page=advent&id_tache=-1" . "&datetime=$datetime", $rowItem);
+        $url = addToGetUrl("?page=advent&id_tache=-1" . "&datetime=$datetime".$string_hospi, $rowItem);
         $str .= "<a href='$url'  class='add'><img src='../images/add.png' alt='Add task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
 
     } else {
-        $url = addToGetUrl("?page=advent&table=table_taches&idName=id&id=" . $rowItem["id_tache"] . "&datetime=$datetime", $rowItem);
+        $url = addToGetUrl("?page=advent&table=table_taches&idName=id&id=" . $rowItem["id_tache"] . "&datetime=$datetime".$string_hospi, $rowItem);
         $str .= "<a href='$url'   class='modify'><img src='../images/modify.png' alt='Modify task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
-        $url = addToGetUrl("?page=agenda&id=" . ($rowItem["id_tache"]) . "&idName=id&table=table_taches&action=delete&&datetime=$datetime", $rowItem);
+        $url = addToGetUrl("?page=agenda&id=" . ($rowItem["id_tache"]) . "&idName=id&table=table_taches&action=delete&&datetime=$datetime".$string_hospi, $rowItem);
         $str .= "<a href='$url'  class='delete'><img src='../images/delete.png' alt='Delete task'/></a>";
         //$str .='<add-to-calendar-button name="Calendar" description="Play with me!" startDate="'.$datetime.'" startTime="'.$datetime.'" endTime="17:45" timeZone="Europe/Brussels" location="World Wide Web" recurrence="weekly" recurrence_interval="1" options="\'Apple\',\'Google\',\'iCal\',\'Outlook.com\',\'Yahoo\'"></add-to-calendar-button>';
     }
