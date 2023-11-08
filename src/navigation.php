@@ -26,8 +26,8 @@ $pages = array(
     //"?page=pati"=>"Patients",
     //"?page=memb"=>"Personnel",
     //"?page=acti" => "Ajouter une activité",
-    "?page=advent" => "Ajouter à l'agenda",//occurrence d'
     "?page=agenda" => "Agenda patients",
+    "?page=advent" => "Ajouter à l'agenda",//occurrence d'
     "?page=profile" => "Profil ($username)");
 
 $pagesNames = array_keys($pages);

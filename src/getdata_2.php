@@ -138,6 +138,9 @@ class getdata_2
 
         $this->resultsPatients = $resultPatients;
         $this->resultsPatient = $result;
+
+
+
     }
 
     function makeArray(): array
@@ -165,6 +168,7 @@ class getdata_2
 
     function output(): bool
     {
+
         $xml = new SimpleXMLElement('<root/>');
         array_walk_recursive($this->resultsPatients, array($xml, 'addChild'));
 //        print $xml->asXML();
@@ -199,8 +203,10 @@ function joursTaches($id_hospitalise): array
     global $db;
     global $jour__semaine_demie__heure_temps, $id_employe, $id_hospitalise, $id_tache, $id_activite;
     global $datetime;
+    global $newGetData;
     $condition = "";
     $conditionTtp = "";
+
 
     if (is_array($id_hospitalise)) {
         $condition .= " and (0 ";
@@ -710,6 +716,8 @@ function print_planning($result, $id_hospitalise): void
  */
 function print_planning2($result, $id_hospitalise): void
 {
+    global $newGetData;
+    checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"), $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()");
     //echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
     echo "<table class='agenda' id='agenda'>";
     global $halfHour, $days;
@@ -831,7 +839,7 @@ $acti_obli = array();
 function listePatients($id_hospitalise): void
 {
     $list = "";
-    global $id_hospitalise;
+    //global $id_hospitalise;
     global $joursVaisselle;
     global $acti_obli;
     $getData = new getdata_2($id_hospitalise);
@@ -1051,7 +1059,6 @@ $result = $resultA[0];
 $arrayResult = $resultA[1];
 
 fusionnerResultatPatientPatients2($arrayResult);
-
 //print_planning2($jours, $id_hospitalise);
 
 ?>

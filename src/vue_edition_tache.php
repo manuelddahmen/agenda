@@ -51,10 +51,10 @@ if (isset($_GET["id_employe"])) {
 //    $id_employe = rand(0, PHP_INT_MAX);
 }
 if (isset($_GET["id_hospitalises"])) {
-    $id_hospitalise = urldecode($_GET["id_hospitalises"]);
+    $id_hospitalise[0] = urldecode($_GET["id_hospitalises"]);
 } else {
-    $id_hospitalise = -1;
-    $data["id_hospitalises"] = $id_hospitalise;
+    $id_hospitalise[0] = -1;
+    $data["id_hospitalises"] = $id_hospitalise[0];
 }
 if (isset($_GET["id_activite"])) {
     $id_activite = urldecode($_GET["id_activite"]);
@@ -62,7 +62,21 @@ if (isset($_GET["id_activite"])) {
     $id_activite = -1;
     $data["id_activite"] = $id_activite;
 }
+if (isset($_GET["id_hospitalise"])) {
+    $j = 0;
+    $id_hospitalise = array();
+    if (is_array($_GET["id_hospitalise"])) {
+        foreach ($_GET as $i => $chambre) {
+            if (str_starts_with($i, "id_hospitalise")) {
+                $id_hospitalise[$j] = $chambre;
+                $j++;
+            }
+        }
+    } else {
+        $id_hospitalise[0] = $_GET["id_hospitalise"] ?? -1;
 
+    }
+}
 if (isset($_GET["submit"])) {
     if (isset($id_activite)) {
         $activite = "update";
@@ -91,7 +105,7 @@ $table_activite_get = array("id" => $id_activite,
     "nom_activite" => isset($nom_activite) ?? "",
     "id_employe" => $id_employe
 );
-
+$message = "Edit";
 global $userData;
 if ($userData == NULL) {
     echo "<h2>Non connecté</h2>";
@@ -116,16 +130,18 @@ if (isset($_GET["id_tache"]) && $_GET["id_tache"] != null) {
 }
 try {
     if ($id_tache != -1 && isset($_GET["submit"])) {
-        $sql = "update table_taches set id_activite=" . $id_activite . ", id_hospitalises=$id_hospitalise, jour__semaine_demie__heure_temps='$jour__semaine_demie__heure_temps' where id=" . $id_tache . " and user_id=" . ($userData["id"]) . ";";;
+        $sql = "update table_taches set id_activite=" . $id_activite . ", id_hospitalises=$id_hospitalise[0], jour__semaine_demie__heure_temps='$jour__semaine_demie__heure_temps' where id=" . $id_tache . " and user_id=" . ($userData["id"]) . ";";;
         $stmt = $db->prepare($sql);
         $result = $stmt->execute();
+        $message .= "Edit task succeeded (1/2)";
     } else if ($tache != "select" && $id_tache == -1 && isset($_GET["submit"])) {
         echo $_GET["submit"] . $id_tache;
-        $sql = "insert into table_taches ( id, id_activite, jour__semaine_demie__heure_temps,id_hospitalises, user_id) values (" . rand(0, PHP_INT_MAX) . ", $id_activite, '$jour__semaine_demie__heure_temps', $id_hospitalise, " . ($userData['id']) . ");";
+        $sql = "insert into table_taches ( id, id_activite, jour__semaine_demie__heure_temps,id_hospitalises, user_id) values (" . rand(0, PHP_INT_MAX) . ", $id_activite, '$jour__semaine_demie__heure_temps', $id_hospitalise[0], " . ($userData['id']) . ");";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
         $id_tache = $db->handle->lastInsertId();
+        $message .= "New task saved (1/2)";
 
     }
     // Mettre à jour la liste des patients
@@ -136,21 +152,24 @@ try {
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $id = $db->handle->lastInsertId() + 1;
-        print_r($_GET);
+        $countUpdatedAdd = 0;
         foreach ($_GET as $i => $chambre) {
-            if (str_starts_with($i, "id_hospitalises_")) {
-                    $id++;
+            if (str_starts_with($i, "id_hospitalises_") || str_starts_with($i, "id_hospitalise")) {
+                $id++;
                 $sql = "insert into table_taches_patients  (id_patient, id_tache, user_id) values (" . $chambre . ", " . $id_tache . ", " . ($userData["id"]) . ");";
                 echo $sql;
                 $stmt = $db->prepare($sql);
                 echo $stmt->execute();
+                $countUpdatedAdd++;
             }
         }
+        $message .= "Edit task succeeded (2/2)";
     }
 } catch (Exception $exception) {
     print_r($exception);
     print_r($sql);
 }
+
 
 if ($id_tache > 0) { // New : existing tasks load.
     $sql = "select * from table_taches_patients where id_tache=" . $id_tache . " and user_id=" . ($userData["id"]) . ";";
@@ -171,12 +190,6 @@ if ($id_tache > 0) { // New : existing tasks load.
         }
     }
 }
-
-$sql = "select chambre as id_hospitalise, ta.id as id_activite, te.id as id_employe, tt.id as id_tache, ta.nom_activite as nomActivite, * from table_hospitalises inner join table_taches tt on table_hospitalises.chambre = tt.id_hospitalises inner join table_activites ta on ta.id = tt.id_activite inner join table_employes te on ta.id_employe = ta.id" . " where ta.user_id=" . ($userData["id"]) . ";";// where tt.id=" . $id_tache;"
-
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$resultTacheActivite = $stmt->fetchAll();
 
 global $j;
 global $m;
@@ -199,6 +212,8 @@ for ($i = 1; $i < 6; $i++) {
 }
 
 global $page;
+
+if(!isset($_GET["notInclude"])) {
 // Comparer les $_GET et la db, mettre à jour la db.
 
 ?>
@@ -213,11 +228,11 @@ global $page;
 
     <?php
     if (isset($id_hospitalise)) { ?>
-        <a class="button" href="index.php?page=agenda&id_hospitalise=<?php echo $id_hospitalise; ?>">Voir la semaine
+        <a class="button" href="index.php?page=agenda&id_hospitalise=<?php echo $id_hospitalise[0]; ?>">Voir la semaine
             de -</a>
         <a class="button error"
-           href="index.php?page=agenda&id_hospitalise=<?php echo $id_hospitalise; ?>&table=table_taches&action=delete&id=<?php echo $id_tache; ?>&idName=id">Supprimer
-            la tâche de <?php echo "$id_tache, $id_hospitalise"; ?></a>
+           href="index.php?page=agenda&id_hospitalise=<?php echo $id_hospitalise[0]; ?>&table=table_taches&action=delete&id=<?php echo $id_tache; ?>&idName=id">Supprimer
+            la tâche de <?php echo "$id_tache, ".(string)(is_array($id_hospitalise)?$id_hospitalise[0]:$id_hospitalise)."  "; ?></a>
         <?php
     }
     ?>
@@ -282,8 +297,17 @@ global $page;
                 <?php
                 //selectOptions("id_hospitalises", $resultHospitalises, "chambre", $id_hospitalise, array("nom", "prenom"), "refreshDataSemaineTaches()");
 
-                checkMultiple1("id_hospitalises_", $resultHospitalises,
-                    $resultPatientsTache , "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()");
+                global $id_hospitalise;
+                global $resultPatientsTache;
+
+
+                $sec = (is_array($resultPatientsTache) && isset($resultPatientsTache[0]["id_patient"])) ? $resultPatientsTache : $id_hospitalise;
+                if(!is_array($sec)) {
+                    $v = $sec;
+                    $sec = array();
+                    $sec[0]["id_patient"] = $v;
+                }
+                checkMultiple1("id_hospitalises_", $resultHospitalises, $sec, "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()");
 
                 ?>
                 <div>
@@ -301,6 +325,8 @@ global $page;
             <td>
 
                 <?php
+
+                echo $id_activite;
                 selectOptions("id_activite", $resultActivites, "id", $id_activite, array("nom_activite"), "onchange=refreshDataSemaineTaches()");
 
 
@@ -396,9 +422,11 @@ global $page;
         <tr>
             <td></td>
             <td>
-                <input type="submit" id="submitTacheSave" onclick="checkTache('save');" name="submit"
+                <input type="hidden" id="notInclude" name="notInclude"
+                       value="notInclude"/>
+                <input type="submit" id="submitTacheSave" onclick="return checkTache('save');" name="submit"
                        value="Enregistrer"/>
-                <input type="submit" id="submitTacheSaveAndNew" onclick="checkTache('saveAndNew');" name="submit"
+                <input type="submit" id="submitTacheSaveAndNew" onclick="return checkTache('saveAndNew');" name="submit"
                        value="Enregistrer et nouvelle tâche"/>
 
     </table>
@@ -406,7 +434,9 @@ global $page;
 </form>
 
 <?php
-
+} else {
+    echo $message;
+}
 $params = array();
 if ($id_hospitalise != -1)
     $params["id_hospitalises"] = $id_hospitalise;
@@ -443,10 +473,6 @@ global $id_hospitalise;
 checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"), $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()");
 
 $newGetData->init();
-
-
-
-
 
 
 global $id_hospitalise;

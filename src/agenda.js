@@ -245,13 +245,13 @@ function toggleCheckBox(id) {
     let elementById = document.getElementById(id);
     elementById.checked = !elementById.checked;
 }
+
 function refreshDataSemaineTaches(select) {
-    let elementById = document.getElementById("edition_activite_submitChanges");
+    let elementById =(HTMLInputElement)( select);
     if (isAutoDirectSave()) {
         elementById.click();
     } else {
         hasChanged = true;
-
     }
     disable_button();
 }
@@ -488,6 +488,7 @@ function checkTache(event) {
         //errors = errors + 1;
 
     }
+    /*
     let patient = document.getElementById("id_hospitalises");
     if(patient.value!=-1) {
         patient.classList.toggle("error", false);
@@ -496,9 +497,9 @@ function checkTache(event) {
         errors = errors + 1;
 
     }
-
+*/
     let activites = document.getElementById("id_activite");
-    if(activites.value!=-1) {
+    if(activites.value>0) {
         activites.classList.toggle("error", false);
     } else {
         activites.classList.toggle("error", true);
@@ -531,15 +532,10 @@ function checkTache(event) {
 
     let elementById1 = document.getElementById("errors");
     if(errors==0) {
-        document.getElementById("errors").classList.toggle("error", false);
-        let elementById1 = document.getElementById("errors");
-        elementById1.classList.toggle("error", false);
         document.forms[0].submit();
         return true;
     } else {
-        elementById1.classList.toggle("error", true);
         elementById1.innerHTML="Il y a des erreurs, corrigez :) !!!";
-
         return false;
     }
 }

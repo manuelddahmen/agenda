@@ -830,7 +830,7 @@ function selectOptions($id_form, array $sqlAssocResult, string $idName, $idValue
                 if (($sqlAssocResult[$i][$idName] !== null &&
                     $sqlAssocResult[$i][$idName] !== 0 &&
                     $sqlAssocResult[$i][$idName] == $idValue))
-                    echo "selected='selected':"; ?>>
+                    echo " selected='selected'  "; ?>>
                 <?php
                 foreach ($arrayFields as $fieldName) {
                     echo " " . $sqlAssocResult[$i][$fieldName];
@@ -1058,26 +1058,30 @@ function checkMultiple1(string $string, array $resultHospitalises, array $result
 {
     $idx = 0;
     global $id_tache;
-    global $id_hospitalise;
     foreach ($resultHospitalises as $i => $rowItem) {
         $echoed = false;
         $valId = "patientCheck".rand(0, 1000);
         echo "<input id='".$valId."' onclick='chkbox(this)' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
-        if (isset($resultPatientsTache) && $id_tache > 0) {
+        if ($id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
                 if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
-                    echo(" checked='checked' ");
-                    $echoed = true;
+                    if(!$echoed) {
+                        echo(" checked='checked' ");
+                        $echoed = true;
+                    }
                 }
             }
         }
-        if($id_tache>0 && isset($id_hospitalise)) {
-            if($rowItem[$string1]==$id_hospitalise) {
+        if($id_tache>0) {
+        foreach ($resultHospitalises as $chambre) {
+            if($rowItem[$string1]==$chambre) {
                 if(!$echoed) {
-                    echo(" checked='checked' ");
+                        echo(" checked='checked' ");
+                        $echoed = true;
+                    }
                 }
-            }
 
+            }
         }
         echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"".$valId."\"'>&nbsp;" . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
         $idx ++;
