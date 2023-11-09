@@ -55,6 +55,8 @@ if($userData==NULL) {
 
 $action = $_GET["getvalues"] ?? "get";
 
+$i = 0;
+
 require_once "getdata_2.php";
 $newGetData = new getdata_2($id_hospitalise??-1, $id_hospitalises??array());
 

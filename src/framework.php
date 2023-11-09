@@ -102,8 +102,11 @@ global $page, $pages, $themeName;
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script type="text/javascript" src="agenda.js"></script>
+
     <script type="text/javascript">
         const tableToExcel = (function () {
             const uri = 'data:application/vnd.ms-excel;base64,'

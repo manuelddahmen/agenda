@@ -72,9 +72,10 @@ li.sousmenu a {
     color: #98c7c0;
     background-color: #3c0781;
 }
+
 body, input, select, button, a, label {
-    background: #0e1228;
-    color: #dddcff;
+    background: #dddcff;
+    color: #0e1228;
     font-size: 14pt;
 }
 
@@ -166,7 +167,11 @@ li.selected, #edit_tache, .edit_table_item, #edit_tache, .edit_table_item, #edit
     background-color: #0e1228;
     color: #ccf;
 }
-#edit_tache select:hover, #edit_tache input:hover, #edit_tache:hover {
+#edit_tache select, #edit_tache input, #edit_tache button {
+    color: #ccf;
+    background-color: #0d1e46;
+}
+#edit_tache select:hover, #edit_tache input:hover, #edit_tache button:hover {
     font-size: larger;
     color: #FFFFFF;
     background-color: #0d1e46;
@@ -179,6 +184,16 @@ li.selected, #edit_tache, .edit_table_item, #edit_tache, .edit_table_item, #edit
     font-size: larger;
 }
 .printTable a.btn:hover {
+    font-size: larger;
+    color: #FFFFFF;
+    background-color: #0d1e46;
+}
+.printTable select {
+    font-size: larger;
+    color: #ffdcd8;
+    background-color: #0d1e46;
+}
+.printTable select:hover {
     font-size: larger;
     color: #FFFFFF;
     background-color: #0d1e46;

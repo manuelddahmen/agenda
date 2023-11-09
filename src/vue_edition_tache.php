@@ -37,46 +37,32 @@ $jour__semaine_demie__heure_temps_1 = isset($_GET["jour__semaine_demie__heure_te
 $jour__semaine_demie__heure_temps_0 = isset($_GET["jour__semaine_demie__heure_temps_0"]) ? $_GET["jour__semaine_demie__heure_temps_0"] : $jour__semaine_demie__heure_temps_0;
 $jour__semaine_demie__heure_temps = $jour__semaine_demie__heure_temps_0 . ":" . $jour__semaine_demie__heure_temps_1 . ":" . $jour__semaine_demie__heure_temps_2;
 
+global $id_hospitalise;
+if(is_scalar($id_hospitalise))
+    $id_hospitalise = array();
+
 $data["jour__semaine_demie__heure_temps"] = $jour__semaine_demie__heure_temps;
-if (isset($_GET["id_activite"])) {
-    $id_activite = urldecode($_GET["id_activite"]);
-} else {
-//    $id_activite = rand(0, PHP_INT_MAX);
-//    $data["id_activite"] = $id_activite;
-}
+
 if (isset($_GET["id_employe"])) {
     $id_employe = urldecode($_GET["id_employe"]);
     $data["id_employe"] = $id_employe;
 } else {
 //    $id_employe = rand(0, PHP_INT_MAX);
 }
-if (isset($_GET["id_hospitalises"])) {
-    $id_hospitalise[0] = urldecode($_GET["id_hospitalises"]);
-} else {
-    $id_hospitalise[0] = -1;
-    $data["id_hospitalises"] = $id_hospitalise[0];
-}
+
 if (isset($_GET["id_activite"])) {
     $id_activite = urldecode($_GET["id_activite"]);
 } else {
     $id_activite = -1;
     $data["id_activite"] = $id_activite;
 }
-if (isset($_GET["id_hospitalise"])) {
-    $j = 0;
-    $id_hospitalise = array();
-    if (is_array($_GET["id_hospitalise"])) {
-        foreach ($_GET as $i => $chambre) {
-            if (str_starts_with($i, "id_hospitalise")) {
-                $id_hospitalise[$j] = $chambre;
-                $j++;
-            }
-        }
-    } else {
-        $id_hospitalise[0] = $_GET["id_hospitalise"] ?? -1;
-
-    }
+if (isset($_GET["id_tache"])) {
+    $id_tache = urldecode($_GET["id_tache"]);
+} else {
+    $id_tache = -1;
+    $data["id_tache"] = $id_tache;
 }
+
 if (isset($_GET["submit"])) {
     if (isset($id_activite)) {
         $activite = "update";
@@ -92,8 +78,6 @@ if (isset($_GET["submit"])) {
     $tache = "select";
     $activite = "select";
 }
-$id_activite = isset($id_activite) ? $id_activite : -1;
-$id_hospitalise = $id_hospitalise ?? -1;
 $id_tache = isset($id_tache) ? $id_tache : -1;
 $id_employe = isset($id_employe) ? $id_employe : -1;
 $nom_activite = isset($nom_activite) ? $nom_activite : -1;
@@ -105,7 +89,7 @@ $table_activite_get = array("id" => $id_activite,
     "nom_activite" => isset($nom_activite) ?? "",
     "id_employe" => $id_employe
 );
-$message = "Edit";
+$message = "Edit ... ";
 global $userData;
 if ($userData == NULL) {
     echo "<h2>Non connecté</h2>";
@@ -121,7 +105,7 @@ $resultTacheActivite = $stmt->fetchAll();
 $executed = "SELECT";
 
 global $a, $m, $j;
-
+//$id_activite = $resultTacheActivite[0]["id_activite"];
 
 if (isset($_GET["id_tache"]) && $_GET["id_tache"] != null) {
     $id_tache = urldecode($_GET["id_tache"]);
@@ -130,13 +114,16 @@ if (isset($_GET["id_tache"]) && $_GET["id_tache"] != null) {
 }
 try {
     if ($id_tache != -1 && isset($_GET["submit"])) {
-        $sql = "update table_taches set id_activite=" . $id_activite . ", id_hospitalises=$id_hospitalise[0], jour__semaine_demie__heure_temps='$jour__semaine_demie__heure_temps' where id=" . $id_tache . " and user_id=" . ($userData["id"]) . ";";;
+
+        $sql = "update table_taches set id_activite=" . $id_activite . ", jour__semaine_demie__heure_temps='$jour__semaine_demie__heure_temps'
+          where id=" . $id_tache . " and user_id=" . ($userData["id"]) . ";";;
         $stmt = $db->prepare($sql);
         $result = $stmt->execute();
         $message .= "Edit task succeeded (1/2)";
     } else if ($tache != "select" && $id_tache == -1 && isset($_GET["submit"])) {
         echo $_GET["submit"] . $id_tache;
-        $sql = "insert into table_taches ( id, id_activite, jour__semaine_demie__heure_temps,id_hospitalises, user_id) values (" . rand(0, PHP_INT_MAX) . ", $id_activite, '$jour__semaine_demie__heure_temps', $id_hospitalise[0], " . ($userData['id']) . ");";
+        $sql = "insert into table_taches ( id, id_activite, jour__semaine_demie__heure_temps, user_id, id_hospitalises) values
+                (" . rand(0, PHP_INT_MAX) . ", $id_activite, '$jour__semaine_demie__heure_temps', " . ($userData['id']) . ", 1);";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -145,7 +132,6 @@ try {
 
     }
     // Mettre à jour la liste des patients
-    echo $id_tache;
     if ($id_tache > 0 && isset($_GET["submit"])) {
         //if (isset($_GET["id_hospitalises"])) {
         $sql = "delete from table_taches_patients where id_tache=" . $id_tache . " and user_id=" . ($userData["id"]) . ";";
@@ -157,7 +143,6 @@ try {
             if (str_starts_with($i, "id_hospitalises_") || str_starts_with($i, "id_hospitalise")) {
                 $id++;
                 $sql = "insert into table_taches_patients  (id_patient, id_tache, user_id) values (" . $chambre . ", " . $id_tache . ", " . ($userData["id"]) . ");";
-                echo $sql;
                 $stmt = $db->prepare($sql);
                 echo $stmt->execute();
                 $countUpdatedAdd++;
@@ -172,18 +157,22 @@ try {
 
 
 if ($id_tache > 0) { // New : existing tasks load.
-    $sql = "select * from table_taches_patients where id_tache=" . $id_tache . " and user_id=" . ($userData["id"]) . ";";
+    $sql = "select tt.id as id, tt.jour__semaine_demie__heure_temps as jour__semaine_demie__heure_temps, tt.id_activite as id_activite, ttp.id_patient as id_patient from table_taches_patients as ttp inner join table_taches as tt on ttp.id_tache = tt.id 
+         where tt.id=" . $id_tache . " and tt.user_id=" . ($userData["id"]) ." and ttp.user_id=" . ($userData["id"]) . ";";;
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $resultPatientsTache = $stmt->fetchAll();
-    foreach ($resultTacheActivite as $i => $rowItem) {
-        if ($rowItem["id_tache"] == $id_tache) {
-            echo "Row found";
-            $id_hospitalise = $rowItem["id_hospitalises"];
+    foreach ($resultPatientsTache as $i => $rowItem) {
+        if ($rowItem["id"] == $id_tache) {
+            if(is_array($id_hospitalise)) {
+              $id_hospitalise[] = $rowItem["id_patient"];
+            } else {
+              $id_hospitalise[] = $rowItem["id_patient"];
+            }
             $jour__semaine_demie__heure_temps = $rowItem["jour__semaine_demie__heure_temps"];
             $arrayJD = explode(":", $jour__semaine_demie__heure_temps);
-            $jour__semaine_demie__heure_temps_0 = $arrayJD[0];
             $jour__semaine_demie__heure_temps_1 = $arrayJD[1];
+            $jour__semaine_demie__heure_temps_0 = $arrayJD[0];
             $jour__semaine_demie__heure_temps_2 = $arrayJD[2];
 
             $id_activite = $rowItem["id_activite"];
@@ -213,15 +202,22 @@ for ($i = 1; $i < 6; $i++) {
 
 global $page;
 
-if(!isset($_GET["notInclude"])) {
-// Comparer les $_GET et la db, mettre à jour la db.
-
+if(isset($_GET["notInclude"])) {
+    $str="";
+    if(is_array($id_hospitalise)) {
+        foreach($id_hospitalise as $i => $id) {
+            $str.="&id_hospitalise=".$id;
+        }
+    } else if(isset($id_hospitalise)) {
+        $str.="&id_hospitalise=".$id;
+    }
+    $index = "index.php?page=agenda".$str;
+    //header("Location: ."\n");
+//    echo "<script type='text/javascript'> window.location = '$index'; </script>";
+//    exit();
+}
+echo $jour__semaine_demie__heure_temps;
 ?>
-<!--<p>Bouton Nouvelle tâche, → Reset des champs et attribution d'un id</p>
-<p>Clic dans la liste → Edition tâche</p>
-<p>Bouton Fermer l'édition → Bouton nouvelle et réinitialisation des champs</p>
-   onchange=""  />
-<input type="button" onclick="loadSearchResultTache(document.getElementById('\'edition_activite\''));">-->
 <form action="index.php" method="get" onsubmit="return checkTache('save');"
       id="edition_activite" name="edition_activite">
     <input type="hidden" name="page" value="<?php echo "advent"; ?>">
@@ -434,9 +430,9 @@ if(!isset($_GET["notInclude"])) {
 </form>
 
 <?php
-} else {
-    echo $message;
-}
+
+echo $message;
+
 $params = array();
 if ($id_hospitalise != -1)
     $params["id_hospitalises"] = $id_hospitalise;

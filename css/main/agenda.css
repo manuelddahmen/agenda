@@ -69,8 +69,8 @@ li.sousmenu a {
     background-color: #3c0781;
 }
 body, input, select, button, a, label {
-    background: #0e1228;
-    color: #dddcff;
+    background: #dddcff;
+    color: #0e1228;
     font-size: 14pt;
 }
 

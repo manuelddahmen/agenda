@@ -33,6 +33,39 @@ use PHPSQLParser\PHPSQLParser;
 
 
 
+if(!isset($id_hospitalise)) {
+    $id_hospitalise = array();
+    if(isset($_GET["id_hospitalise"]) && is_scalar($_GET["id_hospitalise"])) {
+        foreach ($_GET as $key => $value) {
+            $id_hospitalise[$i] = $_GET["id_hospitalise"];
+            $i++;
+        }
+    } else if(isset($_GET["id_hospitalise"]) && is_array($_GET["id_hospitalise"])) {
+        foreach ($_GET as $key => $value) {
+            if (array_search($value, $id_hospitalise)===false) {
+                $id_hospitalise[$i] = $_GET["id_hospitalise"];
+                $i++;
+            }
+        }
+    }
+    foreach ($_GET as $key => $value) {
+        if(str_starts_with("id_hospitalise_", $key)) {
+            if (array_search($value, $id_hospitalise)===false) {
+                $id_hospitalise[$i] = $value;
+                $i++;
+            }
+        }
+    }
+    foreach ($_GET as $key => $value) {
+        if (str_starts_with("id_hospitalises_", $key)) {
+            if (array_search($value, $id_hospitalise) === false) {
+                $id_hospitalise[$i] = $value;
+                $i++;
+            }
+        }
+    }
+}
+
 $db = new MyDB();
 
 function printFormChooseFk($tablename, $fkName, $idfkCurrent): void
@@ -1038,13 +1071,16 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
 {
     $idx = 0;
     global $id_tache;
+    global $id_hospitalise;
     foreach ($resultHospitalises as $i => $rowItem) {
         $valId = "patientCheck".rand(0, 1000);
         echo "<input id='".$valId."' onclick='chkbox(this)' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
         if (isset($resultPatientsTache) && $id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
                 if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
-                    echo("checked='checked'");
+                    echo(" checked='checked' ");
+                } else if (array_search($rowItem[$string1], $id_hospitalise)>=0) {
+                    echo(" checked='checked' ");
                 }
             }
         }
