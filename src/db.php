@@ -1075,12 +1075,23 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
     foreach ($resultHospitalises as $i => $rowItem) {
         $valId = "patientCheck".rand(0, 1000);
         echo "<input id='".$valId."' onclick='chkbox(this)' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        $selected = false;
         if (isset($resultPatientsTache) && $id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
-                if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
+                if($selected) {
+                } else if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
                     echo(" checked='checked' ");
-                } else if (array_search($rowItem[$string1], $id_hospitalise)>=0) {
+                    $selected = true;
+                } else if (is_scalar($id_hospitalise) && array_search($rowItem[$string1], $id_hospitalise)>=0) {
                     echo(" checked='checked' ");
+                    $selected = true;
+                } else if (is_array($id_hospitalise) ) {
+                    foreach ($id_hospitalise as $key => $value) {
+                        if(array_search($rowItem[$string1], $value)>=0) {
+                            echo(" checked='checked' ");
+                            $selected = true;
+                        }
+                    }
                 }
             }
         }

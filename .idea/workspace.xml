@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="Resolve multiple choice checkboxes.&#10;Now: make forms navigation fluid.">
+      <change afterPath="$PROJECT_DIR$/src/permissions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/light/agenda.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/light/agenda.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main/agenda.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main/agenda.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue_edition_tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_edition_tache.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue_manipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_manipe.php" afterDir="false" />
     </list>
@@ -384,7 +382,7 @@
       <workItem from="1699200637073" duration="2490000" />
       <workItem from="1699213515631" duration="19588000" />
       <workItem from="1699471462007" duration="3092000" />
-      <workItem from="1699535429099" duration="8424000" />
+      <workItem from="1699535429099" duration="11434000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -729,7 +727,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="310" />
+    <option name="localTasksCounter" value="311" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

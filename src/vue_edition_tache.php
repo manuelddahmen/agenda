@@ -213,8 +213,8 @@ if(isset($_GET["notInclude"])) {
     }
     $index = "index.php?page=agenda".$str;
     //header("Location: ."\n");
-//    echo "<script type='text/javascript'> window.location = '$index'; </script>";
-//    exit();
+    echo "<script type='text/javascript'> window.location = '$index'; </script>";
+    exit();
 }
 echo $jour__semaine_demie__heure_temps;
 ?>

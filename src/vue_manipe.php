@@ -67,7 +67,13 @@ global $id_hospitalise;
 $newGetData->init();
 
 
+if($id_hospitalise!=null) {
+    ?>
+    <script type="text/javascript">
 
+    </script>
+        <?php
+}
 
 
 
