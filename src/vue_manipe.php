@@ -38,12 +38,17 @@ global $datetime;
         const html = table.outerHTML;
         const url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url
         elem.setAttribute("href", url);
+        elem.style.display = "visible"
         elem.setAttribute("download", "export.xls"); // Choose the file name
         return false;
     }
-</script>
-<?php
+</script><!--<button onclick="exportF(document.getElementById('buttonTab'))" value="Ouvrir dans Tableur" >
+    <a href="#" id='buttonTab' style="display: none;">Télécharger</a>
+</button>-->
 
+<?php
+echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
+echo "<table class='agenda' id='agenda'>";
 
 global $db;
 

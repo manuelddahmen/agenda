@@ -868,8 +868,7 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
 {
     global $halfHour, $days;
 
-    //echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
-    echo "<table class='agenda' id='agenda'>";
+
     global $halfHour, $days, $id_hospitalise;
 
     listePatients($id_hospitalise);

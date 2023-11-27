@@ -59,6 +59,8 @@ if($userData==null || !isset($userData["id"])) {
     global $username;
     $user = new AgendaUser($username);
     $userData = $user->getData();
+} else if($userData!=null && isset($userData["id"])){
+    $user_id = $userData["id"];
 }
 
 ?>

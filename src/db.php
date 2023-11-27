@@ -359,6 +359,9 @@ function printTable(string $tablename, array $columnsNames,
     }
     $str = "";
     global $db;
+    global $userData;
+    if($userData!=null)
+        $user_id = $userData["id"];
     if (!$db) {
         error_log("No database connection in printTable");
     } else {
@@ -385,8 +388,9 @@ function printTable(string $tablename, array $columnsNames,
             $displays = implode(", ", $display);
             $fks[$field1] = $paramsFK;
             $fks[$field1]["idName"] = $id2ref;
-            $sql1 = "select $id2ref, $displays from $table2;";
+            $sql1 = "select $id2ref, $displays from $table2 where user_id=:userId;";
             $stmt = $db->prepare($sql1);
+            $stmt->bindParam("userId", $user_id);
             $stmt->execute();
             $results[$field1] = $stmt->fetchAll();
             $i++;
