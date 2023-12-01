@@ -34,6 +34,8 @@ use PHPSQLParser\PHPSQLParser;
 
 
 if(!isset($id_hospitalise)) {
+    $i=0;
+
     $id_hospitalise = array();
     if(isset($_GET["id_hospitalise"]) && is_scalar($_GET["id_hospitalise"])) {
         foreach ($_GET as $key => $value) {

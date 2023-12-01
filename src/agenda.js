@@ -431,6 +431,19 @@ function chkbox(this1) {
     xmlHttpRequest.send();
 }
 
+function chkboxGoto(this1) {
+    var s = this1.value;
+    if (this1.checked) {
+        d.push(s);
+    } else {
+        var index = d.indexOf(s);
+        if (index > -1) {
+            d.splice(index, 1);
+        }
+    }
+    let url = "index.php?page=agenda&" + objectToQueryString(d);
+    document.location.href = url;
+}
 function reqListenerDivEditTache() {
     let divFloat = document.getElementById("float-windows");
     console.log(this.responseText);
