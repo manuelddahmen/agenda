@@ -303,7 +303,8 @@ echo $jour__semaine_demie__heure_temps;
                     $sec = array();
                     $sec[0]["id_patient"] = $v;
                 }
-                checkMultiple1("id_hospitalises_", $resultHospitalises, $sec, "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()");
+                checkMultiple1("id_hospitalises_", $resultHospitalises, $sec, "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()",
+                    "chkbox(this)", $id_hospitalise);
 
                 ?>
                 <div>
@@ -466,7 +467,9 @@ $newGetData = new getdata_2($id_hospitalise);
 global $id_hospitalise;
 
 
-checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"), $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()");
+checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"),
+    $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
+    "onchange=refreshDataSemaineTaches()", $onchecked="chkbox(this)");
 
 $newGetData->init();
 

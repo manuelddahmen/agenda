@@ -1072,7 +1072,8 @@ function dayCalString($array0) {
 }
 */
 
-function checkMultiple(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $ckecheds=null): void
+function checkMultiple(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array,
+                       string $string2, $onchecked="chkbox(this)", $ckecheds=null): void
 
 {
     $idx = 0;
@@ -1080,7 +1081,7 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
     global $id_hospitalise;
     foreach ($resultHospitalises as $i => $rowItem) {
         $valId = "patientCheck".rand(0, 1000);
-        echo "<input id='".$valId."' onclick='chkbox(this)' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        echo "<input id='".$valId."' onclick='".$onchecked."' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
         $selected = false;
         if (isset($resultPatientsTache) && $id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
@@ -1106,7 +1107,7 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
     }
 }
 
-function checkMultiple1(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $ckecheds=null): void
+function checkMultiple1(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $onchecked="chkbox(this)", $ckecheds=null): void
 
 {
     $idx = 0;
@@ -1114,7 +1115,7 @@ function checkMultiple1(string $string, array $resultHospitalises, array $result
     foreach ($resultHospitalises as $i => $rowItem) {
         $echoed = false;
         $valId = "patientCheck".rand(0, 1000);
-        echo "<input id='".$valId."' onclick='chkbox(this)' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        echo "<input id='".$valId."' onclick='".$onchecked."' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
         if ($id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
                 if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {

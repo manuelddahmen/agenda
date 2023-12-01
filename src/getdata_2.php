@@ -717,7 +717,9 @@ function print_planning($result, $id_hospitalise): void
 function print_planning2($result, $id_hospitalise): void
 {
     global $newGetData;
-    checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"), $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()");
+    checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"),
+        $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
+        "onchange=refreshDataSemaineTaches()", "chkbox(this)");
     //echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
     echo "<table class='agenda' id='agenda'>";
     global $halfHour, $days;
@@ -867,9 +869,9 @@ function listePatients($id_hospitalise): void
 function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
 {
     global $halfHour, $days;
-
-
     global $halfHour, $days, $id_hospitalise;
+
+//    echo "<table id='agenda' name='agenda'>";
 
     listePatients($id_hospitalise);
     echo "<tr>";
