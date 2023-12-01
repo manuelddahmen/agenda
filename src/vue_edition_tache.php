@@ -343,7 +343,7 @@ echo $jour__semaine_demie__heure_temps;
             </td>
             <td>
                 <select name="jour__semaine_demie__heure_temps_0" id="jour__semaine_demie__heure_temps_0"
-                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches()>
+                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches(this)>
                     <option draggable="true" value="-1">-------</option>
                     <?php
                     global $halfHour;
@@ -372,7 +372,7 @@ echo $jour__semaine_demie__heure_temps;
             <td>Heure</td>
             <td>
                 <select name="jour__semaine_demie__heure_temps_1" id="jour__semaine_demie__heure_temps_1"
-                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches()>
+                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches(this)>
                     <option draggable="true" value="-1">-------</option>
                     <?php
                     foreach ($halfHour as $key => $hour) {
@@ -395,7 +395,7 @@ echo $jour__semaine_demie__heure_temps;
             <td>Durée</td>
             <td>
                 <select name="jour__semaine_demie__heure_temps_2" id="jour__semaine_demie__heure_temps_2"
-                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches()>
+                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches(this)>
                     <option draggable="true" value="-1">-------</option>
                     <?php
                     $times = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);

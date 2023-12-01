@@ -84,8 +84,7 @@ if($id_hospitalise!=null) {
 
 global $id_hospitalise;
 $result = joursTaches($id_hospitalise);
-checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"), $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
-    "onchange=refreshDataSemaineTaches()");
+checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"), $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()");
 
 require_once "footer.php";
 ?>  </body>

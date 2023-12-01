@@ -89,7 +89,7 @@ class getdata_2
             $sql1 = "th.nom as nomPatient, th.prenom as prenomPatient, th.birthdate, th.acti_obli_1, th.acti_obli_2,";
             $sql2 = " where 1 and ( 0";
             foreach ($id_hospitalise as $key => $value) {
-                $sql2 .= " or th.chambre=^$value ";
+                $sql2 .= " or th.chambre=$id_hospitalise ";
             }
             $sql2 .= ") ";
         } else if ($id_hospitalise > 0) {
