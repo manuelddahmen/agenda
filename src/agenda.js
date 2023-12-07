@@ -417,7 +417,7 @@ function formDataToQueryString(obj) {
     let str = [];
     i = 0;
     let it = obj.values();
-    for(const [key, value] in obj.entries()) {
+    for(const [key, value] of obj.entries()) {
         str[i] = key + "=" + encodeURIComponent(value);
         i++;
     }
