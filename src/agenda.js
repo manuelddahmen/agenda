@@ -676,3 +676,7 @@ if (form !== null) {
         sendData();
     });
 }
+
+function cancelTableEdit() {
+    document.location.href = "index.php?page=tables";
+}

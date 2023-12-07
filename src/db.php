@@ -710,7 +710,7 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
     $str .= "<input type='hidden' name='" . $idName . "' value='" . ($edit ? $idRef : 0) . "' />";
     $str .= "<input type='hidden' name='action' value='" . ($id == 0 ? "saveNew" : "save") . "' />";
     $str .= "</td><td>
-            <button id='cancelButtonTable' type='button' class='btn-submit icon' value='Annuler les modifications'><img height='40px' width='40px' src='../images/cancel.png' alt='Annuler les modifications'/></button>
+            <button id='cancelButtonTable' onclick='javascript:cancelTableEdit();'     type='button' class='btn-submit icon' value='Annuler les modifications'><img height='40px' width='40px' src='../images/cancel.png' alt='Annuler les modifications'/></button>
             <button id='submitButtonTable' onclick='javascript:sendData();' type='button' class='btn-submit icon' value='Valider les modifications'><img  height='40px' width='40px'  src='../images/validate.png' alt='Valider les modifications'/></button>
             </td></tr></table>";
     $str .= "</form>";
