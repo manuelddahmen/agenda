@@ -206,3 +206,4 @@ switch ($currentPage) {
 <?php
 session_commit();
 ?>
+

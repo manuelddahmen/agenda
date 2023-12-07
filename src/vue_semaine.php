@@ -75,7 +75,7 @@ $resultPatients = $stmt2->fetchAll();
 selectOptions("formSelectPatient", $resultPatients, "chambre", $id_hospitalise, array("nom", "prenom"),
    "refreshDataVueSemaine(this);");
 checkMultiple("id_hospitalises", $resultPatients, $resultPatientsTache ?? array(),
-    "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()", $onchecked="chkbox(this)");
+    "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()", "chkbox(this)");
 function oldTable() {
 
     $idxResult = 0;
