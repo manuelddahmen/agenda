@@ -58,7 +58,7 @@ echo printTable("table_hospitalises", array(array('nom', 'prenom', 'sex', 'rehab
         <td ><h1>Equipe</h1>
 <?php
 echo printTable("table_employes", array('nom', 'prenom', 'fonction'),
-    array('varchar', 'varchar', 'varchar', 'varchar'),
+    array('varchar', 'varchar', 'varchar'),
     array('id'), array('integer'),
     'AddEditHospi', null, "index.php?page=tables"
 );
