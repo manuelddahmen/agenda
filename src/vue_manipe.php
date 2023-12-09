@@ -19,8 +19,15 @@
  */
 
 require_once "framework.php";
+require_once "initIdHospitalise.php";
+
+initIdHospitalise();
+
+
 global $db;
 global $datetime;
+global $id_hospitalise;
+global $userData;
 ?>
     <script type="text/javascript" src="../js/tableToExcel.js"></script>
 <script type="text/javascript">
@@ -50,9 +57,6 @@ global $datetime;
 echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
 echo "<table class='agenda' id='agenda'>";
 
-global $db;
-
-global $userData;
 if($userData==NULL) {
     echo "<h2>Non connecté</h2>";
     exit(0);
@@ -65,31 +69,37 @@ $i = 0;
 require_once "getdata_2.php";
 $newGetData = new getdata_2($id_hospitalise??-1, $id_hospitalises??array());
 
-global $id_hospitalise;
-
-
 
 $newGetData->init();
 
 
-if($id_hospitalise!=null) {
-    ?>
-    <script type="text/javascript">
 
-    </script>
-        <?php
-}
-
-
-
-global $id_hospitalise;
 $result = joursTaches($id_hospitalise);
 checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"),
     $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
-    "onchange=refreshDataSemaineTaches()", "chkbox(this)");
+    "onchange=refreshDataSemaineTaches()", "chkbox(this)", $id_hospitalise);
 
 require_once "footer.php";
 ?>  </body>
     </html>
 <?php
 ?>
+<script type="text/javascript" >
+    let id = <?php
+        global $id_hospitalise;
+        if(is_scalar($id_hospitalise)) {
+            echo $id_hospitalise;
+
+        } else if(is_array($id_hospitalise) && count($id_hospitalise)>0) {
+            $key0 = array_key_first($id_hospitalise);
+            echo $id_hospitalise[$key0];
+        } else {
+                echo $_GET["id_hospitalise"] ?? 0;
+        }
+        ?>;
+    let elementById = document.getElementById("id_hospitalise_"+id);
+    if(elementById!=null) {
+        elementById.checked = true;
+    }
+
+</script>

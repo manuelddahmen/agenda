@@ -20,7 +20,9 @@
 
 //require_once "framework.php";
 require_once "db.php";
+require_once "initIdHospitalise.php";
 
+initIdHospitalise();
 global $db;
 $db = new MyDB();
 
@@ -223,11 +225,12 @@ echo $jour__semaine_demie__heure_temps;
     <input type="hidden" name="page" value="<?php echo "advent"; ?>">
 
     <?php
+
     if (isset($id_hospitalise)) { ?>
-        <a class="button" href="index.php?page=agenda&id_hospitalise=<?php echo $id_hospitalise[0]; ?>">Voir la semaine
+        <a class="button" href="index.php?page=agenda<?php echo implodeIdsInUrl("id_hospitalise", $id_hospitalise); ?>">Voir la semaine
             de -</a>
         <a class="button error"
-           href="index.php?page=agenda&id_hospitalise=<?php echo $id_hospitalise[0]; ?>&table=table_taches&action=delete&id=<?php echo $id_tache; ?>&idName=id">Supprimer
+           href="index.php?page=agenda&id_hospitalise=<?php echo implodeIdsInUrl("id_hospitalise", $id_hospitalise); ?>&table=table_taches&action=delete&id=<?php echo $id_tache; ?>&idName=id">Supprimer
             la tâche de <?php echo "$id_tache, ".(string)(is_array($id_hospitalise)?$id_hospitalise[0]:$id_hospitalise)."  "; ?></a>
         <?php
     }
@@ -460,21 +463,18 @@ addError("Notice", $sql);
 <h1>table_taches</h1>
 <?php
 */
-require_once "getdata_2.php";
-
-$newGetData = new getdata_2($id_hospitalise);
-
 global $id_hospitalise;
 
+$action = $_GET["getvalues"] ?? "get";
 
-checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"),
-    $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
-    "onchange=refreshDataSemaineTaches()", $onchecked="chkbox(this)");
+$i = 0;
+
+require_once "getdata_2.php";
+$newGetData = new getdata_2($id_hospitalise??-1, $id_hospitalises??array());
+
 
 $newGetData->init();
 
-
-global $id_hospitalise;
 $result = joursTaches($id_hospitalise);
 
 require_once "footer.php";

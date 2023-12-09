@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="Wrong commit: problem with javascript.&#10;table update with XMLHTTPRequest.&#10;Table cancel button =&gt; tables">
+      <change afterPath="$PROJECT_DIR$/src/initIdHospitalise.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/agenda.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/getdata_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/getdata_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_edition_tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_edition_tache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_manipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_manipe.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +136,7 @@
     "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
     "WebServerToolWindowPanel.toolwindow.show.size": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "git-widget-placeholder": "7b70aa64",
+    "git-widget-placeholder": "a5399f64",
     "import_schema_mapping": "<schema-mapping>\n  <databases>\n    <list>\n      <schema-mapping-item>\n        <source-data-source-id>bd66b5e2-9038-48dd-a323-d68624344971</source-data-source-id>\n        <source-path>schema/&quot;main&quot;</source-path>\n        <target-data-source-id>bd66b5e2-9038-48dd-a323-d68624344971</target-data-source-id>\n        <target-path>schema/&quot;main&quot;</target-path>\n      </schema-mapping-item>\n      <schema-mapping-item>\n        <source-data-source-id>a76147b6-2191-43a9-8fbf-dd9f464893bf</source-data-source-id>\n        <source-path>schema/&quot;main&quot;</source-path>\n        <target-data-source-id>3a7b113e-d6e5-4779-928e-68df8d240217</target-data-source-id>\n        <target-path>schema/&quot;main&quot;</target-path>\n      </schema-mapping-item>\n    </list>\n  </databases>\n</schema-mapping>",
     "last_opened_file_path": "C:/Users/manue/PhpstormProjects/empty3.one",
     "list.type.of.created.stylesheet": "CSS",
@@ -389,7 +395,7 @@
       <workItem from="1700684997155" duration="1854000" />
       <workItem from="1700930421292" duration="8100000" />
       <workItem from="1701195145626" duration="29440000" />
-      <workItem from="1701879218452" duration="20723000" />
+      <workItem from="1701879218452" duration="32656000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -734,7 +740,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="317" />
+    <option name="localTasksCounter" value="318" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
