@@ -1098,7 +1098,12 @@ function checkMultiple1(string $string, array $resultHospitalises, array $result
         if ($id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
                 if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
-                    if(!$echoed) {
+                    if (!$echoed) {
+                        echo(" checked='checked' ");
+                        $echoed = true;
+                    }
+                } else {
+                    if (in_array($rowItem[$string1], $ckecheds)) {
                         echo(" checked='checked' ");
                         $echoed = true;
                     }

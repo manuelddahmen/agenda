@@ -871,7 +871,7 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
     global $halfHour, $days;
     global $halfHour, $days, $id_hospitalise;
 
-//    echo "<table id='agenda' name='agenda'>";
+    echo "<table id='agenda' name='agenda'>";
 
     listePatients($id_hospitalise);
     echo "<tr>";

@@ -300,11 +300,13 @@ echo $jour__semaine_demie__heure_temps;
                 global $resultPatientsTache;
 
 
-                $sec = (is_array($resultPatientsTache) && isset($resultPatientsTache[0]["id_patient"])) ? $resultPatientsTache : $id_hospitalise;
+                $sec = (is_array($resultPatientsTache) && isset($resultPatientsTache[0]["id_patient"]) && count($resultPatientsTache)>0) ? $resultPatientsTache : $id_hospitalise;
                 if(!is_array($sec)) {
                     $v = $sec;
                     $sec = array();
-                    $sec[0]["id_patient"] = $v;
+                    foreach ($id_hospitalise as $key => $value) {
+                        $sec[$key]["id_patient"] = $value;
+                    }
                 }
                 checkMultiple1("id_hospitalises_", $resultHospitalises, $sec, "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()",
                     "chkbox(this)", $id_hospitalise);
