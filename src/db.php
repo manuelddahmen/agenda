@@ -1055,6 +1055,7 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
                        string $string2, $onchecked="chkbox(this)", $ckecheds=null): void
 
 {
+    $onchange = $string2;
     $idx = 0;
     global $id_tache;
     global $id_hospitalise;
@@ -1089,6 +1090,7 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
 function checkMultiple1(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $onchecked="chkbox(this)", $ckecheds=array()): void
 
 {
+    $onchecked = $string2;
     $idx = 0;
     global $id_tache;
     foreach ($resultHospitalises as $i => $rowItem) {

@@ -247,7 +247,9 @@ function toggleCheckBox(id) {
 }
 
 function refreshDataSemaineTaches(select) {
+
     let elementById = (HTMLInputElement)(select);
+
     if (isAutoDirectSave()) {
         elementById.click();
     } else {
