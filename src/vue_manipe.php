@@ -55,7 +55,7 @@ global $userData;
 
 <?php
 echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
-echo "<table class='agenda' id='agenda'>";
+//echo "<table class='agenda' id='agenda'>";
 
 if($userData==NULL) {
     echo "<h2>Non connecté</h2>";

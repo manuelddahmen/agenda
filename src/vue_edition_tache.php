@@ -123,7 +123,7 @@ try {
         $result = $stmt->execute();
         $message .= "Edit task succeeded (1/2)";
     } else if ($tache != "select" && $id_tache == -1 && isset($_GET["submit"])) {
-        echo $_GET["submit"] . $id_tache;
+        ///echo $_GET["submit"] . $id_tache;
         $sql = "insert into table_taches ( id, id_activite, jour__semaine_demie__heure_temps, user_id, id_hospitalises) values
                 (" . rand(0, PHP_INT_MAX) . ", $id_activite, '$jour__semaine_demie__heure_temps', " . ($userData['id']) . ", 1);";
         $stmt = $db->prepare($sql);
@@ -146,7 +146,7 @@ try {
                 $id++;
                 $sql = "insert into table_taches_patients  (id_patient, id_tache, user_id) values (" . $chambre . ", " . $id_tache . ", " . ($userData["id"]) . ");";
                 $stmt = $db->prepare($sql);
-                echo $stmt->execute();
+                //echo $stmt->execute();
                 $countUpdatedAdd++;
             }
         }
@@ -218,7 +218,7 @@ if(isset($_GET["notInclude"])) {
     echo "<script type='text/javascript'> window.location = '$index'; </script>";
     exit();
 }
-echo $jour__semaine_demie__heure_temps;
+//echo $jour__semaine_demie__heure_temps;
 ?>
 <form action="index.php" method="get" onsubmit="return checkTache('save');"
       id="edition_activite" name="edition_activite">
@@ -231,7 +231,7 @@ echo $jour__semaine_demie__heure_temps;
             de -</a>
         <a class="button error"
            href="index.php?page=agenda&id_hospitalise=<?php echo implodeIdsInUrl("id_hospitalise", $id_hospitalise); ?>&table=table_taches&action=delete&id=<?php echo $id_tache; ?>&idName=id">Supprimer
-            la tâche de <?php echo "$id_tache, ".(string)(is_array($id_hospitalise)?$id_hospitalise[0]:$id_hospitalise)."  "; ?></a>
+            la tâche de <?php echo ""; ?></a>
         <?php
     }
     ?>
@@ -328,7 +328,7 @@ echo $jour__semaine_demie__heure_temps;
 
                 <?php
 
-                echo $id_activite;
+                //echo $id_activite;
                 selectOptions("id_activite", $resultActivites, "id", $id_activite, array("nom_activite"), "onchange=refreshDataSemaineTaches()");
 
 

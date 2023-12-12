@@ -156,12 +156,39 @@ global $page, $pages, $themeName;
             return false;
         }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPBRQPF3SS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DPBRQPF3SS');
+    </script>
 </head>
 <body onload="page_onLoad();"><div class="">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2D9FSBJ"
-                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->    <div id="title_page">
+    <div id="cookie-banner" style="display: none;">
+        <p>This website uses cookies to ensure you get the best experience.</p>
+        <button onclick="acceptCookies()">Accept</button>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            // Set a cookie to indicate user consent
+            document.cookie = "cookieConsent=accepted; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+
+            // Hide the cookie banner
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+
+        // Check if the user has previously accepted cookies
+        window.onload = function() {
+            if (document.cookie.indexOf("cookieConsent=accepted") === -1) {
+                document.getElementById("cookie-banner").style.display = "block";
+            }
+        };
+    </script>
+        <div id="title_page">
             <a href="https://empty3.one/agenda/src">
                 <h1>
                     <img height="40px" width="40px" src="../images/favicon.png"/><?php echo $title." - ". date("d-m-y"); ?>

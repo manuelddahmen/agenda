@@ -646,8 +646,8 @@ function listActivitiesHtml($rowItem, $isEvent = false): string
  */
 function print_planning($result, $id_hospitalise): void
 {
-    //echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
-    echo "<table class='agenda' id='agenda'>";
+    echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
+    echo "<table class='agenda' id='agenda1'>";
     global $halfHour, $days;
     echo "<tr>";
     for ($i = -1; $i < 7; $i++) {
@@ -719,7 +719,7 @@ function print_planning2($result, $id_hospitalise): void
         $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
         "onchange=refreshDataSemaineTaches()", "chkbox(this)");
     //echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
-    echo "<table class='agenda' id='agenda'>";
+    //echo "<table class='agenda' id='agenda'>";
     global $halfHour, $days;
     echo "<tr>";
     for ($i = -1; $i < 7; $i++) {
@@ -795,9 +795,6 @@ function print_planning2($result, $id_hospitalise): void
  */
 function fusionnerResultatPatientPatients(array &$arrayResultDetails): array
 {
-
-    print_r($arrayResultDetails);
-
     $jours = array();
 
     global $halfHour;
@@ -871,7 +868,7 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
     global $halfHour, $days;
     global $halfHour, $days, $id_hospitalise;
 
-    echo "<table id='agenda' name='agenda'>";
+    echo "<table id='agenda' class='agenda'>";//THE GOOG
 
     listePatients($id_hospitalise);
     echo "<tr>";
