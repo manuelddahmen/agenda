@@ -53,12 +53,13 @@ echo printTable("table_hospitalises", array(array('nom', 'prenom', 'sex', 'rehab
           "display"=>array("nom_activite")),
           "acti_obli_2"=>array("tablename"=>"table_activites", "references"=>"id",
           "display"=>array("nom_activite"))),
-    "index.php?page=tables");
+    "index.php?page=tables", false,
+    array(array("<a href='index.php?page=agenda&id_hospitalise=_id_'>Voir</a>", "_id_")));
 ?></td></tr><tr>
         <td ><h1>Equipe</h1>
 <?php
 echo printTable("table_employes", array('nom', 'prenom', 'fonction'),
-    array('varchar', 'varchar', 'varchar', 'varchar'),
+    array('varchar', 'varchar', 'varchar'),
     array('id'), array('integer'),
     'AddEditHospi', null, "index.php?page=tables"
 );

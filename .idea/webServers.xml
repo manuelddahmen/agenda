@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="284a5cdf-8ff1-4046-811c-50e265d7f814" name="agenda one" url="http://empty3.one">
+        <fileTransfer rootFolder="/customers/c/0/a/empty3.one/httpd.www" accessType="SFTP" host="ssh.empty3.one" port="22" sshConfigId="fbc9825f-c825-44d3-a151-f3dabfa44d13" sshConfig="empty3.one@ssh.empty3.one:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

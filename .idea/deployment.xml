@@ -10,6 +10,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="agenda one">
+        <serverdata>
+          <mappings>
+            <mapping deploy="agenda" local="$PROJECT_DIR$" web="/agenda" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="copy to .app server">
         <serverdata>
           <mappings>
