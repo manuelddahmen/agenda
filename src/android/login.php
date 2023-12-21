@@ -1,6 +1,5 @@
 <?php
 
-chdir("..");
 /*
  * Copyright (c) 2023. Manuel Daniel Dahmen
  *
@@ -29,6 +28,7 @@ Drag and Drop :
 4) Drag de planning à poubelle : Drag patient -> poubelle
    Effacer activité si activité vide avec confirmation.
  */
+chdir("..");
 
 if (session_status() != PHP_SESSION_ACTIVE) {
     session_start();
@@ -42,8 +42,8 @@ require_once "logon.php";
 require_once "login.php";
 
 global $username;
-$username = $username ?? $_SESSION['username'];
-require_once "AgendaUser.php";
+$username = (($username)??$_GET["username"])??$_POST["username"];
+
 if($username!=NULL) {
     $userDetails = new AgendaUser($username);
 
@@ -54,7 +54,7 @@ if($username!=NULL) {
     }
 }
 
-$exit_after = false;
+
 if(function_exists("logon")) {
     if (!checkLoginForm()) {
         if (function_exists("login")) {
@@ -66,10 +66,14 @@ if(function_exists("logon")) {
     }
 
 }
+
+require_once "AgendaUser.php";
+
+
 global $userData;
-if(isset($userData["id"])) {
+global $connected;
+if(isset($userData["id"]) || $connected) {
     echo "1";
 } else {
     echo "0";
 }
-?>

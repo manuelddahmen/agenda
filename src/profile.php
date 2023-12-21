@@ -49,7 +49,7 @@ if (isset($str)) {
 ?>
 <h1>Page des paramètres et déconnection</h1>
     <h2><a href="index.php?logout=Google&Logout=site">Logout Google</a></h2>
-<h2><a href="index.php?Logout=site">Logout website</a></h2>
+<h2><a href="index.php?Logout=site&page=logout">Logout website</a></h2>
     <h2><a href="index.php?email=confirmationLink">Confirmer l'email</a></h2>
 <?php
     echo printFormEdit("table_users", "id", $userData["id"], true, $userData, false);

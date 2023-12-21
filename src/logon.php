@@ -21,6 +21,7 @@
 require_once "MyDB.php";
 function checkLoginForm(): bool
 {
+    global $connected;
     global $loginForm, $logins;
     $loginForm = "";
 
@@ -35,7 +36,7 @@ function checkLoginForm(): bool
     if ((isset($_SESSION['username']) && isset($_SESSION["password"]))) {
         if (checkLogin($_SESSION['username'], $_SESSION['password'])) {
             $username = $_SESSION['username'];
-
+            $connected = true;
             //$loginForm = "<h3 for'loggedIn'>$username</h3>";
             return true;
         } else {
