@@ -1,4 +1,6 @@
 <?php
+
+chdir("..");
 /*
  * Copyright (c) 2023. Manuel Daniel Dahmen
  *
@@ -16,6 +18,16 @@
  *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
+ */
+
+/*
+ * Coche / décoche → Mettre à jour la vue semaine.
+Drag and Drop :
+1) Drag sur activité : ajout à la tâche (icône 1)
+2) Drag sur case vide : Création tâche
+3) Drag de planning à poubelle : Drag tâche -> poubelle
+4) Drag de planning à poubelle : Drag patient -> poubelle
+   Effacer activité si activité vide avec confirmation.
  */
 
 if (session_status() != PHP_SESSION_ACTIVE) {
@@ -60,10 +72,4 @@ if(isset($userData["id"])) {
 } else {
     echo "0";
 }
-
-
-downloads($userData["id"]);
-
-delete_user_and_data($userData["id"]);
 ?>
-<h2>N'oubliez pas de fermer la session</h2>

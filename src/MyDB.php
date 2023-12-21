@@ -133,19 +133,107 @@ function db_make_a_copy($username)
 }
 function delete_user_and_data($username): void
 {
-    $db = AgendaUser::createUser();
-
-
-    global $tableName;
     global $db;
     global $userData;
+
+    $tableName = array( "table_activite_christine",
+    "table_activites",
+    "table_activites_autonomie",
+    "table_assoc_personnel_activ",
+    "table_employes",
+    "table_groupes",
+    "table_hospitalises",
+    "table_notes",
+    "table_personnel",
+    "table_taches",
+    "table_taches_autonomie",
+    "table_taches_patients",
+        "table_utilisateurs"
+    );
     foreach ( $tableName as $tablename) {
         try {
-            $dd->query("delete * from $tablename where user_id=".($userData["user_id"]));
-        }
-        catch (Exception $ex) {
+            $stmt = $db->prepare("delete from $tablename where user_id=:id;");
+            $stmt->bindParam("id", $userData["id"]);
+            $stmt->execute();
+        } catch (Exception $ex) {
             echo "<p>".($ex->getTraceAsString())."</p>";
         }
     }
 
+    try {
+        $stmt = $db->prepare("delete from table_users where id=:id;");
+        $stmt->bindParam("id", $userData["id"]);
+        $stmt->execute();
+    } catch (Exception $ex) {
+        echo "<p>".($ex->getTraceAsString())."</p>";
+    }
+
+}
+
+function downloads(int $id)
+{
+    global $db;
+    global $userData;
+    $filename = "../data_agenda.$id.xml";
+    $tableName = array("table_activite_christine",
+        "table_activites",
+        "table_activites_autonomie",
+        "table_assoc_personnel_activ",
+        "table_employes",
+        "table_groupes",
+        "table_hospitalises",
+        "table_notes",
+        "table_personnel",
+        "table_taches",
+        "table_taches_autonomie",
+        "table_taches_patients",
+        "table_utilisateurs"
+    );
+
+    $fp = fopen($filename, "w+");
+
+    if (!$fp) {
+
+    } else {
+        foreach ($tableName as $tablename) {
+            try {
+                $stmt = $db->prepare("select * from $tablename where user_id=:id;");
+                $stmt->bindParam("id", $userData["id"]);
+                $results = $stmt->execute();
+
+
+                if(!is_bool($results)) {
+                    write_table_xml($fp, $results, $tablename);
+                }
+            } catch (Exception $ex) {
+                echo "<p>" . ($ex->getTraceAsString()) . "</p>";
+            }
+        }
+
+        try {
+            $tablename = "table_users";
+            $stmt = $db->prepare("select * from $tablename where id=:id;");
+            $stmt->bindParam("id", $userData["id"]);
+            $results = $stmt->execute();
+
+            if(!is_bool($results)) {
+                write_table_xml($fp, $results, $tablename);
+            }
+        } catch (Exception $ex) {
+            echo "<p>" . ($ex->getTraceAsString()) . "</p>";
+        }
+
+        echo "<a href='$filename'>Download</a>";
+    }
+}
+function write_table_xml($fp, array $results, $tablename)
+{
+    global $db;
+    fwrite($fp, "<table>$tablename</table>\n");
+    foreach ($results as $row) {
+        foreach ($row as $key =>$value) {
+            fwrite($fp, "\t<field name='$key'>$value</field");
+        }
+        fwrite($fp, "\n</table>");
+    }
 }

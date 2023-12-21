@@ -22,8 +22,12 @@ require_once "create_data.php";
 
 global $userData;
 if($userData==NULL) {
+  ?>
+    <h1><a href="index.php?page=login">Se connecter</a></h1>
+<h1><a href="index.php?page=profile">Créer un utilisateur</a></h1>
+
+    <?php
     echo "<h2>Non connecté</h2>";
     exit(0);
-
 }
 ?>

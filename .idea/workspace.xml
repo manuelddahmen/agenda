@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="Wrong commit: problem with javascript.&#10;table update with XMLHTTPRequest.&#10;Table cancel button =&gt; tables">
+      <change afterPath="$PROJECT_DIR$/src/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/android/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/create_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/create_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/downloads.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/downloads.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,11 +172,11 @@
       <recent name="\" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\manue\PhpstormProjects\agenda3\src\android" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda3" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda\src" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda\js" />
       <recent name="C:\Users\manue\PhpstormProjects\agenda" />
-      <recent name="C:\Users\manue\PhpstormProjects\agenda\css" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -200,6 +212,13 @@
         <item itemvalue="Node.js.agenda.js" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-74080bdb84d3-com.jetbrains.php.sharedIndexes-PS-233.11799.297" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpaceReviewFiltersPersistance">{
   &quot;lastFilter&quot;: {
@@ -390,6 +409,10 @@
       <workItem from="1701195145626" duration="29440000" />
       <workItem from="1701879218452" duration="41071000" />
       <workItem from="1702151541188" duration="2426000" />
+      <workItem from="1702464829076" duration="1286000" />
+      <workItem from="1702496662697" duration="1187000" />
+      <workItem from="1703078041513" duration="7228000" />
+      <workItem from="1703100690908" duration="6046000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -734,7 +757,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="320" />
+    <option name="localTasksCounter" value="321" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -795,7 +818,6 @@
       <path value="$PROJECT_DIR$/instances-agenda/agenda" />
       <path value="$PROJECT_DIR$/instances-agenda/manou" />
     </ignored-roots>
-    <MESSAGE value="Version OK avec login Google." />
     <MESSAGE value="Version OK avec login Google. Bug username." />
     <MESSAGE value="Version OK avec login Google. Bug username.&#10;User data usage.&#10;++Privacy Policy" />
     <MESSAGE value="Version OK avec login Google. Bug username.&#10;User data usage.&#10;++Privacy Policy&#10;Commentée la boucle de redirection." />
@@ -820,7 +842,8 @@
     <MESSAGE value="Excluded (size)" />
     <MESSAGE value="New version: bootstrap" />
     <MESSAGE value="Resolve multiple choice checkboxes.&#10;Now: make forms navigation fluid." />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolve multiple choice checkboxes.&#10;Now: make forms navigation fluid." />
+    <MESSAGE value="Wrong commit: problem with javascript.&#10;table update with XMLHTTPRequest.&#10;Table cancel button =&gt; tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wrong commit: problem with javascript.&#10;table update with XMLHTTPRequest.&#10;Table cancel button =&gt; tables" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

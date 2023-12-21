@@ -160,6 +160,9 @@ switch ($currentPage) {
     case "agenda":
         require_once "vue_manipe.php";
         break;
+    case "delete":
+        require_once "delete.php";
+        break;
     case "login":
     case "login_site_login":
         if(isset($_POST["lost_password"])) {

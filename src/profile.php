@@ -57,7 +57,7 @@ if (isset($str)) {
     ?>
 <div id="data">
     <h3><a href="downloads.php">Download Data</a></div>
-<h3><a href="delete.php">Delete Data</a></h3></div>
+<h3><a href="?page=delete">Delete Data</a></h3></div>
 </dev>
 
 <?php

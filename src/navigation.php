@@ -22,12 +22,12 @@ require_once "vue_agenda_date_mois.php";
 global $pages, $pagesNames;
 global $username;
 $pages = array(
-    "?page=tables"=>"Tables",// patients, activités, autonomies
+    "?page=tables"=>"Données et agendas",// patients, activités, autonomies
     //"?page=pati"=>"Patients",
     //"?page=memb"=>"Personnel",
     //"?page=acti" => "Ajouter une activité",
-    "?page=agenda" => "Agenda patients",
-    "?page=advent" => "Ajouter à l'agenda",//occurrence d'
+    //"?page=agenda" => "Agenda patients",
+    //"?page=advent" => "Ajouter à l'agenda",//occurrence d'
     "?page=profile" => "Profil ($username)");
 
 $pagesNames = array_keys($pages);

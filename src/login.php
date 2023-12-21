@@ -22,12 +22,15 @@ function login(): void
 {
     global $username;
 
-    if (isset($_POST['username']) && isset($_POST['password'])) {
+    $p_username = $_POST["username"]??$_GET["username"];
+    $p_password = $_POST["password"]??$_GET["password"];
+
+    if ($p_username && isset($p_password)) {
         // connexion à la base de données
         // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
         require_once "functions.php";
-        $username = escapeSqlChars($_POST['username']);
-        $password = escapeSqlChars($_POST['password']);
+        $username = escapeSqlChars($p_username);
+        $password = escapeSqlChars($p_password);
 
 
         if(strlen($username)>=3&&ctype_alpha($username)) {
