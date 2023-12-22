@@ -38,6 +38,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="one: agenda">
+        <serverdata>
+          <mappings>
+            <mapping deploy="agenda/" local="$PROJECT_DIR$" web="agenda/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="personals">
         <serverdata>
           <mappings>

@@ -163,6 +163,18 @@ function delete_data($username) : void
 
 
 }
+function delete_archive(int $id)
+{
+
+    global $db;
+    global $userData;
+
+    $filename = (int)getArchiveFilename($id);
+
+    if(unlink($filename)) {
+        echo "<p>archive file deleted</p>";
+    }
+}
 
 function delete_user($username): void
 {
@@ -179,11 +191,11 @@ function delete_user($username): void
 
 }
 
-function downloads(int $id)
+function downloads(int $id): void
 {
     global $db;
     global $userData;
-    $filename = "../data_agenda.$id.xml";
+    $filename = getArchiveFilename($id);
     $tableName = array("table_activite_christine",
         "table_activites",
         "table_activites_autonomie",
@@ -232,9 +244,17 @@ function downloads(int $id)
             echo "<p>" . ($ex->getTraceAsString()) . "</p>";
         }
 
-        echo "<a href='$filename'>Download</a>";
+        echo "<a href='$filename'>Download the archive file</a>";
+        echo "<a href='?page=delete_archive'>Delete the archive file</a>";
     }
 }
+
+function getArchiveFilename(int $id):String
+{
+    return "data_agenda.$id.xml";
+
+}
+
 function write_table_xml($fp, array $results, $tablename)
 {
     global $db;

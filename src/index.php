@@ -150,6 +150,12 @@ switch ($currentPage) {
     case "create_user":
         require_once "create_user.php";
         break;
+    case "delete_archive":
+        require_once "delete_archive.php";
+        break;
+    case "download":
+        require_once "downloads.php";
+        break;
     case "advent":
         require_once "framework.php";
         require_once "vue_edition_tache.php";
