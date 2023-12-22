@@ -17,32 +17,33 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-$connected = false;
 
 function login(): void
 {
-    global $username;
-    global $connected;
+
+    global $connectedLogin;
+
+    $connectedLogin = false;
 
     $p_username = $_POST["username"] ?? $_GET["username"];
     $p_password = $_POST["password"] ?? $_GET["password"];
 
+    //echo $p_username." ".$p_password;
     if (isset($p_username) && isset($p_password)) {
         // connexion à la base de données
         // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
         require_once "functions.php";
-        $username = escapeSqlChars($p_username);
-        $password = escapeSqlChars($p_password);
+        $p_username = escapeSqlChars($p_username);
+        $p_password = escapeSqlChars($p_password);
 
-
-        if (strlen($username) >= 3 && ctype_alpha($username)) {
+        if (strlen($p_username) >= 3 && ctype_alpha($p_username)) {
             global $db;
             $db = new MyDB();
-            if ($username !== "" && $password !== "") {
-                $request = "SELECT count(*)  as yes FROM table_utilisateurs where  nom_utilisateur = :nom_utilisateur and mot_de_passe = :mot_de_passe; ";
+            if ($p_username !== "" && $p_password !== "") {
+                $request = "SELECT count(*)  as yes FROM table_users where username = :nom_utilisateur and password = :mot_de_passe; ";
                 $stmt = $db->prepare($request);
-                $stmt->bindParam("nom_utilisateur", $username);
-                $stmt->bindParam("mot_de_passe", $password);
+                $stmt->bindParam("nom_utilisateur", $p_username);
+                $stmt->bindParam("mot_de_passe", $p_password);
                 $stmt->execute();
                 $response = $stmt->fetchAll();
                 $count = $response[0]['yes'];
@@ -51,18 +52,18 @@ function login(): void
                     /*if (session_status() === PHP_SESSION_NONE) {
                         session_start();
                     }*/
-                    $_SESSION['username'] = $username;
-                    $_SESSION['password'] = $password;
-                    $connected = true;
+                    $_SESSION['username'] = $p_username;
+                    $_SESSION['password'] = $p_password;
+                    $connectedLogin = true;
                     session_commit();
-                    echo "Login OK";
-                    echo "<a href='?page=agenda'>Aller à l\'application</a>";
+         //           echo "Login OK";
                 } else {
-                    echo "Erreur login. Utilisateur non trouvé";
+         //           echo "<p>Erreur login. Utilisateur non trouvé count=$count<br>$p_username<br>$p_password</p>";
+                    $connectedLogin = false;
                 }
             }
         } else {
-            echo "Nom d'utilisateur invalide : $username";
+            echo "Nom d'utilisateur invalide : $p_username";
         }
     } else {
         if (!checkLoginForm()) {
@@ -123,7 +124,7 @@ function login(): void
                     ?>Vous devriez être redirigé... vers
                     <script type="text/javascript">
                         const delai = 6000; // Delai en secondes
-                        const url = 'vue_semaine.php'; // Url de destination
+                        const url = 'index.php'; // Url de destination
                         //setTimeout("document.location.replace(url)", delai);
                     </script>-->
 

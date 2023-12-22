@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="downloads.php, delete.php">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AgendaUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AgendaUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyDB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/android/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/android/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/delete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logon.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/logon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -407,7 +409,7 @@
       <workItem from="1702464829076" duration="1286000" />
       <workItem from="1702496662697" duration="1187000" />
       <workItem from="1703078041513" duration="7228000" />
-      <workItem from="1703100690908" duration="9342000" />
+      <workItem from="1703100690908" duration="17809000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -752,7 +754,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="322" />
+    <option name="localTasksCounter" value="323" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

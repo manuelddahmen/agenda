@@ -37,7 +37,7 @@ function checkLoginForm(): bool
         if (checkLogin($_SESSION['username'], $_SESSION['password'])) {
             $username = $_SESSION['username'];
             $connected = true;
-            //$loginForm = "<h3 for'loggedIn'>$username</h3>";
+            $loginForm = "<h3 for'loggedIn'>$username</h3>";
             return true;
         } else {
             $loginForm = "<li class='sousmenu '>Erreur login<a href='index.php?page=login'>Reconnectez-vous</a></li>";

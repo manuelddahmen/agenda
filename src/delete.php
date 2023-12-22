@@ -64,6 +64,10 @@ if(isset($userData["id"])) {
 
 downloads($userData["id"]);
 
-delete_user_and_data($userData["id"]);
+delete_data($userData["id"]);
+
+if(isset($_GET["delete_account"])) {
+    delete_user($userData["id"]);
+}
 ?>
 <h2>N'oubliez pas de fermer la session</h2>

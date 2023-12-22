@@ -40,39 +40,40 @@ require_once "vue_agenda_date_mois.php";
 require_once "printTableWithGetters.php";
 require_once "logon.php";
 require_once "login.php";
+require_once "AgendaUser.php";
 
+global $userData;
+global $connectedLogin;
 global $username;
-$username = (($username)??$_GET["username"])??$_POST["username"];
+global $password;
 
-if($username!=NULL) {
+$connectedLogin = false;
+
+$username = (($username) ?? $_GET["username"]) ?? $_POST["username"];
+
+if (!checkLoginForm()) {
+    if (function_exists("login")) {
+        login();
+
+    } else {
+        //$exit_after = true;
+    }
+} else {
+    login();
+}
+
+if ($username != NULL) {
     $userDetails = new AgendaUser($username);
 
     $userDetails = $userDetails->getData();
 
-    if($userDetails!=NULL) {
+    if ($userDetails != NULL) {
         $themeName = $userDetails["theme_name"];
     }
 }
 
 
-if(function_exists("logon")) {
-    if (!checkLoginForm()) {
-        if (function_exists("login")) {
-            login();
-
-        } else {
-            //$exit_after = true;
-        }
-    }
-
-}
-
-require_once "AgendaUser.php";
-
-
-global $userData;
-global $connected;
-if(isset($userData["id"]) || $connected) {
+if ($connectedLogin) {
     echo "1";
 } else {
     echo "0";

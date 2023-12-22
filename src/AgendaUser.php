@@ -24,6 +24,7 @@ class AgendaUser {
 
     public function __construct($username)
     {
+        global $password;
         if($username!=null) {
             global $db;
 
@@ -31,7 +32,7 @@ class AgendaUser {
                 $db = $this->db = new MyDB();
             }
 
-            $stmt = $db->prepare("select * from table_users where username=:username");
+            $stmt = $db->prepare("select * from table_users where username=:username");// and :password=:passowrd
             $stmt->bindParam("username", $username);
             if ($stmt->execute()) {
                 $var = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -131,34 +131,43 @@ function db_make_a_copy($username)
     $db = AgendaUser::createUser();
 
 }
-function delete_user_and_data($username): void
+
+function delete_data($username) : void
+{
+        global $db;
+        global $userData;
+
+        $tableName = array( "table_activite_christine",
+            "table_activites",
+            "table_activites_autonomie",
+            "table_assoc_personnel_activ",
+            "table_employes",
+            "table_groupes",
+            "table_hospitalises",
+            "table_notes",
+            "table_personnel",
+            "table_taches",
+            "table_taches_autonomie",
+            "table_taches_patients",
+            "table_utilisateurs"
+        );
+        foreach ( $tableName as $tablename) {
+            try {
+                $stmt = $db->prepare("delete from $tablename where user_id=:id;");
+                $stmt->bindParam("id", $userData["id"]);
+                $stmt->execute();
+            } catch (Exception $ex) {
+                echo "<p>".($ex->getTraceAsString())."</p>";
+            }
+        }
+
+
+}
+
+function delete_user($username): void
 {
     global $db;
     global $userData;
-
-    $tableName = array( "table_activite_christine",
-    "table_activites",
-    "table_activites_autonomie",
-    "table_assoc_personnel_activ",
-    "table_employes",
-    "table_groupes",
-    "table_hospitalises",
-    "table_notes",
-    "table_personnel",
-    "table_taches",
-    "table_taches_autonomie",
-    "table_taches_patients",
-        "table_utilisateurs"
-    );
-    foreach ( $tableName as $tablename) {
-        try {
-            $stmt = $db->prepare("delete from $tablename where user_id=:id;");
-            $stmt->bindParam("id", $userData["id"]);
-            $stmt->execute();
-        } catch (Exception $ex) {
-            echo "<p>".($ex->getTraceAsString())."</p>";
-        }
-    }
 
     try {
         $stmt = $db->prepare("delete from table_users where id=:id;");
