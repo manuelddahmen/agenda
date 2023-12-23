@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0.">
-      <change beforePath="$PROJECT_DIR$/src/vue_semaine.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_semaine.php" afterDir="false" />
+    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agenda.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -403,7 +405,7 @@
       <workItem from="1702464829076" duration="1286000" />
       <workItem from="1702496662697" duration="1187000" />
       <workItem from="1703078041513" duration="7228000" />
-      <workItem from="1703100690908" duration="25412000" />
+      <workItem from="1703100690908" duration="26412000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -748,7 +750,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="327" />
+    <option name="localTasksCounter" value="328" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,7 +811,6 @@
       <path value="$PROJECT_DIR$/instances-agenda/agenda" />
       <path value="$PROJECT_DIR$/instances-agenda/manou" />
     </ignored-roots>
-    <MESSAGE value="Version OK avec login Google. Bug username.&#10;User data usage.&#10;++Privacy Policy&#10;Commentée la boucle de redirection." />
     <MESSAGE value="Login site+google OK sauf logout." />
     <MESSAGE value="Login site+google OK sauf logout.&#10;Changements sql voir console.sql screma.sql" />
     <MESSAGE value="Gpg?" />
@@ -834,7 +835,8 @@
     <MESSAGE value="Wrong commit: problem with javascript.&#10;table update with XMLHTTPRequest.&#10;Table cancel button =&gt; tables" />
     <MESSAGE value="downloads.php, delete.php" />
     <MESSAGE value="RELEASE 1.0." />
-    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0." />
+    <MESSAGE value="RELEASE 1.0. #3" />
+    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #3" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

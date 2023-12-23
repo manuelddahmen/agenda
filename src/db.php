@@ -310,12 +310,13 @@ function utilTableRowWithId(
  * @param $foreignKeys array|null("$idName"=>array(("tablename=>"$tablename", "references"=> "field2$", "display" =>"$fieldName), "key2"=>)
  * @param string $finishPage
  * @param bool $displayId
+ * @param array $optional_buttons array(array(button_1_html_string, button1_table_id_replacement_string), ...)
  * @return string
  */
 function printTable(string $tablename, array $columnsNames,
                     array  $columnsType, array $idsName, array $idsType,
-                    string $idForm, array $foreignKeys = null,
-                    string $finishPage = "tables", bool $displayId=false, array $optional_buttons=array()): string
+                    string $idForm, array $foreignKeys = null, string $finishPage = "tables",
+                    bool $displayId=false, array $optional_buttons=array()): string
 {
 
     if (count($columnsNames) == 2 &&
@@ -470,6 +471,8 @@ function printTable(string $tablename, array $columnsNames,
     }
     $str .= "</table>";
     $str .= print_add_link($tablename, $idsName, $idsType, 0);
+
+
 
     return $str;
 }
@@ -684,8 +687,8 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
     $str .= "<input type='hidden' name='" . $idName . "' value='" . ($edit ? $idRef : 0) . "' />";
     $str .= "<input type='hidden' name='action' value='" . ($id == 0 ? "saveNew" : "save") . "' />";
     $str .= "</td><td>
-            <button id='cancelButtonTable' type='image' class='icon' value='Annuler les modifications'  onclick='goto(\"?\") '><img height='40px' width='40px' src='../images/cancel.png' alt='Annuler les modifications'/>
-            <input id='submitButtonTable' class='btn-submit icon' type='image' value='Valider les modifications' height='40px' width='40px'  src='../images/validate.png' alt='Valider les modifications'/>
+            <button id='cancelButtonTable'  class='btn-submit icon' type='button' value='Annuler les modifications'  onclick='cancelTableEdit(); '><img height='40px' width='40px' src='../images/cancel.png' alt='Annuler les modifications'/></button>
+            <button id='submitButtonTable' class='btn-submit icon' type='image' value='Valider les modifications'  onclick='submit();'><img height='40px' width='40px'  src='../images/validate.png' alt='Valider les modifications'/></button>
             </td></tr></table>";
     $str .= "</form>";
 

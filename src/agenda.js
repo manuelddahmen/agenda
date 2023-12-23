@@ -247,7 +247,7 @@ function toggleCheckBox(id) {
 }
 
 function refreshDataSemaineTaches(select) {
-    let elementById =((HTMLInputElement)(select));
+    let elementById = (HTMLInputElement)(select);
     if (isAutoDirectSave()) {
         elementById.click();
     } else {
@@ -257,7 +257,7 @@ function refreshDataSemaineTaches(select) {
 }
 
 function random() {
-    return Math.round(Math.random()*10000000);
+    return Math.round(Math.random() * 10000000);
 }
 
 function newTaskButton() {
@@ -274,6 +274,7 @@ function showEmployesAndActivites() {
 function commitChanges(tdElemChanged) {
     alert("Utiliser le bouton édition à droite ou le bouton ajouter en bas de la table");
 }
+
 function include2(url) {
     xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.onload = reqListener2;
@@ -282,6 +283,7 @@ function include2(url) {
     xmlHttpRequest.send();
 
 }
+
 function disable_button() {
     let buttonFormSubmit = document.getElementById("edition_activite_submitChanges");
     if (buttonFormSubmit != null) {
@@ -411,6 +413,16 @@ function objectToQueryString(obj) {
     return str.join("&");
 }
 
+function formDataToQueryString(obj) {
+    let str = [];
+    i = 0;
+    let it = obj.values();
+    for(const [key, value] of obj.entries()) {
+        str[i] = key + "=" + encodeURIComponent(value);
+        i++;
+    }
+    return str.join("&");
+}
 let xmlHttpRequest;
 
 function chkbox(this1) {
@@ -494,7 +506,7 @@ function checkTache(event) {
 
     let id_tache = document.getElementById('id_tache');
 
-    if(id_tache!=null && id_tache.value>0) {
+    if (id_tache != null && id_tache.value > 0) {
         id_tache.classList.toggle("error", false);
     } else {
         id_tache.classList.toggle("error", true);
@@ -512,7 +524,7 @@ function checkTache(event) {
     }
 */
     let activites = document.getElementById("id_activite");
-    if(activites.value>0) {
+    if (activites.value > 0) {
         activites.classList.toggle("error", false);
     } else {
         activites.classList.toggle("error", true);
@@ -529,14 +541,14 @@ function checkTache(event) {
         errors = errors + 1;
     }
     let jour__semaine_demie__heure_temps_1 = document.getElementById("jour__semaine_demie__heure_temps_1");
-    if(jour__semaine_demie__heure_temps_1.value!=-1) {
+    if (jour__semaine_demie__heure_temps_1.value != -1) {
         jour__semaine_demie__heure_temps_1.classList.toggle("error", false);
     } else {
         jour__semaine_demie__heure_temps_1.classList.toggle("error", true);
         errors = errors + 1;
     }
     let jour__semaine_demie__heure_temps_2 = document.getElementById("jour__semaine_demie__heure_temps_2");
-    if(jour__semaine_demie__heure_temps_2.value!=-1) {
+    if (jour__semaine_demie__heure_temps_2.value != -1) {
         jour__semaine_demie__heure_temps_2.classList.toggle("error", false);
     } else {
         jour__semaine_demie__heure_temps_2.classList.toggle("error", true);
@@ -544,21 +556,21 @@ function checkTache(event) {
     }
 
     let elementById1 = document.getElementById("errors");
-    if(errors==0) {
+    if (errors == 0) {
         document.forms[0].submit();
         return true;
     } else {
-        elementById1.innerHTML="Il y a des erreurs, corrigez :) !!!";
+        elementById1.innerHTML = "Il y a des erreurs, corrigez :) !!!";
         return false;
     }
 }
-
-var $TABLE = $(".printTable");
-var $BTN = $("#export-btn");
-var $EXPORT = $("#export");
+/*
+let $TABLE = $(".printTable");
+let $BTN = $("#export-btn");
+let $EXPORT = $("#export");
 
 $(".table-add").click(function () {
-    var $clone = $TABLE
+    let $clone = $TABLE
         .find("tr.hide")
         .clone(true)
         .removeClass("hide table-line");
@@ -579,7 +591,6 @@ $(".table-down").click(function () {
     var $row = $(this).parents("tr");
     $row.next().after($row.get(0));
 });
-
 // A few jQuery helpers for exporting only
 jQuery.fn.pop = [].pop;
 jQuery.fn.shift = [].shift;
@@ -612,3 +623,56 @@ $BTN.click(function () {
     // Output the result
     $EXPORT.text(JSON.stringify(data));
 });
+*/
+
+// Get the form element
+let form = document.getElementById("editFormData");
+
+function sendData() {
+    const XHR = new XMLHttpRequest();
+
+    if(form===null) {
+        form = document.getElementById("editFormData");
+    }
+
+    if(form!=null ) {
+
+        let form1 = form;//
+
+
+        // Bind the FormData object and the form element
+        const FD = new FormData(form1);
+
+        // Define what happens on successful data submission
+        XHR.addEventListener("load", (event) => {
+            //alert("Yeah! Data sent and response loaded.");
+        });
+
+        // Define what happens in case of an error
+        XHR.addEventListener("error", (event) => {
+            //alert("Oops! Something went wrong.");
+        });
+        const getUrl = "https://empty3.app/agenda/src/ajax/request_form.php?"+formDataToQueryString(FD);
+
+        //alert(getUrl);
+
+
+        // Set up our request
+        XHR.open("GET", getUrl);
+
+        // The data sent is what the user provided in the form
+        XHR.send(FD);
+    }
+}
+
+if (form !== null) {
+    // Add submit event handler
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendData();
+    });
+}
+
+function cancelTableEdit() {
+    document.location.href = "index.php?page=tables";
+}
