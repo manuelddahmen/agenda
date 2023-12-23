@@ -163,7 +163,7 @@ function delete_data($username) : void
 
 
 }
-function delete_archive(int $id)
+function delete_archive(int $id): void
 {
 
     global $db;
@@ -176,7 +176,7 @@ function delete_archive(int $id)
     }
 }
 
-function delete_user($username): void
+function delete_user(int $id): void
 {
     global $db;
     global $userData;
@@ -196,7 +196,7 @@ function downloads(int $id): void
     global $db;
     global $userData;
     $filename = getArchiveFilename($id);
-    $tableName = array("table_activite_christine",
+    $tableNames = array( "table_activite_christine",
         "table_activites",
         "table_activites_autonomie",
         "table_assoc_personnel_activ",
@@ -211,17 +211,20 @@ function downloads(int $id): void
         "table_utilisateurs"
     );
 
-    $fp = fopen($filename, "w+");
+    if(file_exists($filename))
+        unlink($filename);
+    $fp = fopen($filename, "a");
 
     if (!$fp) {
 
     } else {
-        foreach ($tableName as $tablename) {
+        fwrite($fp, "<?xml version='1.0' encoding='UTF-8'?>\n<archive>");
+        foreach ($tableNames as $tablename) {
             try {
                 $stmt = $db->prepare("select * from $tablename where user_id=:id;");
                 $stmt->bindParam("id", $userData["id"]);
-                $results = $stmt->execute();
-
+                $stmt->execute();
+                $results = $stmt->fetchAll();
 
                 if(!is_bool($results)) {
                     write_table_xml($fp, $results, $tablename);
@@ -231,22 +234,14 @@ function downloads(int $id): void
             }
         }
 
-        try {
-            $tablename = "table_users";
-            $stmt = $db->prepare("select * from $tablename where id=:id;");
-            $stmt->bindParam("id", $userData["id"]);
-            $results = $stmt->execute();
-
-            if(!is_bool($results)) {
-                write_table_xml($fp, $results, $tablename);
-            }
-        } catch (Exception $ex) {
-            echo "<p>" . ($ex->getTraceAsString()) . "</p>";
-        }
+        fwrite($fp, "</archive>");
 
         echo "<a href='$filename'>Download the archive file</a>";
         echo "<a href='?page=delete_archive'>Delete the archive file</a>";
+
     }
+
+    fclose($fp);
 }
 
 function getArchiveFilename(int $id):String
@@ -255,14 +250,20 @@ function getArchiveFilename(int $id):String
 
 }
 
-function write_table_xml($fp, array $results, $tablename)
+function write_table_xml($fp, array $results, $tableName): void
 {
     global $db;
-    fwrite($fp, "<table>$tablename</table>\n");
+    fwrite($fp, "<table name='$tableName'>\n");
     foreach ($results as $row) {
+        fwrite($fp, "\t<row>");
         foreach ($row as $key =>$value) {
-            fwrite($fp, "\t<field name='$key'>$value</field");
+            echo "data".$key;
+            fwrite($fp, "\t<field name='$key'>$value</field>");
         }
-        fwrite($fp, "\n</table>");
+        fwrite($fp, "\t</row>");
+
     }
+    fwrite($fp, "\n</table>");
+
+
 }

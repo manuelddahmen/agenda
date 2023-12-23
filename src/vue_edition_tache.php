@@ -20,7 +20,9 @@
 
 //require_once "framework.php";
 require_once "db.php";
+require_once "initIdHospitalise.php";
 
+initIdHospitalise();
 global $db;
 $db = new MyDB();
 
@@ -224,11 +226,11 @@ echo $jour__semaine_demie__heure_temps;
 
     <?php
     if (isset($id_hospitalise)) { ?>
-        <a class="button" href="index.php?page=agenda&id_hospitalise=<?php echo $id_hospitalise[0]; ?>">Voir la semaine
+        <a class="button" href="index.php?page=agenda<?php echo implodeIdsInUrl("id_hospitalise", $id_hospitalise); ?>">Voir la semaine
             de -</a>
         <a class="button error"
-           href="index.php?page=agenda&id_hospitalise=<?php echo $id_hospitalise[0]; ?>&table=table_taches&action=delete&id=<?php echo $id_tache; ?>&idName=id">Supprimer
-            la tâche de <?php echo "$id_tache, ".(string)(is_array($id_hospitalise)?$id_hospitalise[0]:$id_hospitalise)."  "; ?></a>
+           href="index.php?page=agenda&id_hospitalise=<?php echo implodeIdsInUrl("id_hospitalise", $id_hospitalise); ?>&table=table_taches&action=delete&id=<?php echo $id_tache; ?>&idName=id">Supprimer
+            la tâche de <?php echo ""; ?></a>
         <?php
     }
     ?>
@@ -297,13 +299,16 @@ echo $jour__semaine_demie__heure_temps;
                 global $resultPatientsTache;
 
 
-                $sec = (is_array($resultPatientsTache) && isset($resultPatientsTache[0]["id_patient"])) ? $resultPatientsTache : $id_hospitalise;
+                $sec = (is_array($resultPatientsTache) && isset($resultPatientsTache[0]["id_patient"]) && count($resultPatientsTache)>0) ? $resultPatientsTache : $id_hospitalise;
                 if(!is_array($sec)) {
                     $v = $sec;
                     $sec = array();
-                    $sec[0]["id_patient"] = $v;
+                    foreach ($id_hospitalise as $key => $value) {
+                        $sec[$key]["id_patient"] = $value;
+                    }
                 }
-                checkMultiple1("id_hospitalises_", $resultHospitalises, $sec, "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()");
+                checkMultiple1("id_hospitalises_", $resultHospitalises, $sec, "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()",
+                    "chkbox(this)", $id_hospitalise);
 
                 ?>
                 <div>
@@ -322,7 +327,7 @@ echo $jour__semaine_demie__heure_temps;
 
                 <?php
 
-                echo $id_activite;
+                //echo $id_activite;
                 selectOptions("id_activite", $resultActivites, "id", $id_activite, array("nom_activite"), "onchange=refreshDataSemaineTaches()");
 
 
@@ -343,7 +348,7 @@ echo $jour__semaine_demie__heure_temps;
             </td>
             <td>
                 <select name="jour__semaine_demie__heure_temps_0" id="jour__semaine_demie__heure_temps_0"
-                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches(this)>
+                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches()>
                     <option draggable="true" value="-1">-------</option>
                     <?php
                     global $halfHour;
@@ -372,7 +377,7 @@ echo $jour__semaine_demie__heure_temps;
             <td>Heure</td>
             <td>
                 <select name="jour__semaine_demie__heure_temps_1" id="jour__semaine_demie__heure_temps_1"
-                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches(this)>
+                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches()>
                     <option draggable="true" value="-1">-------</option>
                     <?php
                     foreach ($halfHour as $key => $hour) {
@@ -395,7 +400,7 @@ echo $jour__semaine_demie__heure_temps;
             <td>Durée</td>
             <td>
                 <select name="jour__semaine_demie__heure_temps_2" id="jour__semaine_demie__heure_temps_2"
-                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches(this)>
+                        class="btn-choose ligne2" onchange=refreshDataSemaineTaches()>
                     <option draggable="true" value="-1">-------</option>
                     <?php
                     $times = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -459,19 +464,18 @@ addError("Notice", $sql);
 <h1>table_taches</h1>
 <?php
 */
-require_once "getdata_2.php";
-
-$newGetData = new getdata_2($id_hospitalise);
-
 global $id_hospitalise;
 
+$action = $_GET["getvalues"] ?? "get";
 
-checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"), $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()");
+$i = 0;
+
+require_once "getdata_2.php";
+$newGetData = new getdata_2($id_hospitalise??-1, $id_hospitalises??array());
+
 
 $newGetData->init();
 
-
-global $id_hospitalise;
 $result = joursTaches($id_hospitalise);
 
 require_once "footer.php";

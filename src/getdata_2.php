@@ -49,7 +49,7 @@ $username = $username ?? $_SESSION['username'];
 //print_r($_GET);
 global $id_hospitalise;
 //print_r($id_hospitalise);
-$id_hospitalise = array();
+
 foreach ($_GET as $key => $value) {
     if (str_starts_with($key, "id_hospitalise_")) {
         $key = substr($key, strlen("id_hospitalise_"));
@@ -89,7 +89,7 @@ class getdata_2
             $sql1 = "th.nom as nomPatient, th.prenom as prenomPatient, th.birthdate, th.acti_obli_1, th.acti_obli_2,";
             $sql2 = " where 1 and ( 0";
             foreach ($id_hospitalise as $key => $value) {
-                $sql2 .= " or th.chambre=$id_hospitalise ";
+                $sql2 .= " or th.chambre=$value ";
             }
             $sql2 .= ") ";
         } else if ($id_hospitalise > 0) {
@@ -100,18 +100,18 @@ class getdata_2
             $sql2 .= " ";
         }
         global $userData;
-        $sql21 = $sql2 . " and th.user_id=" . ($userData["id"]) . " and ta.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . " and ttp.user_id=" . ($userData["id"]);
-        $sql22 = $sql2 . " and th.user_id=" . ($userData["id"]) . " and ta.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . " and ttp.user_id=" . ($userData["id"]);
+        $sql21 = "and 1";//= $sql2 . " and th.user_id=" . ($userData["id"]) . " and ta.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . " and ttp.user_id=" . ($userData["id"]);
+        $sql22 = "and 1"; //= $sql2 . " and th.user_id=" . ($userData["id"]) . " and ta.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . " and ttp.user_id=" . ($userData["id"]);
 
         if (count_chars($sql2) == 2)
             $sql2 = "";
-        $sqlPatients = "select $sql1 chambre, nom, prenom "
+        $sqlPatients = "select $sql1 th.chambre as chambre, nom, prenom "
             . "from table_hospitalises th join table_taches tt on th.chambre = tt.id_hospitalises inner join table_activites ta on ta.id = tt.id_activite "
             . "inner join table_taches_patients ttp on tt.id = ttp.id_tache and ttp.id_patient=th.chambre " . $sql21 . " "
             . "and  th.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . " " . " and ta.user_id=" . ($userData["id"]) . " "
             . " union "
             . " select $sql1 chambre, nom, prenom    from table_hospitalises th join table_taches tt2 on th.chambre = tt2.id_hospitalises inner join table_activites ta on ta.id = tt2.id_activite "
-            . $sql22;
+            . $sql22.";";
 
 //print_r($sql);
 
@@ -620,11 +620,9 @@ function listActivitiesHtml($rowItem, $isEvent = false): string
         $str .= halfHourText($dateParts[2]);
     }
     $string_hospi = "";
-    if(isset($id_hospitalise) && is_array($id_hospitalise)) {
-        foreach ($id_hospitalise as $value) {
-            $string_hospi .= "&id_hospitalise=" . $value;
-        }
-    } else if(isset($id_hospitalise) && is_numeric($id_hospitalise)) {
+    if(isset($id_hospitalise) && is_array($id_hospitalise) && !$isEvent) {
+        $string_hospi = implodeIdsInUrl("id_hospitalise",$id_hospitalise);
+    } else if(isset($id_hospitalise) && is_numeric($id_hospitalise) && !$isEvent) {
         $string_hospi .= "&id_hospitalise=".$id_hospitalise;
     }
     if (!$isEvent) {
@@ -648,8 +646,8 @@ function listActivitiesHtml($rowItem, $isEvent = false): string
  */
 function print_planning($result, $id_hospitalise): void
 {
-    //echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
-    echo "<table class='agenda' id='agenda'>";
+    echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
+    echo "<table class='agenda' id='agenda1'>";
     global $halfHour, $days;
     echo "<tr>";
     for ($i = -1; $i < 7; $i++) {
@@ -717,9 +715,11 @@ function print_planning($result, $id_hospitalise): void
 function print_planning2($result, $id_hospitalise): void
 {
     global $newGetData;
-    checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"), $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"), "onchange=refreshDataSemaineTaches()");
+    checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"),
+        $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
+        "onchange=refreshDataSemaineTaches()", "chkbox(this)");
     //echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
-    echo "<table class='agenda' id='agenda'>";
+    //echo "<table class='agenda' id='agenda'>";
     global $halfHour, $days;
     echo "<tr>";
     for ($i = -1; $i < 7; $i++) {
@@ -795,9 +795,6 @@ function print_planning2($result, $id_hospitalise): void
  */
 function fusionnerResultatPatientPatients(array &$arrayResultDetails): array
 {
-
-    print_r($arrayResultDetails);
-
     $jours = array();
 
     global $halfHour;
@@ -845,16 +842,18 @@ function listePatients($id_hospitalise): void
     $getData = new getdata_2($id_hospitalise);
     $patients = $getData->retrieveAllPatient("get");
     echo "<tr><td colspan='8' class='titre_agenda'>";
-    foreach ($id_hospitalise as $i => $chambre) {
-        foreach ($patients as $patient) {
-            if ($chambre == $patient["id_hospitalise"] && $chambre > 0) {
-                $list .= "-" . ($patient["nom"]) . " " . ($patient["prenom"]) . "- " . (date_locale_fr($patient["birthdate"])) . "-";
-                if(isset($patient) &&isset($patient["vaisselle"]) && isset($patient["nom"])) {
-                    $joursVaisselle[$patient["vaisselle"]] = $joursVaisselle[$patient["vaisselle"]]??"";
-                    $joursVaisselle[$patient["vaisselle"]] .= ($patient["nom"]) . " " . ($patient["prenom"]);
+    if(is_array($id_hospitalise)) {
+        foreach ($id_hospitalise as $i => $chambre) {
+            foreach ($patients as $patient) {
+                if ($chambre == $patient["id_hospitalise"] && $chambre > 0) {
+                    $list .= "-" . ($patient["nom"]) . " " . ($patient["prenom"]) . "- " . (date_locale_fr($patient["birthdate"])) . "-";
+                    if (isset($patient) && isset($patient["vaisselle"]) && isset($patient["nom"])) {
+                        $joursVaisselle[$patient["vaisselle"]] = $joursVaisselle[$patient["vaisselle"]] ?? "";
+                        $joursVaisselle[$patient["vaisselle"]] .= ($patient["nom"]) . " " . ($patient["prenom"]);
 
-                    $acti_obli["acti_obli_1"] = $patient["acti_obli_1"];
-                    $acti_obli["acti_obli_2"] = $patient["acti_obli_2"];
+                        $acti_obli["acti_obli_1"] = $patient["acti_obli_1"];
+                        $acti_obli["acti_obli_2"] = $patient["acti_obli_2"];
+                    }
                 }
             }
         }
@@ -867,9 +866,9 @@ function listePatients($id_hospitalise): void
 function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
 {
     global $halfHour, $days;
-
-
     global $halfHour, $days, $id_hospitalise;
+
+    echo "<table id='agenda' class='agenda'>";//THE GOOG
 
     listePatients($id_hospitalise);
     echo "<tr>";

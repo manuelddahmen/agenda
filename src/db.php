@@ -350,7 +350,8 @@ function utilTableRowWithId(
  */
 function printTable(string $tablename, array $columnsNames,
                     array  $columnsType, array $idsName, array $idsType,
-                    string $idForm, array $foreignKeys = null, string $finishPage = "tables", bool $displayId=false): string
+                    string $idForm, array $foreignKeys = null,
+                    string $finishPage = "tables", bool $displayId=false, array $optional_buttons=array()): string
 {
 
     if (count($columnsNames) == 2 &&
@@ -492,7 +493,16 @@ function printTable(string $tablename, array $columnsNames,
         $str .= "</td>" . "<td>";
         $str .= print_delete_link($tablename, $idsName, $idsType,
             $ids1);
-        $str .= "</td>" . "</tr>";
+        $str .= "</td>";
+        if($optional_buttons!=null && count($optional_buttons)>0) {
+            foreach ($optional_buttons as $valueA) {
+                $str .= "<td>";
+                $str .= str_replace($valueA[1], $ids1[0], $valueA[0]);
+                //array(array(button_1_html_string, button1_table_id_replacement_string), ...)
+                $str .= "</td>";
+            }
+        }
+        $str .= "</tr>";
     }
     $str .= "</table>";
     $str .= print_add_link($tablename, $idsName, $idsType, 0);
@@ -1072,16 +1082,16 @@ function dayCalString($array0) {
 }
 */
 
-function checkMultiple(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $ckecheds=null): void
+function checkMultiple(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array,
+                       string $string2, $onchecked="chkbox(this)", $ckecheds=null): void
 
 {
-    $onchange = $string2;
     $idx = 0;
     global $id_tache;
     global $id_hospitalise;
     foreach ($resultHospitalises as $i => $rowItem) {
-        $valId = "patientCheck".rand(0, 1000);
-        echo "<input id='".$valId."' onclick='".$onchange."(this)' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        $valId = $string."_$rowItem[$string1]";
+        echo "<input id='".$valId."' onclick='".$onchecked."' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
         $selected = false;
         if (isset($resultPatientsTache) && $id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
@@ -1107,24 +1117,33 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
     }
 }
 
-function checkMultiple1(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2="chkbox(this)", $ckecheds=null): void
+function checkMultiple1(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $onchecked="chkbox(this)", $ckecheds=array()): void
 
 {
-    $onchecked = $string2;
     $idx = 0;
     global $id_tache;
     foreach ($resultHospitalises as $i => $rowItem) {
         $echoed = false;
         $valId = "patientCheck".rand(0, 1000);
-        echo "<input id='".$valId."' onclick='".$onchecked."(this)' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        echo "<input id='".$valId."' onclick='".$onchecked."' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
         if ($id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
                 if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
-                    if(!$echoed) {
+                    if (!$echoed) {
+                        echo(" checked='checked' ");
+                        $echoed = true;
+                    }
+                } else {
+                    if (in_array($rowItem[$string1], $ckecheds)) {
                         echo(" checked='checked' ");
                         $echoed = true;
                     }
                 }
+            }
+        } else {
+            if(in_array($rowItem[$string1], $ckecheds)) {
+                echo(" checked='checked' ");
+                $echoed = true;
             }
         }
         if($id_tache>0) {
@@ -1142,6 +1161,7 @@ function checkMultiple1(string $string, array $resultHospitalises, array $result
         $idx ++;
     }
 }
+
 
 /*function checkMultiple(string $string, array $resultHospitalises, $resultPatientsTache, string $string1, array $array, string $string2): void
 {

@@ -49,15 +49,16 @@ require_once "printTableWithGetters.php";
 require_once "logon.php";
 require_once "login.php";
 
+
 global $username;
 $username = $username ?? $_SESSION['username'];
 require_once "AgendaUser.php";
-if ($username != NULL) {
+if($username!=NULL) {
     $userDetails = new AgendaUser($username);
 
     $userDetails = $userDetails->getData();
 
-    if ($userDetails != NULL) {
+    if($userDetails!=NULL) {
         $themeName = $userDetails["theme_name"];
     }
 }
