@@ -655,7 +655,7 @@ function print_planning($result, $id_hospitalise): void
             echo "<td class='hours'><h2>h</h2></td>";
         } else {
             $day = $days[$i];
-            echo "<td><h2>$day</h2></td>";
+            echo "<td><h2>$day".listActivitiesHtml(null)."</h2></td>";
         }
     }
     global $halfHour, $days;
@@ -904,7 +904,7 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
             }
         }
         if ($jEmpty == 8)
-            continue;
+            ;//continue;
         for ($j = -1; $j < 7; $j++) {
             if ($j == -1) {
                 echo "<td class='hours half_hour notempty'>$halfHourValue</td>";
@@ -1048,7 +1048,7 @@ function layoutCell($dataHalfHour)
             $layout = "";
         }
     }
-
+    return $layout;
 }
 
 global $id_hospitalise;
