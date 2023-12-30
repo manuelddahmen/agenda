@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #4">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/getdata_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/getdata_2.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -222,9 +220,6 @@
     }
   }
 }</component>
-  <component name="SpaceReviewProjectSettings">
-    <option name="selectedReviewProjectId" value="2ezbLB2u8Pmi" />
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
@@ -406,7 +401,8 @@
       <workItem from="1702496662697" duration="1187000" />
       <workItem from="1703078041513" duration="7228000" />
       <workItem from="1703100690908" duration="29423000" />
-      <workItem from="1703400177391" duration="4995000" />
+      <workItem from="1703400177391" duration="6403000" />
+      <workItem from="1703929525457" duration="3243000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -751,7 +747,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="329" />
+    <option name="localTasksCounter" value="330" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -812,7 +808,6 @@
       <path value="$PROJECT_DIR$/instances-agenda/agenda" />
       <path value="$PROJECT_DIR$/instances-agenda/manou" />
     </ignored-roots>
-    <MESSAGE value="Login site+google OK sauf logout.&#10;Changements sql voir console.sql screma.sql" />
     <MESSAGE value="Gpg?" />
     <MESSAGE value="getdata_2.php updated" />
     <MESSAGE value="getdata_2.php updated&#10;Nouvelle table." />
@@ -837,7 +832,8 @@
     <MESSAGE value="RELEASE 1.0." />
     <MESSAGE value="RELEASE 1.0. #3" />
     <MESSAGE value="RELEASE 1.0. #3&gt;4" />
-    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #3&gt;4" />
+    <MESSAGE value="RELEASE 1.0. #4" />
+    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
