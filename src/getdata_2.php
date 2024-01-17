@@ -924,7 +924,7 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
                     ?></td><?php
                 } else {
                     ?>
-                    <td class="half_hour notempty" onmouseenter="clickZoomEvent(this);"><?php
+                    <td class="half_hour notempty" onmouseenter="/*clickZoomEvent(this);*/"><?php
 
                     echo listActivitiesHtml(array("jour__semaine_demie__heure_temps" => "$j:$halfHourValue:1",
                         "jour__semaine_demie__heure_temps_0" => "$j",

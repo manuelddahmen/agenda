@@ -247,11 +247,12 @@ function toggleCheckBox(id) {
 }
 
 function refreshDataSemaineTaches(select) {
-    let elementById = (HTMLInputElement)(select);
+    let elementById = document.getElementById("edition_activite_submitChanges");
     if (isAutoDirectSave()) {
         elementById.click();
     } else {
         hasChanged = true;
+
     }
     disable_button();
 }
@@ -426,10 +427,10 @@ function formDataToQueryString(obj) {
 let xmlHttpRequest;
 
 
-let nPatients : Int = 0;
+let nPatients = 0;
 function chkbox(this1) {
     var s = document.getElementById("patients");
-    var s1 = (Int) (s.innerText);
+    var s1 = parseInt(s.innerText);
     if (this1.checked) {
         nPatients =s1+1;
         d.push(s);
@@ -508,76 +509,79 @@ function registrerSubmit() {
     document.forms[0].addEventListener('submit', checkTache);
 
 }
-function checkTache(event) {
 
-    let errors = 0;
+function checkTache(button) {
+    try {
+        let errors = 0;
 
-    let id_tache = document.getElementById('id_tache');
+        let id_tache = document.getElementById('id_tache');
 
-    if (id_tache != null && id_tache.value > 0) {
-        id_tache.classList.toggle("error", false);
-    } else {
-        id_tache.classList.toggle("error", true);
-        //errors = errors + 1;
+        if (id_tache != null && id_tache.value > 0) {
+            id_tache.classList.toggle("error", false);
+        } else {
+            id_tache.classList.toggle("error", true);
+            //errors = errors + 1;
 
-    }
-    let patients = document.getElementById("patients");
-    /*
-    let patient = document.getElementById("id_hospitalises");
-    if(patient.value!=-1) {
-        patient.classList.toggle("error", false);
-    } else {
-        patient.classList.toggle("error", true);
-        errors = errors + 1;
-
-    }
-*/
-    if(d===undefined || d.length===0) {
-        patients.classList.toggle("error", true);
-        patients.innerText = "Invalide";
-        errors = errors + 1;
-    } else {
-        patients.classList.toggle("error", false);
-        patients.innerText = "Valide";
-    }
-    let activites = document.getElementById("id_activite");
-    if (activites.value > 0) {
-        activites.classList.toggle("error", false);
-    } else {
-        activites.classList.toggle("error", true);
-        errors = errors + 1;
-
-    }
+        }
+        let patients = document.getElementById("patients");
+        if (d === undefined || d.length === 0) {
+            patients.classList.toggle("error", true);
+            patients.innerText = 0;
+            errors = errors + 1;
+        } else if (patients.innerText === "0") {
+            patients.classList.toggle("error", false);
+            patients.innerText = "Valide";
+        }
 
 
-    let jour__semaine_demie__heure_temps_0 = document.getElementById("jour__semaine_demie__heure_temps_0");
-    if(jour__semaine_demie__heure_temps_0.value!=-1) {
-        jour__semaine_demie__heure_temps_0.classList.toggle("error", false);
-    } else {
-        jour__semaine_demie__heure_temps_0.classList.toggle("error", true);
-        errors = errors + 1;
-    }
-    let jour__semaine_demie__heure_temps_1 = document.getElementById("jour__semaine_demie__heure_temps_1");
-    if (jour__semaine_demie__heure_temps_1.value != -1) {
-        jour__semaine_demie__heure_temps_1.classList.toggle("error", false);
-    } else {
-        jour__semaine_demie__heure_temps_1.classList.toggle("error", true);
-        errors = errors + 1;
-    }
-    let jour__semaine_demie__heure_temps_2 = document.getElementById("jour__semaine_demie__heure_temps_2");
-    if (jour__semaine_demie__heure_temps_2.value != -1) {
-        jour__semaine_demie__heure_temps_2.classList.toggle("error", false);
-    } else {
-        jour__semaine_demie__heure_temps_2.classList.toggle("error", true);
-        errors = errors + 1;
-    }
+        let activites = document.getElementById("id_activite");
+        if (activites.value > 0) {
+            activites.classList.toggle("error", false);
+        } else {
+            activites.classList.toggle("error", true);
+            errors = errors + 1;
+        }
 
-    let elementById1 = document.getElementById("errors");
-    if (errors == 0) {
-        document.forms[0].submit();
-        return true;
-    } else {
-        elementById1.innerHTML = "Il y a des erreurs, corrigez :) !!!";
+
+        let jour__semaine_demie__heure_temps_0 = document.getElementById("jour__semaine_demie__heure_temps_0");
+        if (jour__semaine_demie__heure_temps_0.value != -1) {
+            jour__semaine_demie__heure_temps_0.classList.toggle("error", false);
+        } else {
+            jour__semaine_demie__heure_temps_0.classList.toggle("error", true);
+            errors = errors + 1;
+        }
+        let jour__semaine_demie__heure_temps_1 = document.getElementById("jour__semaine_demie__heure_temps_1");
+        if (jour__semaine_demie__heure_temps_1.value != -1) {
+            jour__semaine_demie__heure_temps_1.classList.toggle("error", false);
+        } else {
+            jour__semaine_demie__heure_temps_1.classList.toggle("error", true);
+            errors = errors + 1;
+        }
+        let jour__semaine_demie__heure_temps_2 = document.getElementById("jour__semaine_demie__heure_temps_2");
+        if (jour__semaine_demie__heure_temps_2.value != -1) {
+            jour__semaine_demie__heure_temps_2.classList.toggle("error", false);
+        } else {
+            jour__semaine_demie__heure_temps_2.classList.toggle("error", true);
+            errors = errors + 1;
+        }
+
+        let elementById1 = document.getElementById("errors");
+        if (errors === 0 && this.name === "save") {
+            document.forms[0].checkValidity();
+            document.forms[0].submit();
+//            return true;
+        }
+        if (errors === 0 && this.name === "saveAndNew") {
+            document.forms[0].checkValidity();
+//            document.forms[0].submit();
+            return true;
+        } else {
+            elementById1.innerHTML = "Il y a des erreurs, corrigez :) !!!";
+            document.forms[0].reportValidity();
+            return false;
+        }
+    } catch (exception) {
+        document.forms[0].reportValidity();
         return false;
     }
 }

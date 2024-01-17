@@ -327,7 +327,7 @@ echo $jour__semaine_demie__heure_temps;
                 <?php
 
                 //echo $id_activite;
-                selectOptions("id_activite", $resultActivites, "id", $id_activite, array("nom_activite"), "onchange=refreshDataSemaineTaches()");
+                selectOptions("id_activite", $resultActivites, "id", $id_activite, array("nom_activite"), "onchange='refreshDataSemaineTaches()'");
 
 
                 ?>
