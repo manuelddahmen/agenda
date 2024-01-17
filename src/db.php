@@ -68,7 +68,7 @@ function findInfoTable($tablename)
 function char1($type, $fieldName): string
 {
     if (isset($fieldName) && isset($type)
-        && ((strstr($type, "varchar") != 0||strstr($type, "string") != 0)
+        && ((strstr($type, "varchar") != 0 || strstr($type, "string") != 0)
             || strstr($type, "datetime") != 0
             || strstr($type, "date") != 0)) {
         $char1 = "'";
@@ -77,7 +77,8 @@ function char1($type, $fieldName): string
     }
     return $char1;
 }
-function crud() : void
+
+function crud(): void
 {
     global $action;
     global $db;
@@ -126,7 +127,6 @@ function crud() : void
             global $userData;
 
 
-
             //$sql = "select * from " . $table . ($table=="table_users"?"":" where user_id=".$userData["id"] ).";";
             //$stmt = $db->prepare($sql);
             //$stmt->execute();
@@ -158,7 +158,6 @@ function crud() : void
                 //$stmt->execute($values);
 
 
-
                 $db->exec($sql);
             }
 
@@ -183,7 +182,7 @@ function crud() : void
 
 
                 $result = $stmt->fetchAll();
-                if(count($result)>0) {
+                if (count($result) > 0) {
                     echo "<ul><li class='sousmenu'>Erreur utilisateur existe.</li></ul>";
                     echo "<ul><li class='sousmenu'>Impossible de créer un utilisateur pour le moment</li></ul>";
                     exit();
@@ -268,7 +267,7 @@ function crud() : void
             $str .= passForm($_GET, urldecode($action));
 
             if (isset($_GET["request"])) {
-                return ;
+                return;
             }
         }
 
@@ -316,7 +315,7 @@ function utilTableRowWithId(
 function printTable(string $tablename, array $columnsNames,
                     array  $columnsType, array $idsName, array $idsType,
                     string $idForm, array $foreignKeys = null, string $finishPage = "tables",
-                    bool $displayId=false, array $optional_buttons=array()): string
+                    bool   $displayId = false, array $optional_buttons = array()): string
 {
 
     if (count($columnsNames) == 2 &&
@@ -328,7 +327,7 @@ function printTable(string $tablename, array $columnsNames,
     $str = "";
     global $db;
     global $userData;
-    if($userData!=null)
+    if ($userData != null)
         $user_id = $userData["id"];
     if (!$db) {
         error_log("No database connection in printTable");
@@ -366,7 +365,7 @@ function printTable(string $tablename, array $columnsNames,
     }
 
     global $userData;
-    $sql = "select t1." . $id2 . ", * from " . $tablename . " t1"." where user_id=".($userData["id"]).";";
+    $sql = "select t1." . $id2 . ", * from " . $tablename . " t1" . " where user_id=" . ($userData["id"]) . ";";
     //echo $sql;
     $stmt = $db->prepare($sql);
     $stmt->execute();
@@ -380,7 +379,7 @@ function printTable(string $tablename, array $columnsNames,
     $str .= "<table border='4' class='printTable' id='$tableHtmlName'>";
 
     $str .= "<tr>";
-    if($displayId) {
+    if ($displayId) {
         for ($c = 0; $c < count($idsName); $c++) {
 
             $str .= "<td class='title'>" . $idsName[$c] . "</td>";
@@ -397,9 +396,9 @@ function printTable(string $tablename, array $columnsNames,
         foreach ($result[0] as $key => $value) {
             if (!in_array($key, $idsName, true) &&
                 !in_array($key, $columnsNames, true)) {
-                if($key!=="user_id") {
+                if ($key !== "user_id") {
                     $str .= "<td class='title'>" . $key . "</td>";
-                $keySupp[count($keySupp)] = $key;
+                    $keySupp[count($keySupp)] = $key;
                 }
 
             }
@@ -409,16 +408,16 @@ function printTable(string $tablename, array $columnsNames,
 
     for ($i = 0; $i < count($result); $i++) {
         $str .= "<tr>";
-        if($displayId) {
+        if ($displayId) {
             for ($c = 0; $c < count($idsName); $c++) {
                 $str .= "<td><p >" . $result[$i][$idsName[$c]] . "</p></td>";
             }
         }
         for ($c = 0; $c < count($columnsNames); $c++) {
-            if("user_id" == $columnsNames) {
+            if ("user_id" == $columnsNames) {
                 continue;
             }
-            $str .= "<td".(!isset($foreignKeys[$columnsNames[$c]])?" contenteditable='true'":"").">";
+            $str .= "<td" . (!isset($foreignKeys[$columnsNames[$c]]) ? " contenteditable='true'" : "") . ">";
 
             $fieldNameHtml = $tableHtmlName . "_" . $i . "_" . ($columnsNames[$c]);
 
@@ -459,7 +458,7 @@ function printTable(string $tablename, array $columnsNames,
         $str .= print_delete_link($tablename, $idsName, $idsType,
             $ids1);
         $str .= "</td>";
-        if($optional_buttons!=null && count($optional_buttons)>0) {
+        if ($optional_buttons != null && count($optional_buttons) > 0) {
             foreach ($optional_buttons as $valueA) {
                 $str .= "<td>";
                 $str .= str_replace($valueA[1], $ids1[0], $valueA[0]);
@@ -471,7 +470,6 @@ function printTable(string $tablename, array $columnsNames,
     }
     $str .= "</table>";
     $str .= print_add_link($tablename, $idsName, $idsType, 0);
-
 
 
     return $str;
@@ -513,6 +511,7 @@ function printTableSql($sql, $idName, $tablename): string
 
     return $str;
 }
+
 function print_delete_link1($tablename, $idsName, $idsType = array(), $ids): string
 {
     $str = "";
@@ -535,24 +534,24 @@ function print_add_link1($tablename, $idsName, $idsType = array()): string
     $str .= "<a href='?page=tables&action=add&table=" . $tablename . "&" . "id=" . (0) . "&idName=" . ($idsName[0]) . "' alt='Add item to table $tablename'><img src='../images/add.png' height='40px' width='40px' /></a>";
     return $str;
 }
+
 function print_delete_link($tablename, $idsName, $idsType = array(), $ids): string
 {
-    $url = "\"javascript:include2('ajax/request_form.php?page=tables&action=delete&table=" . $tablename . "&" . "id=" . ($ids[0]) . "&idName=" . ($idsName[0]) ."');\"";
-    $str = "<a class='deleteLink btn' href='#' onclick=".$url."><img src='../images/delete.png' alt='Delete item from table' " . $tablename . " height='40px' width='40px' ></a>";
+    $url = "\"javascript:include2('ajax/request_form.php?page=tables&action=delete&table=" . $tablename . "&" . "id=" . ($ids[0]) . "&idName=" . ($idsName[0]) . "');\"";
+    $str = "<a class='deleteLink btn' href='#' onclick=" . $url . "><img src='../images/delete.png' alt='Delete item from table' " . $tablename . " height='40px' width='40px' ></a>";
     return $str;
 }
 
 function print_edit_link($tablename, $idsName, $idsType = array(), $ids = 0): string
 {
-    $url = "\"javascript:include2('ajax/request_form.php?page=tables&action=edit&table=" . $tablename . "&" . "id=" . ($ids[0]) . "&idName=" . ($idsName[0]) ."');\"";
-    return "<a class='editLink btn' href='#' onclick=".$url ."><img src='../images/modify.png' alt='Edit item from " . $tablename . "\"'); height='40px' width='40px' '/></a>"
-        ;
+    $url = "\"javascript:include2('ajax/request_form.php?page=tables&action=edit&table=" . $tablename . "&" . "id=" . ($ids[0]) . "&idName=" . ($idsName[0]) . "');\"";
+    return "<a class='editLink btn' href='#' onclick=" . $url . "><img src='../images/modify.png' alt='Edit item from " . $tablename . "\"'); height='40px' width='40px' '/></a>";
 }
 
 
 function print_add_link($tablename, $idsName, $idsType = array()): string
 {
-    $url = "\"javascript:include2('ajax/request_form.php?page=tables&action=add&table=" . $tablename . "&" . "id=" . (0) . "&idName=" . ($idsName[0]) ."');\"";
+    $url = "\"javascript:include2('ajax/request_form.php?page=tables&action=add&table=" . $tablename . "&" . "id=" . (0) . "&idName=" . ($idsName[0]) . "');\"";
     return "<a  href='#' onclick=$url ><img alt='Add item to table $tablename.' src='../images/add.png' height='40px' width='40px' /></a>";
 }
 
@@ -566,7 +565,7 @@ function print_add_link($tablename, $idsName, $idsType = array()): string
  * @param $autoId
  * @return string
  */
-function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data = array(), bool $autoId=true): string
+function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data = array(), bool $autoId = true): string
 {
     global $userData;
 
@@ -589,7 +588,7 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
         if (isset($result0[0]["idName"])) {
 
         }
-        $sql = "select * from " . $tableName . " where " . $idName . "=" . $id .($tableName=="table_users"?"":" and user_id=".$userData["id"] ).";";
+        $sql = "select * from " . $tableName . " where " . $idName . "=" . $id . ($tableName == "table_users" ? "" : " and user_id=" . $userData["id"]) . ";";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -601,8 +600,8 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
     }
 
     global $userData;
-    $sqlNewRow = "select max(" . $idName . ")+1 as max from " . $tableName.";"; //.
-        //($tableName==="table_users"?"":" where user_id=".$userData["id"] ).";";
+    $sqlNewRow = "select max(" . $idName . ")+1 as max from " . $tableName . ";"; //.
+    //($tableName==="table_users"?"":" where user_id=".$userData["id"] ).";";
     $stmtNewRow = $db->prepare($sqlNewRow);
     $stmtNewRow->execute();
     $resultNewRow = $stmtNewRow->fetchAll();
@@ -619,7 +618,7 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
             $fks[$field1]["idName"] = $id2ref;
             $fks[$field1]["display"] = $display;
             $fks[$field1]["table"] = $table2;
-            $sql1 = "select $id2ref," . implode(',', $display) . " from $table2".($table2=="table_users"?"":" where user_id=".$userData["id"] ).";";
+            $sql1 = "select $id2ref," . implode(',', $display) . " from $table2" . ($table2 == "table_users" ? "" : " where user_id=" . $userData["id"]) . ";";
             $stmt = $db->prepare($sql1);
             $stmt->execute();
             $results[$field1] = $stmt->fetchAll();
@@ -630,15 +629,15 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
             if (isset($result0[0][$key])) {
                 $fieldValue = $edit ? $value : "";
                 $idRow = false;
-                if (($key == $idName && $autoId)||$key=="user_id") {
+                if (($key == $idName && $autoId) || $key == "user_id") {
                     $idRow = true;
                 }
                 if ($key == $idName && !$edit) {
                     $fieldValue = $idMax1;
                 }
 
-                $str .= "<tr class='".($idRow?"idrow":"")."'><td class='title ligne2 btn-choose'>" . $key . "</td><td>";
-                if(!$idRow) {
+                $str .= "<tr class='" . ($idRow ? "idrow" : "") . "'><td class='title ligne2 btn-choose'>" . $key . "</td><td>";
+                if (!$idRow) {
                     if (isset($tables[$tableName][$key])) {
                         $str .= "<select class='btn-choose ligne2' name='data-" . $key . "'><option value='-1' class='error'>Aucun lien</option>";
                         foreach ($results[$key] as $rowItem) {
@@ -670,7 +669,7 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
                     //$str .= "<a class='btn-choose ligne2' href='agenda.php?page=tables&action=add&table=" . $currentPkTable . "&id=-1&idName=" . $fks[$key]["idName"] . "' target='_blank'>Créer une valeur</a>";
 
                 } else {
-                //    $str .= "+++";
+                    //    $str .= "+++";
                 }
                 $str .= "</td></tr>";
             }
@@ -679,9 +678,9 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
     $str .= "<tr><td><input type='hidden' name='table' value='" . $tableName . "' />";
     $str .= "<input type='hidden' name='page' value='" . $pageDetail . "' />";
     $str .= "<input type='hidden' name='idName' value='" . $idName . "' />";
-    $str .= "<input type='hidden' name='data-".$idName."' value='" . ($edit ? $id : $idMax1) . "' />";
+    $str .= "<input type='hidden' name='data-" . $idName . "' value='" . ($edit ? $id : $idMax1) . "' />";
     $str .= "<input type='hidden' name='id' value='" . ($edit ? $id : $idMax1) . "' />";
-    if($tableName!="table_users") {
+    if ($tableName != "table_users") {
         $str .= "<input type='hidden' name='data-user_id' value='" . ($userData['id']) . "' />";
     }
     $str .= "<input type='hidden' name='" . $idName . "' value='" . ($edit ? $idRef : 0) . "' />";
@@ -700,7 +699,7 @@ function getTableDetails($tableName): array
     global $db;
     $sql = "SELECT * FROM sqlite_master WHERE type ='table' AND tbl_name=:tableName;";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam('tableName',$tableName);
+    $stmt->bindParam('tableName', $tableName);
     $stmt->execute();
     $result = $stmt->fetchAll();
 
@@ -881,9 +880,9 @@ function addToGetUrl(string $url, $assocArrayGetKeyVPair): string
     if (!str_contains($url, "?"))
         $url = $url . "?";
     foreach ($assocArrayGetKeyVPair as $key => $value) {
-        if(!is_array($value)) {
+        if (!is_array($value)) {
             $url .= "&" . urlencode($key) . "=" . urlencode($value);
-        }else {
+        } else {
             $url .= addToGetUrl($url, $value);
 
         }
@@ -935,13 +934,15 @@ function datetime($datetime): array
 }
 
 
-function date_locale_fr($date_str) : string {
+function date_locale_fr($date_str): string
+{
     $arr = explode("-", $date_str);
-    if(count($arr)==3) {
+    if (count($arr) == 3) {
         return $arr[2] . ("/" . $arr[1] . ("/" . $arr[0] . ""));
     }
     return $date_str;
 }
+
 /**
  * @param $jour__demie_heure_semaine_duree
  * @param $datetime
@@ -1050,28 +1051,28 @@ function dayCalString($array0) {
 */
 
 function checkMultiple(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array,
-                       string $string2, $onchecked="chkbox(this)", $ckecheds=null): void
+                       string $string2, $onchecked = "chkbox(this)", $ckecheds = null): void
 
 {
     $idx = 0;
     global $id_tache;
     global $id_hospitalise;
     foreach ($resultHospitalises as $i => $rowItem) {
-        $valId = $string."_$rowItem[$string1]";
-        echo "<input id='".$valId."' onclick='".$onchecked."' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        $valId = $string . "_$rowItem[$string1]";
+        echo "<input id='" . $valId . "' onclick='" . $onchecked . "' draggable='true'  class='input' type='checkbox' name='" . $string . $idx . "' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
         $selected = false;
         if (isset($resultPatientsTache) && $id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
-                if($selected) {
+                if ($selected) {
                 } else if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
                     echo(" checked='checked' ");
                     $selected = true;
-                } else if (is_scalar($id_hospitalise) && array_search($rowItem[$string1], $id_hospitalise)>=0) {
+                } else if (is_scalar($id_hospitalise) && array_search($rowItem[$string1], $id_hospitalise) >= 0) {
                     echo(" checked='checked' ");
                     $selected = true;
-                } else if (is_array($id_hospitalise) ) {
+                } else if (is_array($id_hospitalise)) {
                     foreach ($id_hospitalise as $key => $value) {
-                        if(array_search($rowItem[$string1], $value)>=0) {
+                        if (array_search($rowItem[$string1], $value) >= 0) {
                             echo(" checked='checked' ");
                             $selected = true;
                         }
@@ -1079,54 +1080,61 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
                 }
             }
         }
-        echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"".$valId."\"'>&nbsp;" . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
-        $idx ++;
+        echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"" . $valId . "\"'>&nbsp;" . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
+        $idx++;
     }
 }
 
-function checkMultiple1(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $onchecked="chkbox(this)", $ckecheds=array()): void
+function checkMultiple1(string $string, array $resultHospitalises, array $resultPatientsTache, string $string1, array $array, string $string2, $onchecked = "chkbox(this)", $ckecheds = array()): int
 
 {
+    $cpt = 0;
     $idx = 0;
     global $id_tache;
     foreach ($resultHospitalises as $i => $rowItem) {
         $echoed = false;
-        $valId = "patientCheck".rand(0, 1000);
-        echo "<input id='".$valId."' onclick='".$onchecked."' draggable='true'  class='input' type='checkbox' name='" . $string.$idx."' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        $valId = "patientCheck" . rand(0, 1000);
+        echo "<input id='" . $valId . "' onclick='" . $onchecked . "' draggable='true'  class='input' type='checkbox' name='" . $string . $idx . "' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
         if ($id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
                 if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {
                     if (!$echoed) {
                         echo(" checked='checked' ");
                         $echoed = true;
+                        $cpt++;
                     }
                 } else {
                     if (in_array($rowItem[$string1], $ckecheds)) {
                         echo(" checked='checked' ");
                         $echoed = true;
+                        $cpt++;
                     }
                 }
             }
         } else {
-            if(in_array($rowItem[$string1], $ckecheds)) {
+            if (in_array($rowItem[$string1], $ckecheds)) {
                 echo(" checked='checked' ");
                 $echoed = true;
+                $cpt++;
             }
         }
-        if($id_tache>0) {
-        foreach ($resultHospitalises as $chambre) {
-            if($rowItem[$string1]==$chambre) {
-                if(!$echoed) {
+        if ($id_tache > 0) {
+            foreach ($resultHospitalises as $chambre) {
+                if ($rowItem[$string1] == $chambre) {
+                    if (!$echoed) {
                         echo(" checked='checked' ");
                         $echoed = true;
+                        $cpt++;
                     }
                 }
 
             }
         }
-        echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"".$valId."\"'>&nbsp;" . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
-        $idx ++;
+        echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"" . $valId . "\"'>&nbsp;" . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
+        $idx++;
     }
+
+    return $cpt;
 }
 
 
@@ -1148,7 +1156,7 @@ function checkMultiple1(string $string, array $resultHospitalises, array $result
 
 */
 
-function halfHourText($time) : string
+function halfHourText($time): string
 {
     $timeI = (int)($time / 2);
     if ($time <= 2) {
@@ -1163,5 +1171,6 @@ function halfHourText($time) : string
     }
     return $timeI . $hh . $heure;
 }
+
 ?>
 

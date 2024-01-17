@@ -425,16 +425,24 @@ function formDataToQueryString(obj) {
 }
 let xmlHttpRequest;
 
+
+let nPatients : Int = 0;
 function chkbox(this1) {
-    var s = this1.value;
+    var s = document.getElementById("patients");
+    var s1 = (Int) (s.innerText);
     if (this1.checked) {
+        nPatients =s1+1;
         d.push(s);
+
     } else {
+        nPatients = s1+nPatients-1;
         var index = d.indexOf(s);
         if (index > -1) {
             d.splice(index, 1);
         }
     }
+    var sAfter = document.getElementById("patients");
+    sAfter.innerHTML = nPatients;
     let url = "getdata_2.php?" + objectToQueryString(d);
     xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.onload = reqListener;
@@ -524,7 +532,7 @@ function checkTache(event) {
 
     }
 */
-    if(d===undefined || !(d instanceof array.class) || d.length==0) {
+    if(d===undefined || d.length===0) {
         patients.classList.toggle("error", true);
         patients.innerText = "Invalide";
         errors = errors + 1;

@@ -293,8 +293,6 @@ echo $jour__semaine_demie__heure_temps;
             <td id="td_patient">Patient</td>
             <td>
                 <?php
-                //selectOptions("id_hospitalises", $resultHospitalises, "chambre", $id_hospitalise, array("nom", "prenom"), "refreshDataSemaineTaches()");
-
                 global $id_hospitalise;
                 global $resultPatientsTache;
 
@@ -307,11 +305,11 @@ echo $jour__semaine_demie__heure_temps;
                         $sec[$key]["id_patient"] = $value;
                     }
                 }
-                checkMultiple1("id_hospitalises_", $resultHospitalises, $sec, "chambre", array("nom", "prenom"), "refreshDataSemaineTaches()",
+                $cptChecked = checkMultiple1("id_hospitalises_", $resultHospitalises, $sec, "chambre", array("nom", "prenom"), "onchange='refreshDataSemaineTaches()'",
                     "chkbox(this)", $id_hospitalise);
 
                 ?>
-                <div class="error" id="patients"></div>
+                <div class="error" id="patients"><?php echo $cptChecked; ?></div>
                 <div>
                     <a class="btn-choose" href="#"
                        onclick="javascript:include2('<?php echo "ajax/request_form.php?page=pati&action=add&table=table_hospitalises&id=-1&idName=chambre"; ?>');"
