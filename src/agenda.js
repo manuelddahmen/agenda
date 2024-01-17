@@ -513,6 +513,7 @@ function checkTache(event) {
         //errors = errors + 1;
 
     }
+    let patients = document.getElementById("patients");
     /*
     let patient = document.getElementById("id_hospitalises");
     if(patient.value!=-1) {
@@ -523,6 +524,14 @@ function checkTache(event) {
 
     }
 */
+    if(d===undefined || !(d instanceof array.class) || d.length==0) {
+        patients.classList.toggle("error", true);
+        patients.innerText = "Invalide";
+        errors = errors + 1;
+    } else {
+        patients.classList.toggle("error", false);
+        patients.innerText = "Valide";
+    }
     let activites = document.getElementById("id_activite");
     if (activites.value > 0) {
         activites.classList.toggle("error", false);

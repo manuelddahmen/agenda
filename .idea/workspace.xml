@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/help.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/help.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agenda.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_edition_tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_edition_tache.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +56,7 @@
         <option value="dathewolf &lt;manuel.dahmen@gmx.com&gt;" />
       </list>
     </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--follow-tags" />
@@ -403,6 +411,9 @@
       <workItem from="1703100690908" duration="29423000" />
       <workItem from="1703400177391" duration="6403000" />
       <workItem from="1703929525457" duration="3243000" />
+      <workItem from="1703979954946" duration="1748000" />
+      <workItem from="1704682242802" duration="1189000" />
+      <workItem from="1705471202776" duration="5643000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -747,7 +758,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="330" />
+    <option name="localTasksCounter" value="332" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -808,7 +819,6 @@
       <path value="$PROJECT_DIR$/instances-agenda/agenda" />
       <path value="$PROJECT_DIR$/instances-agenda/manou" />
     </ignored-roots>
-    <MESSAGE value="Gpg?" />
     <MESSAGE value="getdata_2.php updated" />
     <MESSAGE value="getdata_2.php updated&#10;Nouvelle table." />
     <MESSAGE value="Update icons." />
@@ -833,7 +843,8 @@
     <MESSAGE value="RELEASE 1.0. #3" />
     <MESSAGE value="RELEASE 1.0. #3&gt;4" />
     <MESSAGE value="RELEASE 1.0. #4" />
-    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #4" />
+    <MESSAGE value="RELEASE 1.0. #5" />
+    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #5" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

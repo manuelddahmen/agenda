@@ -162,7 +162,7 @@ global $page, $pages, $themeName;
                       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="title_page">
-            <a href="https://empty3.one/agenda/src">
+            <a href="?">
                 <h1>
                     <img height="40px" width="40px" src="../images/favicon.png"/><?php echo $title." - ". date("d-m-y"); ?>
 

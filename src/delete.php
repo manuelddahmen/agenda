@@ -62,10 +62,6 @@ if(isset($userData["id"])) {
 }
 
 
-//downloads($userData["id"]);
-
-delete_data($userData["id"]);
-
 //if(isset($_GET["delete_account"])) {
 delete_user($userData["id"]);
 //}

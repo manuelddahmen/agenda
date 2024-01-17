@@ -56,9 +56,11 @@ if (isset($str)) {
 
     ?>
 <div id="data">
-    <h3><a href="?page=download">Download Data</a></div>
-<h3><a href="?page=delete">Delete Data</a></h3></div>
-</dev>
+    <h2>Section Données</h2>
+    <h3><a href="?page=download">Download Data</a>
+    <h3><a href="?page=delete_archive">Delete Data</a></h3>
+    <h3><a href="?page=delete">Delete User</a></h3>
+</div>
 
 <?php
 

@@ -311,6 +311,7 @@ echo $jour__semaine_demie__heure_temps;
                     "chkbox(this)", $id_hospitalise);
 
                 ?>
+                <div class="error" id="patients"></div>
                 <div>
                     <a class="btn-choose" href="#"
                        onclick="javascript:include2('<?php echo "ajax/request_form.php?page=pati&action=add&table=table_hospitalises&id=-1&idName=chambre"; ?>');"
