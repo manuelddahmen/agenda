@@ -1059,7 +1059,7 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
     global $id_hospitalise;
     foreach ($resultHospitalises as $i => $rowItem) {
         $valId = $string . "_$rowItem[$string1]";
-        echo "<input id='" . $valId . "' onclick='" . $onchecked . "' draggable='true'  class='input' type='checkbox' name='" . $string . $idx . "' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        echo "<input id='" . $valId . "' onclick='" . $onchecked . "' draggable='true'  class='input' type='checkbox' name='" . $string . $idx . "' value='" . ($rowItem[$string1]) . "'" . " ";
         $selected = false;
         if (isset($resultPatientsTache) && $id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {

@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #6">
+    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #7">
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/themes/bootstrap/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/themes/bootstrap/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agenda.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agenda2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/getdata_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/getdata_2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vue_edition_tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_edition_tache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +47,7 @@
     </favorite-branches>
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="manuel dahmen &lt;manuel.dahmen@gmx.com&gt;" />
         <option value="dathewolf &lt;manuel.dahmen@gmx.com&gt;&lt;manuel.dahmen@gmx.com&gt;" />
         <option value="dathewolf &lt;manuel.dahmen@gmx.com&gt;" />
       </list>
@@ -415,7 +410,7 @@
       <workItem from="1703929525457" duration="3243000" />
       <workItem from="1703979954946" duration="1748000" />
       <workItem from="1704682242802" duration="1189000" />
-      <workItem from="1705471202776" duration="10985000" />
+      <workItem from="1705471202776" duration="13803000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -760,7 +755,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="334" />
+    <option name="localTasksCounter" value="335" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +816,6 @@
       <path value="$PROJECT_DIR$/instances-agenda/agenda" />
       <path value="$PROJECT_DIR$/instances-agenda/manou" />
     </ignored-roots>
-    <MESSAGE value="getdata_2.php updated&#10;Nouvelle table." />
     <MESSAGE value="Update icons." />
     <MESSAGE value="Bug" />
     <MESSAGE value="Bug ???" />
@@ -846,7 +840,9 @@
     <MESSAGE value="RELEASE 1.0. #4" />
     <MESSAGE value="RELEASE 1.0. #5" />
     <MESSAGE value="RELEASE 1.0. #6" />
-    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #6" />
+    <MESSAGE value="RELEASE 1.0. #7" />
+    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #7" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
