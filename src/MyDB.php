@@ -213,7 +213,7 @@ function downloads(int $id): void
 
     if(file_exists($filename))
         unlink($filename);
-    $fp = fopen($filename, "a");
+    $fp = fopen($filename, "w+");
 
     if (!$fp) {
 

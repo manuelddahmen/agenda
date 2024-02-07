@@ -43,6 +43,7 @@ global $id_hospitalise;
 if(is_scalar($id_hospitalise))
     $id_hospitalise = array();
 
+
 $data["jour__semaine_demie__heure_temps"] = $jour__semaine_demie__heure_temps;
 
 if (isset($_GET["id_employe"])) {
@@ -123,9 +124,14 @@ try {
         $result = $stmt->execute();
         $message .= "Edit task succeeded (1/2)";
     } else if ($tache != "select" && $id_tache == -1 && isset($_GET["submit"])) {
-        echo $_GET["submit"] . $id_tache;
+        $sql = "SELECT max(id) as maxId FROM table_taches;";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $id_tache = (int)($result[0]["maxId"]) + 1;
+
         $sql = "insert into table_taches ( id, id_activite, jour__semaine_demie__heure_temps, user_id, id_hospitalises) values
-                (" . rand(0, PHP_INT_MAX) . ", $id_activite, '$jour__semaine_demie__heure_temps', " . ($userData['id']) . ", 1);";
+                (" . (int)$id_tache . ", $id_activite, '$jour__semaine_demie__heure_temps', " . ($userData['id']) . ", 1);";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -141,14 +147,14 @@ try {
         $stmt->execute();
         $id = $db->handle->lastInsertId() + 1;
         $countUpdatedAdd = 0;
-        foreach ($_GET as $i => $chambre) {
-            if (str_starts_with($i, "id_hospitalises_") || str_starts_with($i, "id_hospitalise")) {
+        foreach ($id_hospitalise as $chambre) {
+            //if (str_starts_with($i, "id_hospitalises_") || str_starts_with($i, "id_hospitalise")) {
                 $id++;
                 $sql = "insert into table_taches_patients  (id_patient, id_tache, user_id) values (" . $chambre . ", " . $id_tache . ", " . ($userData["id"]) . ");";
                 $stmt = $db->prepare($sql);
                 echo $stmt->execute();
                 $countUpdatedAdd++;
-            }
+            //}
         }
         $message .= "Edit task succeeded (2/2)";
     }
@@ -181,7 +187,6 @@ if ($id_tache > 0) { // New : existing tasks load.
         }
     }
 }
-
 global $j;
 global $m;
 global $a;
@@ -213,7 +218,7 @@ if(isset($_GET["notInclude"])) {
     } else if(isset($id_hospitalise)) {
         $str.="&id_hospitalise=".$id;
     }
-    $index = "index.php?page=agenda".$str;
+    $index = "index.php?page=advent" . $str;
     //header("Location: ."\n");
     echo "<script type='text/javascript'> window.location = '$index'; </script>";
     exit();
@@ -476,7 +481,6 @@ $newGetData = new getdata_2($id_hospitalise??-1, $id_hospitalises??array());
 $newGetData->init();
 
 $result = joursTaches($id_hospitalise);
-
 require_once "footer.php";
 ?>
 

@@ -18,7 +18,7 @@
  *    limitations under the License.
  */
 
-if (session_status() === PHP_SESSION_NONE) {
+global$userData; if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 global $username;
@@ -177,6 +177,8 @@ displayNav();
 
 
 require_once "main_menu.php";
+
+//echo "UserId : ".$userData["id"];
 
 //require_once "search_menu.php";
 

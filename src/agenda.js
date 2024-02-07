@@ -432,7 +432,12 @@ let xmlHttpRequest;
 let nPatients = 0;
 function chkbox(this1) {
     var s = document.getElementById("patients");
-    var s1 = parseInt(s.innerText);
+    var s1 = null;
+    if (s == null || s.innerText == null) {
+        s1 = 0;
+    } else {
+        s1 = parseInt(s.innerText);
+    }
     if (this1.checked) {
         nPatients =s1+1;
         listPatients.push(s);
@@ -445,7 +450,9 @@ function chkbox(this1) {
         }
     }
     var sAfter = document.getElementById("patients");
-    sAfter.innerText = nPatients;
+    if (sAfter != null) {
+        sAfter.innerText = nPatients;
+    }
     let url = "getdata_2.php?" + objectToQueryString(listPatients);
     xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.onload = reqListener;
@@ -502,9 +509,9 @@ function signOut() {
 }
 function clickZoomEvent(element)
 {
-    let zoom = document.getElementById('currentEventSelected');
-    zoom.innerHTML = element.innerHTML;
-    zoom.style.display = "none";
+    //let zoom = document.getElementById('currentEventSelected');
+    //zoom.innerHTML = element.innerHTML;
+    //zoom.style.display = "none";
 }
 
 function registrerSubmit() {

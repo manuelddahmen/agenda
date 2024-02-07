@@ -46,6 +46,8 @@ if (!checkLoginForm()) {
 global $username;
 $username = $username ?? $_SESSION['username'];
 
+global $userData;
+
 //print_r($_GET);
 global $id_hospitalise;
 //print_r($id_hospitalise);
@@ -84,6 +86,7 @@ class getdata_2
                     "attendee" => array("table" => "table_hospitalises", "id" => "chambre", "fields" => array())
                 );*/
         global $db, $id_hospitalise;
+        global $userData;
         $sql2 = "";
         if (is_array($id_hospitalise)) {
             $sql1 = "th.nom as nomPatient, th.prenom as prenomPatient, th.birthdate, th.acti_obli_1, th.acti_obli_2,";
