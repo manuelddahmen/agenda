@@ -91,6 +91,7 @@ global $page, $pages, $themeName;
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script type="text/javascript" src="agenda.js"></script>
+    <script type="text/javascript" src="../js/notifications.js"></script>
 
     <script type="text/javascript">
         const tableToExcel = (function () {
@@ -130,7 +131,8 @@ global $page, $pages, $themeName;
         }
     </script>
 </head>
-<body onload="page_onLoad();"><div class="">
+<body>
+<div class=""><!-- onload="page_onLoad();" -->
 
 <div id="title_page">
             <a href="?">

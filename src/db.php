@@ -1093,8 +1093,9 @@ function checkMultiple1(string $string, array $resultHospitalises, array $result
     global $id_tache;
     foreach ($resultHospitalises as $i => $rowItem) {
         $echoed = false;
-        $valId = "patientCheck" . rand(0, 1000);
-        echo "<input id='" . $valId . "' onclick='" . $onchecked . "' draggable='true'  class='input' type='checkbox' name='" . $string . $idx . "' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
+        $valId = /*"patientCheck" . */
+            rand(0, 1000);
+        echo "<input id='" . $string . rand(0, 1000) . "' onclick='" . $onchecked . "' draggable='true'  class='input' type='checkbox' name='" . $string . $idx . "' value='" . ($rowItem[$string1]) . "'" . $string2 . " ";
         if ($id_tache > 0) {
             foreach ($resultPatientsTache as $j => $rowItemPatient) {
                 if ($rowItem[$string1] == $rowItemPatient["id_patient"]) {

@@ -239,7 +239,7 @@ echo $jour__semaine_demie__heure_temps;
             <td>
 
                 <label class="ligne2"
-                       for="submit"
+                       for="new_task"
                        class="btn-submit"><?php
                     global $id_tache;
                     echo ($id_tache != -1) ? "Tache no" . $id_tache : "Nouvelle tâche"; ?></label>

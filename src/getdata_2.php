@@ -49,14 +49,14 @@ $username = $username ?? $_SESSION['username'];
 //print_r($_GET);
 global $id_hospitalise;
 //print_r($id_hospitalise);
-
+/*
 foreach ($_GET as $key => $value) {
     if (str_starts_with($key, "id_hospitalise_")) {
         $key = substr($key, strlen("id_hospitalise_"));
         $id_hospitalise[] = $value;
     }
 }
-
+*/
 //print_r($id_hospitalise);
 
 class getdata_2
@@ -207,12 +207,11 @@ function joursTaches($id_hospitalise): array
     $condition = "";
     $conditionTtp = "";
 
-
     if (is_array($id_hospitalise)) {
         $condition .= " and (0 ";
         $conditionTtp .= " and (0 ";
         $c = 0;
-        foreach ($id_hospitalise as $value) {
+        foreach ($id_hospitalise as $key => $value) {
             $condition .= " or th.chambre=$value ";
             $conditionTtp .= " or ttp2.id_patient=$value ";
             $c++;
@@ -635,6 +634,16 @@ function listActivitiesHtml($rowItem, $isEvent = false): string
         $url = addToGetUrl("?page=agenda&id=" . ($rowItem["id_tache"]) . "&idName=id&table=table_taches&action=delete&&datetime=$datetime".$string_hospi, $rowItem);
         $str .= "<a href='$url'  class='delete'><img src='../images/delete.png' alt='Delete task'/></a>";
         //$str .='<add-to-calendar-button name="Calendar" description="Play with me!" startDate="'.$datetime.'" startTime="'.$datetime.'" endTime="17:45" timeZone="Europe/Brussels" location="World Wide Web" recurrence="weekly" recurrence_interval="1" options="\'Apple\',\'Google\',\'iCal\',\'Outlook.com\',\'Yahoo\'"></add-to-calendar-button>';
+        $str .= "<a href='#'  class='notification ' onclick='eventNotification('"
+            . ($rowItem["nom_activite"] ?? "")
+            . "',"
+            . ($rowItem["halfHourText"] ?? "")
+            . ","
+            . ($rowItem["hour"] ?? "")
+            . ", "
+            . ($rowItem["minutes"] ?? "")
+            . ")' ><img src='../images/alarm.jpg' alt='Delete task'/></a>";
+        //$str .='<add-to-calendar-button name="Calendar" description="Play with me!" startDate="'.$datetime.'" startTime="'.$datetime.'" endTime="17:45" timeZone="Europe/Brussels" location="World Wide Web" recurrence="weekly" recurrence_interval="1" options="\'Apple\',\'Google\',\'iCal\',\'Outlook.com\',\'Yahoo\'"></add-to-calendar-button>';
     }
     return $str;
 }
@@ -1028,7 +1037,7 @@ function layoutCell($dataHalfHour)
 
             } else {
                 // Nouvelle tâche (sous-case cellule) -> nom_activite, nomEmploye, prenomEmploye
-                $layout .= "<div id='event_cell' class='tache " . $data["id_tache"] . "'>";
+                $layout .= "<div id='event_cell' class='tache event_cell " . $data["id_tache"] . "'>";
                 if (isset($data["nom_tache"]) && (isset($data["nomEmploye"]) || isset($data["prenomEmploye"]))) {
                     $layout .= "<b>" . ($data["nom_tache"]) . "</b>&nbsp;-&nbsp;";
 

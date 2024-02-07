@@ -528,8 +528,9 @@ function checkTache(button) {
             patients.classList.toggle("error", true);
             patients.innerText = 0;
             errors = errors + 1;
-        } else if (patients.innerText === "0") {
+        } else if (patients.innerText === "0" || patients.innerText === "Valide") {
             patients.classList.toggle("error", false);
+            patients.style.backgroundColor = "#00F";
             patients.innerText = "Valide";
         }
 
@@ -566,18 +567,18 @@ function checkTache(button) {
         }
 
         let elementById1 = document.getElementById("errors");
-        if (errors === 0 && this.name === "save") {
+        if (errors === 0 && button.name === "save") {
             document.forms[0].checkValidity();
             document.forms[0].submit();
-//            return true;
+            return true;
         }
-        if (errors === 0 && this.name === "saveAndNew") {
+        if (errors === 0 && button.name === "saveAndNew") {
             document.forms[0].checkValidity();
-//            document.forms[0].submit();
+            document.forms[0].submit();
             return true;
         } else {
             elementById1.innerHTML = "Il y a des erreurs, corrigez :) !!!";
-            document.forms[0].reportValidity();
+            //document.forms[0].reportValidity();
             return false;
         }
     } catch (exception) {
