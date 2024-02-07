@@ -312,7 +312,7 @@ echo $jour__semaine_demie__heure_temps;
                 <div class="error" id="patients"><?php echo $cptChecked; ?></div>
                 <div>
                     <a class="btn-choose" href="#"
-                       onclick="javascript:include2('<?php echo "ajax/request_form.php?page=pati&action=add&table=table_hospitalises&id=-1&idName=chambre"; ?>');"
+                       onclick="include2('<?php echo "ajax/request_form.php?page=pati&action=add&table=table_hospitalises&id=-1&idName=chambre"; ?>');"
                     >Ajouter un patient</a>
                     <a class="btn-choose"
                        href="<?php echo "?page=pati&action=manage&table=table_hospitalises&id=-1&idName=chambre"; ?>"

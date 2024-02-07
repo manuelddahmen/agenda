@@ -132,7 +132,7 @@ global $page, $pages, $themeName;
     </script>
 </head>
 <body>
-<div class=""><!-- onload="page_onLoad();" -->
+<div class="" onload="page_onLoad();">
 
 <div id="title_page">
             <a href="?">

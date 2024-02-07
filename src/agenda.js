@@ -301,6 +301,8 @@ function page_onLoad() {
         hasChanged = true;
     }
     unloadSetActive();
+
+    listPatients = [];
 }
 
 function unloadSetActive() {
@@ -400,7 +402,7 @@ function loadSearchResultTache(elementById, outputList) {
     oReq.send();
 }
 
-const d = [];
+let listPatients = [];
 
 function objectToQueryString(obj) {
     var str = [];
@@ -433,18 +435,18 @@ function chkbox(this1) {
     var s1 = parseInt(s.innerText);
     if (this1.checked) {
         nPatients =s1+1;
-        d.push(s);
+        listPatients.push(s);
 
     } else {
         nPatients = s1+nPatients-1;
-        var index = d.indexOf(s);
+        var index = listPatients.indexOf(s);
         if (index > -1) {
-            d.splice(index, 1);
+            listPatients.splice(index, 1);
         }
     }
     var sAfter = document.getElementById("patients");
-    sAfter.innerHTML = nPatients;
-    let url = "getdata_2.php?" + objectToQueryString(d);
+    sAfter.innerText = nPatients;
+    let url = "getdata_2.php?" + objectToQueryString(listPatients);
     xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.onload = reqListener;
     xmlHttpRequest.withCredentials = true;
@@ -455,14 +457,14 @@ function chkbox(this1) {
 function chkboxGoto(this1) {
     var s = this1.value;
     if (this1.checked) {
-        d.push(s);
+        listPatients.push(s);
     } else {
-        var index = d.indexOf(s);
+        var index = listPatients.indexOf(s);
         if (index > -1) {
-            d.splice(index, 1);
+            listPatients.splice(index, 1);
         }
     }
-    let url = "index.php?page=agenda&" + objectToQueryString(d);
+    let url = "index.php?page=agenda&" + objectToQueryString(listPatients);
     document.location.href = url;
 }
 function reqListenerDivEditTache() {
@@ -514,20 +516,23 @@ function checkTache(button) {
     try {
         let errors = 0;
 
+        let errorsText = "";
+
         let id_tache = document.getElementById('id_tache');
 
         if (id_tache != null && id_tache.value > 0) {
             id_tache.classList.toggle("error", false);
         } else {
-            id_tache.classList.toggle("error", true);
+            //            id_tache.classList.toggle("error", true);
             //errors = errors + 1;
 
         }
         let patients = document.getElementById("patients");
-        if (d === undefined || d.length === 0) {
+        if (listPatients === undefined || listPatients.length === 0) {
             patients.classList.toggle("error", true);
             patients.innerText = 0;
             errors = errors + 1;
+            errorsText += "\nLa liste des patients est incorrecte. Pas de patient(es) choisi(es)"
         } else if (patients.innerText === "0" || patients.innerText === "Valide") {
             patients.classList.toggle("error", false);
             patients.style.backgroundColor = "#00F";
@@ -540,6 +545,7 @@ function checkTache(button) {
             activites.classList.toggle("error", false);
         } else {
             activites.classList.toggle("error", true);
+            errorsText += "\nPas de d'activité choisie"
             errors = errors + 1;
         }
 
@@ -549,6 +555,7 @@ function checkTache(button) {
             jour__semaine_demie__heure_temps_0.classList.toggle("error", false);
         } else {
             jour__semaine_demie__heure_temps_0.classList.toggle("error", true);
+            errorsText += "\nPas de jour choisi (lundi, mardi,...)";
             errors = errors + 1;
         }
         let jour__semaine_demie__heure_temps_1 = document.getElementById("jour__semaine_demie__heure_temps_1");
@@ -556,6 +563,7 @@ function checkTache(button) {
             jour__semaine_demie__heure_temps_1.classList.toggle("error", false);
         } else {
             jour__semaine_demie__heure_temps_1.classList.toggle("error", true);
+            errorsText += "\nPas d'heure choisie";
             errors = errors + 1;
         }
         let jour__semaine_demie__heure_temps_2 = document.getElementById("jour__semaine_demie__heure_temps_2");
@@ -563,26 +571,30 @@ function checkTache(button) {
             jour__semaine_demie__heure_temps_2.classList.toggle("error", false);
         } else {
             jour__semaine_demie__heure_temps_2.classList.toggle("error", true);
+            errorsText += "\nPas de durée choisie";
             errors = errors + 1;
         }
 
+        let formElement: HTMLFormElement = document.getElementById("edition_activite");
+
         let elementById1 = document.getElementById("errors");
-        if (errors === 0 && button.name === "save") {
-            document.forms[0].checkValidity();
-            document.forms[0].submit();
+        if (errors === 0 && button === "save") {
+            formElement.checkValidity();
+            formElement.submit();
             return true;
-        }
-        if (errors === 0 && button.name === "saveAndNew") {
-            document.forms[0].checkValidity();
-            document.forms[0].submit();
+        } else if (errors === 0 && button === "saveAndNew") {
+            formElement.checkValidity();
+            formElement.submit();
             return true;
         } else {
-            elementById1.innerHTML = "Il y a des erreurs, corrigez :) !!!";
-            //document.forms[0].reportValidity();
+            elementById1.innerHTML = "Il y a des erreurs, corrigez :) !!!\n\n" + errorsText;
+            elementById1.style.backgroundColor = "#F00";
+            formElement.reportValidity();
+            formElement.preventDefaults();
             return false;
         }
     } catch (exception) {
-        document.forms[0].reportValidity();
+        formElement.reportValidity();
         return false;
     }
 }
