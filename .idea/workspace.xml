@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé: les erreurs JavaScript.">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyDB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agenda.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/getdata_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/getdata_2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vue_edition_tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_edition_tache.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -415,7 +410,7 @@
       <workItem from="1703979954946" duration="1748000" />
       <workItem from="1704682242802" duration="1189000" />
       <workItem from="1705471202776" duration="16909000" />
-      <workItem from="1707295117494" duration="21719000" />
+      <workItem from="1707295117494" duration="23443000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -760,7 +755,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="339" />
+    <option name="localTasksCounter" value="340" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +816,6 @@
       <path value="$PROJECT_DIR$/instances-agenda/agenda" />
       <path value="$PROJECT_DIR$/instances-agenda/manou" />
     </ignored-roots>
-    <MESSAGE value="Bug" />
     <MESSAGE value="Bug ???" />
     <MESSAGE value="Aéliorations (DLr)" />
     <MESSAGE value="Updates. PDO::preparedStatement" />
@@ -846,7 +840,8 @@
     <MESSAGE value="RELEASE 1.0. #6" />
     <MESSAGE value="RELEASE 1.0. #7" />
     <MESSAGE value="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé: les erreurs JavaScript." />
-    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé: les erreurs JavaScript." />
+    <MESSAGE value="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript." />
+    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

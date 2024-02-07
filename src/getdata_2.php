@@ -61,6 +61,8 @@ foreach ($_GET as $key => $value) {
 */
 //print_r($id_hospitalise);
 
+initIdHospitalise();
+
 class getdata_2
 {
 
@@ -207,6 +209,7 @@ function joursTaches($id_hospitalise): array
     global $jour__semaine_demie__heure_temps, $id_employe, $id_hospitalise, $id_tache, $id_activite;
     global $datetime;
     global $newGetData;
+    global $userData;
     $condition = "";
     $conditionTtp = "";
 
@@ -259,7 +262,6 @@ function joursTaches($id_hospitalise): array
     $condition .= $conditionA . $sql2;
     $conditionTtp .= $conditionA . $sql2;
 
-    global $userData;
     $conditionTtp .= " and ttp.user_id=" . ($userData["id"]) . " and te.user_id=" . ($userData["id"]) . " and ta.user_id=" . ($userData["id"])
         . " and tt.user_id=" . ($userData["id"]) . " and ttp2.user_id=" . ($userData["id"]);
 
@@ -342,6 +344,7 @@ function array_search_subarray($needle, array $array, $indexName): array
 
 function traitementListPatients(array &$arrayDetails, array $result, array $activitiesCommunes, array $jours): array
 {
+    global $userData;
     global $datetime, $id_hospitalise, $halfHour;
     if (!isset($jours))
         $jours = array();
@@ -423,6 +426,7 @@ function traitementListPatients(array &$arrayDetails, array $result, array $acti
 function listeItemPatientsAgenda(array &$arrayDetails, array &$jours, int $j, mixed $halfHourLoopValue, mixed $value, array $activitiesCommunes, mixed $id_hospitalise, string $patients, mixed $numHour, mixed $endHour): string
 {
 
+    global $userData;
     $countHalfHour = isset($arrayDetails[$j][$halfHourLoopValue]) ? count($arrayDetails[$j][$numHour]) : 0;
     //$countPatient = isset($arrayDetails[$j][$numHour][$countHalfHour]) ? count($arrayDetails[$j][$halfHourLoopValue][$countHalfHour]) : 0;
     $countPatient = 0;
@@ -491,6 +495,7 @@ function listeItemPatientsAgenda(array &$arrayDetails, array &$jours, int $j, mi
 
 function traitementListPatient(array &$arrayDetails, array $result, array $jours): array
 {
+    global $userData;
     global $datetime, $id_hospitalise, $halfHour;
     if (!isset($jours))
         $jours = array();
@@ -567,6 +572,7 @@ function traitementListPatient(array &$arrayDetails, array $result, array $jours
  */
 function listeItemPatientAgenda(array &$arrayDetails, mixed $numHourValue, mixed $endHour, &$jours, $j, mixed $id_hospitalise, mixed $value, string $patients): string
 {
+    global $userData;
     $countHalfHour = isset($arrayDetails[$j][$numHourValue]) ? count($arrayDetails[$j][$numHourValue]) : 0;
     $countPatient = isset($arrayDetails[$j][$numHourValue]["chambre"]) ? count($arrayDetails[$j][$numHourValue]["chambre"]) : 0;
 
@@ -609,6 +615,7 @@ function listeItemPatientAgenda(array &$arrayDetails, mixed $numHourValue, mixed
 
 function listActivitiesHtml($rowItem, $isEvent = false): string
 {
+    global $userData;
     global $currentHour;
     global $datetime;
     global $id_hospitalise;
@@ -629,23 +636,14 @@ function listActivitiesHtml($rowItem, $isEvent = false): string
     }
     if (!$isEvent) {
         $url = addToGetUrl("?page=advent&id_tache=-1" . "&datetime=$datetime".$string_hospi, $rowItem);
-        $str .= "<a href='$url'  class='add'><img src='../images/add.png' alt='Add task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
+        $str .= "<a href='$url'  class='add btn-new'><img src='../images/add.png' alt='Add task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
 
     } else {
         $url = addToGetUrl("?page=advent&table=table_taches&idName=id&id=" . $rowItem["id_tache"] . "&datetime=$datetime".$string_hospi, $rowItem);
-        $str .= "<a href='$url'   class='modify'><img src='../images/modify.png' alt='Modify task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
+        $str .= "<a href='$url'   class='modify btn-choose'><img src='../images/modify.png' alt='Modify task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
         $url = addToGetUrl("?page=agenda&id=" . ($rowItem["id_tache"]) . "&idName=id&table=table_taches&action=delete&&datetime=$datetime".$string_hospi, $rowItem);
-        $str .= "<a href='$url'  class='delete'><img src='../images/delete.png' alt='Delete task'/></a>";
-        //$str .='<add-to-calendar-button name="Calendar" description="Play with me!" startDate="'.$datetime.'" startTime="'.$datetime.'" endTime="17:45" timeZone="Europe/Brussels" location="World Wide Web" recurrence="weekly" recurrence_interval="1" options="\'Apple\',\'Google\',\'iCal\',\'Outlook.com\',\'Yahoo\'"></add-to-calendar-button>';
-        $str .= "<a href='#'  class='notification ' onclick='eventNotification('"
-            . ($rowItem["nom_activite"] ?? "")
-            . "',"
-            . ($rowItem["halfHourText"] ?? "")
-            . ","
-            . ($rowItem["hour"] ?? "")
-            . ", "
-            . ($rowItem["minutes"] ?? "")
-            . ")' ><img src='../images/alarm.jpg' alt='Delete task'/></a>";
+        $str .= "<a href='$url'  class=' delete btn-danger'><img src='../images/delete.png' alt='Delete task'/></a>";
+        $str .= "<a href='#'  class='notification btn-check' onclick=\"eventNotification('" . ($rowItem["nom_activite"] ?? "") . "'," . ($rowItem["halfHourText"] ?? "") . "," . ($rowItem["hour"] ?? "") . ", " . ($rowItem["minutes"] ?? "") . ");\"" . "><img src='../images/alarm.jpg' alt='Delete task'/></a>";
         //$str .='<add-to-calendar-button name="Calendar" description="Play with me!" startDate="'.$datetime.'" startTime="'.$datetime.'" endTime="17:45" timeZone="Europe/Brussels" location="World Wide Web" recurrence="weekly" recurrence_interval="1" options="\'Apple\',\'Google\',\'iCal\',\'Outlook.com\',\'Yahoo\'"></add-to-calendar-button>';
     }
     return $str;
@@ -661,6 +659,7 @@ function print_planning($result, $id_hospitalise): void
     echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
     echo "<table class='agenda' id='agenda1'>";
     global $halfHour, $days;
+    global $userData;
     echo "<tr>";
     for ($i = -1; $i < 7; $i++) {
         if ($i == -1) {
@@ -670,7 +669,6 @@ function print_planning($result, $id_hospitalise): void
             echo "<td><h2>$day".listActivitiesHtml(null)."</h2></td>";
         }
     }
-    global $halfHour, $days;
     echo "</tr>";
     foreach ($halfHour as $key => $item) {
         $itemType = false;
@@ -727,6 +725,7 @@ function print_planning($result, $id_hospitalise): void
 function print_planning2($result, $id_hospitalise): void
 {
     global $newGetData;
+    global $userData;
     checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"),
         $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
         "onchange=refreshDataSemaineTaches()", "chkbox(this)");
@@ -810,6 +809,7 @@ function fusionnerResultatPatientPatients(array &$arrayResultDetails): array
     $jours = array();
 
     global $halfHour;
+    global $userData;
     for ($j = 0; $j < 7; $j++) {
         $jours[$j] = array();
         foreach ($halfHour as $numHour => $halfHourValue) {
@@ -851,6 +851,7 @@ function listePatients($id_hospitalise): void
     //global $id_hospitalise;
     global $joursVaisselle;
     global $acti_obli;
+    global $userData;
     $getData = new getdata_2($id_hospitalise);
     $patients = $getData->retrieveAllPatient("get");
     echo "<tr><td colspan='8' class='titre_agenda'>";
@@ -877,8 +878,8 @@ function listePatients($id_hospitalise): void
 
 function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
 {
-    global $halfHour, $days;
     global $halfHour, $days, $id_hospitalise;
+    global $userData;
 
     echo "<table id='agenda' class='agenda'>";//THE GOOG
 
@@ -988,6 +989,7 @@ function layoutCell($dataHalfHour)
     $layout = "";
 
     global $id_hospitalise;
+    global $userData;
 
     //echo "<h3>Step 1</h3>";
     //print_r($dataHalfHour);
