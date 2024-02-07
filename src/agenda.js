@@ -530,13 +530,13 @@ function checkTache(button) {
         let patients = document.getElementById("patients");
         if (listPatients === undefined || listPatients.length === 0) {
             patients.classList.toggle("error", true);
-            patients.innerText = 0;
-            errors = errors + 1;
+            patients.innerText = listPatients.length;
+            //errors = errors + 1;
             errorsText += "\nLa liste des patients est incorrecte. Pas de patient(es) choisi(es)"
         } else if (patients.innerText === "0" || patients.innerText === "Valide") {
             patients.classList.toggle("error", false);
             patients.style.backgroundColor = "#00F";
-            patients.innerText = "Valide";
+            patients.innerText = "Valide" + listPatients.length;
         }
 
 
@@ -575,26 +575,29 @@ function checkTache(button) {
             errors = errors + 1;
         }
 
-        let formElement: HTMLFormElement = document.getElementById("edition_activite");
+        let editionActivite = document.forms.edition_activite;
 
-        let elementById1 = document.getElementById("errors");
+        let errorsDiv = document.getElementById("errors");
         if (errors === 0 && button === "save") {
-            formElement.checkValidity();
-            formElement.submit();
+            errorsDiv.style.backgroundColor = "#00F";
+            errorsDiv.innerHTML = "Tout ok, go\n\n" + errorsText;
+            editionActivite.checkValidity();
+            //editionActivite.submit();
             return true;
         } else if (errors === 0 && button === "saveAndNew") {
-            formElement.checkValidity();
-            formElement.submit();
+            errorsDiv.style.backgroundColor = "#00F";
+            errorsDiv.innerHTML = "Tout ok, go\n\n" + errorsText;
+            editionActivite.checkValidity();
+            //editionActivite.submit();
             return true;
         } else {
-            elementById1.innerHTML = "Il y a des erreurs, corrigez :) !!!\n\n" + errorsText;
-            elementById1.style.backgroundColor = "#F00";
-            formElement.reportValidity();
-            formElement.preventDefaults();
+            errorsDiv.innerHTML = "Il y a des erreurs, corrigez :) !!!\n\n" + errorsText;
+            errorsDiv.style.backgroundColor = "#F00";
+//            ((HTMLFormElement)(formElement)).reportValidity();
             return false;
         }
     } catch (exception) {
-        formElement.reportValidity();
+        alert(exception);
         return false;
     }
 }
