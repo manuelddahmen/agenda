@@ -412,6 +412,7 @@ function traitementListPatients(array &$arrayDetails, array $result, array $acti
 }
 
 /**
+ * @param array $arrayDetails
  * @param array $jours
  * @param int $j
  * @param mixed $halfHourLoopValue
@@ -493,6 +494,12 @@ function listeItemPatientsAgenda(array &$arrayDetails, array &$jours, int $j, mi
     return $patients;
 }
 
+/***
+ * @param array $arrayDetails
+ * @param array $result
+ * @param array $jours
+ * @return array
+ */
 function traitementListPatient(array &$arrayDetails, array $result, array $jours): array
 {
     global $userData;
@@ -562,9 +569,11 @@ function traitementListPatient(array &$arrayDetails, array $result, array $jours
 }
 
 /**
+ * @param array $arrayDetails
  * @param mixed $numHourValue
  * @param mixed $endHour
  * @param $jours
+ * @param $j
  * @param mixed $id_hospitalise
  * @param mixed $value
  * @param string $patients

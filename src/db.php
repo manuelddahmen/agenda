@@ -148,7 +148,7 @@ function crud(): void
                 $sql = trim($sql, ",");
                 $sql .= " where " . $idName . "=" .
                     char1($types[$idName], $idName) . escapeSqlChars($id) . char1($types[$idName], $idName)
-                    . ($table == "table_users" ? "" : " and user_id=" . $userData["id"]) . ";";
+                    . ($table == "table_users" ? "" : " and user_id=" . ($userData["id"])) . ";";
                 $values[$idName] = $id;
 
                 //echo "UPDATE = " . $sql.";";
@@ -588,7 +588,7 @@ function printFormEdit($tableName, $idName, $id, bool $edit = true, array $data 
         if (isset($result0[0]["idName"])) {
 
         }
-        $sql = "select * from " . $tableName . " where " . $idName . "=" . $id . ($tableName == "table_users" ? "" : " and user_id=" . $userData["id"]) . ";";
+        $sql = "select * from " . $tableName . " where " . $idName . "=" . $id . ($tableName == "table_users" ? "" : " and user_id=" . ($userData["id"])) . ";";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
