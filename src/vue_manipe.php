@@ -77,7 +77,7 @@ $newGetData->init();
 $result = joursTaches($id_hospitalise);
 checkMultiple1("id_hospitalise", $newGetData->retrieveAllPatient("get"),
     $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
-    "onchange=refreshDataSemaineTaches()", "chkbox(this)", $id_hospitalise);
+    "onchange=refreshDataSemaineTaches()", "chkbox(this);", $id_hospitalise);
 
 require_once "footer.php";
 ?>  </body>

@@ -432,6 +432,12 @@ let xmlHttpRequest;
 let nPatients = 0;
 function chkbox(this1) {
     var s = document.getElementById("patients");
+    var s2patientId;
+    if (this1 != null && this1.value != null) {
+        s2patientId = this1.value;
+    } else {
+        alert("Erreur Null");
+    }
     var s1 = null;
     if (s == null || s.innerText == null) {
         s1 = 0;
@@ -440,7 +446,11 @@ function chkbox(this1) {
     }
     if (this1.checked) {
         nPatients =s1+1;
-        listPatients.push(s);
+        if (s2patientId != null) {
+            listPatients.push(s2patientId);
+        } else {
+            listPatients.push(this1.value);
+        }
 
     } else {
         nPatients = s1+nPatients-1;
@@ -476,7 +486,7 @@ function chkboxGoto(this1) {
 }
 function reqListenerDivEditTache() {
     let divFloat = document.getElementById("float-windows");
-    console.log(this.responseText);
+    //console.log(this.responseText);
     divFloat.innerHTML = xmlHttpRequest.responseText;
 }
 
@@ -492,7 +502,7 @@ function chkboxViewTache(this1) {
 function reqListener(xml) {
     let tableAgenda = document.getElementById("agenda");
     tableAgenda.innerHTML;
-    console.log(this.responseText);
+    //console.log(this.responseText);
     tableAgenda.innerHTML = xmlHttpRequest.responseText;
 }
 function reqListener2(xml) {

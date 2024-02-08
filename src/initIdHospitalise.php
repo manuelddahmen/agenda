@@ -69,4 +69,14 @@ function implodeIdsInUrl(string $varName, array $ids): string
     return $ret;
 }
 
+function implodeIdsInUrl2(string $varName, array $ids): string
+{
+    $i = 0;
+    $ret = "";
+    foreach ($ids as $value) {
+        $ret .= "&" . $varName . "=" . $value;
+        $i++;
+    }
+    return $ret;
+}
 ?>

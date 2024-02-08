@@ -111,22 +111,20 @@ class getdata_2
         if (count_chars($sql2) == 2)
             $sql2 = "";
         $sqlPatients = "select $sql1 th.chambre as chambre, nom, prenom "
-            . "from table_hospitalises th join table_taches tt on th.chambre = tt.id_hospitalises inner join table_activites ta on ta.id = tt.id_activite "
-            . "inner join table_taches_patients ttp on tt.id = ttp.id_tache and ttp.id_patient=th.chambre " . $sql21 . " "
-            . "and  th.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . " " . " and ta.user_id=" . ($userData["id"]) . " "
+            . " from table_hospitalises th inner join table_taches_patients as ttp "
+            . " on th.chambre=ttp.id_patient "
+            . " inner join table_taches tt on ttp.id_patient = tt.id_hospitalises "
+            . " inner join table_activites ta on ta.id = tt.id_activite "
+            . " and ttp.id_patient=th.chambre " . $sql21 . " "
+            . "and  th.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . " " . " and ta.user_id=" . ($userData["id"]) . " and ttp.user_id=" . ($userData["id"]) . " "
             . " union "
             . " select $sql1 chambre, nom, prenom    from table_hospitalises th join table_taches tt2 on th.chambre = tt2.id_hospitalises inner join table_activites ta on ta.id = tt2.id_activite "
             . $sql22.";";
-
-//print_r($sql);
 
         if ($id_hospitalise > 0)
             $sqlPatient = "select * from table_hospitalises where user_id=" . ($userData["id"]) . ";";
         else
             $sqlPatient = "select * from table_hospitalises where user_id=" . ($userData["id"]) . ";";
-
-        addError("Notice", $sqlPatient);
-
 
         $stmt2 = $db->prepare($sqlPatients);
 
@@ -638,21 +636,21 @@ function listActivitiesHtml($rowItem, $isEvent = false): string
         $str .= halfHourText($dateParts[2]);
     }
     $string_hospi = "";
-    if(isset($id_hospitalise) && is_array($id_hospitalise) && !$isEvent) {
+    if (isset($id_hospitalise) && is_array($id_hospitalise)) {
         $string_hospi = implodeIdsInUrl("id_hospitalise",$id_hospitalise);
-    } else if(isset($id_hospitalise) && is_numeric($id_hospitalise) && !$isEvent) {
+    } else if (isset($id_hospitalise) && is_numeric($id_hospitalise)) {
         $string_hospi .= "&id_hospitalise=".$id_hospitalise;
     }
     if (!$isEvent) {
         $url = addToGetUrl("?page=advent&id_tache=-1" . "&datetime=$datetime".$string_hospi, $rowItem);
-        $str .= "<a href='$url'  class='add btn-new'><img src='../images/add.png' alt='Add task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
+        $str .= "<a href='$url'  class='add '><img src='../images/add.png' alt='Add task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
 
     } else {
         $url = addToGetUrl("?page=advent&table=table_taches&idName=id&id=" . $rowItem["id_tache"] . "&datetime=$datetime".$string_hospi, $rowItem);
-        $str .= "<a href='$url'   class='modify btn-choose'><img src='../images/modify.png' alt='Modify task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
+        $str .= "<a href='$url'   class='modify '><img src='../images/modify.png' alt='Modify task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
         $url = addToGetUrl("?page=agenda&id=" . ($rowItem["id_tache"]) . "&idName=id&table=table_taches&action=delete&&datetime=$datetime".$string_hospi, $rowItem);
-        $str .= "<a href='$url'  class=' delete btn-danger'><img src='../images/delete.png' alt='Delete task'/></a>";
-        $str .= "<a href='#'  class='notification btn-check' onclick=\"eventNotification('" . ($rowItem["nom_activite"] ?? "") . "'," . ($rowItem["halfHourText"] ?? "") . "," . ($rowItem["hour"] ?? "") . ", " . ($rowItem["minutes"] ?? "") . ");\"" . "><img src='../images/alarm.jpg' alt='Delete task'/></a>";
+        $str .= "<a href='$url'  class='delete '><img src='../images/delete.png' alt='Delete task'/></a>";
+        $str .= "<a href='#'  class='notification ' onclick=\"eventNotification('" . ($rowItem["nom_activite"] ?? "") . "'," . ($rowItem["halfHourText"] ?? "") . "," . ($rowItem["hour"] ?? "") . ", " . ($rowItem["minutes"] ?? "") . ");\"" . "><img src='../images/alarm.jpg' alt='Delete task'/></a>";
         //$str .='<add-to-calendar-button name="Calendar" description="Play with me!" startDate="'.$datetime.'" startTime="'.$datetime.'" endTime="17:45" timeZone="Europe/Brussels" location="World Wide Web" recurrence="weekly" recurrence_interval="1" options="\'Apple\',\'Google\',\'iCal\',\'Outlook.com\',\'Yahoo\'"></add-to-calendar-button>';
     }
     return $str;
@@ -737,7 +735,7 @@ function print_planning2($result, $id_hospitalise): void
     global $userData;
     checkMultiple("id_hospitalise", $newGetData->retrieveAllPatient("get"),
         $newGetData->resultPatientsTache ?? array(), "chambre", array("nom", "prenom"),
-        "onchange=refreshDataSemaineTaches()", "chkbox(this)");
+        "onchange=refreshDataSemaineTaches()", "chkbox(this);");
     //echo "<button onclick='tableToExcel();'>Télécharger feuille de calcul</button>";
     //echo "<table class='agenda' id='agenda'>";
     global $halfHour, $days;
