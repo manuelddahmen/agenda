@@ -650,7 +650,12 @@ function listActivitiesHtml($rowItem, $isEvent = false): string
         $str .= "<a href='$url'   class='modify '><img src='../images/modify.png' alt='Modify task'></a>";//onclick='//javascript:chkboxViewTache(\"$url\")'
         $url = addToGetUrl("?page=agenda&id=" . ($rowItem["id_tache"]) . "&idName=id&table=table_taches&action=delete&&datetime=$datetime".$string_hospi, $rowItem);
         $str .= "<a href='$url'  class='delete '><img src='../images/delete.png' alt='Delete task'/></a>";
-        $str .= "<a href='#'  class='notification ' onclick=\"eventNotification('" . ($rowItem["nom_activite"] ?? "") . "'," . ($rowItem["halfHourText"] ?? "") . "," . ($rowItem["hour"] ?? "") . ", " . ($rowItem["minutes"] ?? "") . ");\"" . "><img src='../images/alarm.jpg' alt='Delete task'/></a>";
+        if (isset($rowItem["jour__semaine_demie__heure_temps"])) {
+            $times = explode(":", $rowItem["jour__semaine_demie__heure_temps"]);
+            if (is_array($times)) {
+                $str .= "<a href='#'  class='notification ' onclick=\"eventNotification('" . ($rowItem["nom_activite"] ?? "") . "'," . ($times[0]) . ", " . ($times[1] ?? "0") . ", " . ($times[2] ?? "0") . ");\"" . "><img src='../images/alarm.jpg' alt='Delete task'/></a>";
+            }
+        }
         //$str .='<add-to-calendar-button name="Calendar" description="Play with me!" startDate="'.$datetime.'" startTime="'.$datetime.'" endTime="17:45" timeZone="Europe/Brussels" location="World Wide Web" recurrence="weekly" recurrence_interval="1" options="\'Apple\',\'Google\',\'iCal\',\'Outlook.com\',\'Yahoo\'"></add-to-calendar-button>';
     }
     return $str;

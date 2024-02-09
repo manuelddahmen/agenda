@@ -43,7 +43,7 @@ function getNextWeeklyDay(dayInWeek, hour, minutes) {
     return nextMonday;
 }
 
-function eventNotification(strEventDescr, dayInWeek, hour, minutes) {
+function eventNotification(strEventDesc, dayInWeek, hour, minutes) {
     var nextMondayAt850 = getNextWeeklyDay(dayInWeek, hour, minutes); // Get next monday at 08:50
 
     var timeDifferenceInMilliseconds = nextMondayAt850.getTime() - new Date().getTime();
@@ -51,11 +51,11 @@ function eventNotification(strEventDescr, dayInWeek, hour, minutes) {
         setTimeout(function () {
             // The function you want to run at the next Monday 8:50
             if (Notification.permission === "granted") {
-                new Notification(strEventDescr);
+                new Notification(strEventDesc);
             } else if (Notification.permission !== "denied") {
                 Notification.requestPermission().then(function (permission) {
                     if (permission === "granted") {
-                        new Notification(strEventDescr);
+                        new Notification(strEventDesc);
                     }
                 });
             }

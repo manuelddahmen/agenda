@@ -1080,7 +1080,7 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
                 }
             }
         }
-        echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"" . $valId . "\");'>&nbsp;" . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
+        echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"" . $valId . '"\");>&nbsp;' . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
         $idx++;
     }
 }

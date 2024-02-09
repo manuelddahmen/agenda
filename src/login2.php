@@ -89,15 +89,16 @@ function login2(): void
                 }
             </script>
             <script src="https://www.google.com/recaptcha/api.js"></script>
-            <script type="text/javascript" >
-                import { initializeApp } from 'firebase/app';
+            <!--            <script type="text/typescript">
+                            import { initializeApp } from 'firebase/app';
 
-                // TODO: Replace the following with your app's Firebase project configuration
-                const firebaseConfig = {
-                };
+                            // TODO: Replace the following with your app's Firebase project configuration
+                            const firebaseConfig = {
+                            };
 
-                const app = initializeApp(firebaseConfig);
-            </script>
+                            const app = initializeApp(firebaseConfig);
+                        </script>
+            -->
             <div id="g_id_onload"
                  data-client_id="AIzaSyB_38L9B3BcrAI5ecTl8FqTSgURqnM7p58"
                  data-login_uri="https://empty3.one/agenda/src/index.php?page=login"
