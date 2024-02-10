@@ -4,12 +4,127 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript.">
+    <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="RELEASE 1.0. #8&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript. Ok corrigé">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/2023ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Names.php" beforeDir="false" afterPath="$PROJECT_DIR$/Names.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookie-policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/cookie-policy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copy_instance.php" beforeDir="false" afterPath="$PROJECT_DIR$/copy_instance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/christine/agenda.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/christine/agenda.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/christine/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/christine/print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/light/agenda.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/light/agenda.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/light/agenda0.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/light/agenda0.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/light/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/light/print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/light/search_menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/light/search_menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main/agenda.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main/agenda.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main/agenda0.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main/agenda0.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main/print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main/search_menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main/search_menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_agenda/database_agenda_jlb" beforeDir="false" afterPath="$PROJECT_DIR$/data_agenda/database_agenda_jlb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_agenda/screma.sql/2022-09-02.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data_agenda/screma.sql/2022-09-02.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_agenda/screma.sql/console.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data_agenda/screma.sql/console.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_agenda/screma.sql/schema_2022-10-18.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data_agenda/screma.sql/schema_2022-10-18.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_intent.html" beforeDir="false" afterPath="$PROJECT_DIR$/event_intent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external-data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/external-data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/agenda_christine.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/agenda_christine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/new_event.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/new_event.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/notifications.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/tableToExcel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/tableToExcel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/examples/parseicalendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/examples/parseicalendar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/examples/recurringdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/examples/recurringdate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/examples/simpleevent.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/examples/simpleevent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/examples/timezoneevent.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/examples/timezoneevent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/includes/date.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/includes/date.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/includes/framework.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/includes/framework.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/includes/ical.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/includes/ical.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/includes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/includes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/includes/recurringdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/includes/recurringdate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/includes/timezone.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/includes/timezone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icalendar-master/zapcallib.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icalendar-master/zapcallib.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privacy-policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-policy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/DirectoryLister.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/DirectoryLister.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fileTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fileTypes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/themes/bootstrap/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/themes/bootstrap/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/themes/bootstrap/js/directorylister.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/themes/bootstrap/js/directorylister.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rues.php" beforeDir="false" afterPath="$PROJECT_DIR$/rues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/sms.php" beforeDir="false" afterPath="$PROJECT_DIR$/sms/sms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AgendaUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AgendaUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBSearch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PP.htm" beforeDir="false" afterPath="$PROJECT_DIR$/src/PP.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQLitePDO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQLitePDO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agenda.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agenda.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agenda2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ajax/request_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajax/request_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/android/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/android/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/autocomplete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autocomplete.js.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/autocomplete.js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autonomies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/autonomies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cal.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/cal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calendrier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/calendrier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/callback.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/callback.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cookiechoices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cookiechoices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/create_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/create_data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/create_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/create_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/credentials.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/credentials.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dbmanager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbmanager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/delete_archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/delete_archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/displayBy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/displayBy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/downloads.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/downloads.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edit_in_place_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/edit_in_place_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/error_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/error_report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/former.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/former.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frameflow.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/frameflow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/getdata.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/getdata.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/getdata_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/getdata_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/getter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/getter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/help.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/initIdHospitalise.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/initIdHospitalise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js_runphp_errors.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/js_runphp_errors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/login2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logon.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/logon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lost_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/lost_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/make_link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/make_link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parametres.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/parametres.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/password.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/permissions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/permissions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/printTableWithGetters.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/printTableWithGetters.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/privacy_policy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/privacy_policy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recover_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/recover_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/search_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/semaine.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/semaine.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/semaine_activite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/semaine_activite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/send_password_reset_link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/send_password_reset_link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tabs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_agenda_date_mois.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_agenda_date_mois.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_draganddrop_agenda.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_draganddrop_agenda.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_edition_tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_edition_tache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_gestion_activites.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_gestion_activites.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_gestion_membres_du_personnel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_gestion_membres_du_personnel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_gestion_patients.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_gestion_patients.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_manipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_manipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue_semaine.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue_semaine.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -413,7 +528,7 @@
       <workItem from="1703979954946" duration="1748000" />
       <workItem from="1704682242802" duration="1189000" />
       <workItem from="1705471202776" duration="16909000" />
-      <workItem from="1707295117494" duration="33981000" />
+      <workItem from="1707295117494" duration="36703000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -758,7 +873,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="343" />
+    <option name="localTasksCounter" value="344" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -819,7 +934,6 @@
       <path value="$PROJECT_DIR$/instances-agenda/agenda" />
       <path value="$PROJECT_DIR$/instances-agenda/manou" />
     </ignored-roots>
-    <MESSAGE value="Bug ???" />
     <MESSAGE value="Aéliorations (DLr)" />
     <MESSAGE value="Updates. PDO::preparedStatement" />
     <MESSAGE value="AgendaWebApp -&gt; multiusers" />
@@ -844,7 +958,8 @@
     <MESSAGE value="RELEASE 1.0. #7" />
     <MESSAGE value="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé: les erreurs JavaScript." />
     <MESSAGE value="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript." />
-    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #7&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript." />
+    <MESSAGE value="RELEASE 1.0. #8&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript. Ok corrigé" />
+    <option name="LAST_COMMIT_MESSAGE" value="RELEASE 1.0. #8&#10;Error : table Agenda ne se met pas à jour. Corrigé : les erreurs JavaScript. Ok corrigé" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
