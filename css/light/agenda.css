@@ -16,6 +16,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+
 table td {
     border-top: #440696 solid 1px;
     border-bottom: #250450 solid 1px;
@@ -23,10 +24,29 @@ table td {
     border-right: #421a60 solid 1px;
 }
 
-table.agenda td {
-    padding-: 4px;
+table td.title, table td.hours, table td.day_week {
+    text-align: center;
+    color: #98c7c0;
+    background-color: #3c0781;
 }
 
+td.titre_agenda, h2.title_patient, td h3 {
+    color: #51f553;
+    background-color: #1111AA;
+    padding: 20px;
+}
+table.agenda td {
+    padding: 4px;
+}
+
+table {
+    empty-cells: hide;
+    font-family: "Arial Nova Cond Light", serif;
+}
+
+table td {
+    padding: 10px;
+}
 td.day_week span {
     font-size: 1em;
 }

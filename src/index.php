@@ -42,7 +42,14 @@ global $username;
 
 require_once "framework.php";
 
-?>
+global $show_cookie;
+if ($show_cookie) { ?>
+    <div class="cookie-alert">
+        <p>En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des
+            contenus et services adaptés à vos centres d’intérêts.</p>
+        <p><a href="index.php?accept_cookies=true">OK</a></p>
+    </div>
+<?php } ?>
 
         <?php if(!($username!=null && strlen($username)>0)) {
         ?>

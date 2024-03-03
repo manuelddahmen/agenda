@@ -376,7 +376,7 @@ function printTable(string $tablename, array $columnsNames,
     $tableHtmlName = "printTable_" . $tablename;
 
 
-    $str .= "<table border='4' class='printTable' id='$tableHtmlName'>";
+    $str .= "<table class='printTable' id='$tableHtmlName'>";
 
     $str .= "<tr>";
     if ($displayId) {
@@ -1080,6 +1080,7 @@ function checkMultiple(string $string, array $resultHospitalises, array $resultP
                 }
             }
         }
+        echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"" . $valId . '"\");>&nbsp;' . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
         echo "/><span class='checkbox_text' onclick='toggleCheckBox(\"" . $valId . '"\");>&nbsp;' . ($rowItem["nom"] . " " . $rowItem["prenom"]) . "&nbsp;</span>";
         $idx++;
     }

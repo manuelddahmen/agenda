@@ -115,6 +115,22 @@ global $page, $pages, $themeName;
 
         })();
         //openWindow(url);
+        <?php
+        if (isset($_GET["accept_cookies"]) && $_GET["accept_cookies"] == "true") {
+            // ++ Vérifier qu'il n'y ait pas de referrer
+            session_set_cookie_params(array("lifetime" => time() + 3600 * 24));
+            setcookie("accept_cookies", "true", time() + 60 * 60 * 24 * 30, "/",
+                "empty3.app", true, false);
+            session_commit();
+            header("Location: index.php\n");
+            exit;
+        }
+        if (isset($_COOKIE['accept_cookies'])) {
+            $show_cookie = false;
+        } else {
+            $show_cookie = true;
+        }?>
+        <script defer src="cookieconsent.js>"></script>
 
     </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>

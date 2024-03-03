@@ -678,7 +678,7 @@ function print_planning($result, $id_hospitalise): void
             echo "<td class='hours'><h2>h</h2></td>";
         } else {
             $day = $days[$i];
-            echo "<td><h2>$day".listActivitiesHtml(null)."</h2></td>";
+            echo "<td class='day_week'><h2>$day" . listActivitiesHtml(null) . "</h2></td>";
         }
     }
     echo "</tr>";
@@ -702,7 +702,7 @@ function print_planning($result, $id_hospitalise): void
             } else {
                 $day = $days[$numDay];
                 ?>
-                <td class="half_hour" id="day_<?php echo "$numDay $item" ?>"><?php
+                <td class="event_cal" id="day_<?php echo "$numDay $item" ?>"><?php
                 global $id_hospitalise;
                 $value = array("id_tache" => -1, "jour__semaine_demie__heure_temps_0" => $numDay,
                     "jour__semaine_demie__heure_temps_1" => $item, "jour__semaine_demie__heure_temps_2" => 1,
@@ -750,7 +750,7 @@ function print_planning2($result, $id_hospitalise): void
             echo "<td class='hours'><h2>h</h2></td>";
         } else {
             $day = $days[$i];
-            echo "<td><h2>$day</h2></td>";
+            echo "<td class='day_week'><h2>$day</h2></td>";
         }
     }
     global $halfHour, $days;
@@ -769,7 +769,7 @@ function print_planning2($result, $id_hospitalise): void
         for ($numDay = -1; $numDay < 7; $numDay++) {
             if ($numDay == -1) {
                 ?>
-                <td class="hours"><?php echo $item ?></td>
+                <td class="day_week"><?php echo $item ?></td>
                 <?php
 
             } else {
@@ -777,7 +777,7 @@ function print_planning2($result, $id_hospitalise): void
 
                 $last_task = -1;
                 ?>
-                <td class="half_hour" id="day_<?php echo "$numDay $item" ?>"><?php
+                <td class="event_cal" id="day_<?php echo "$numDay $item" ?>"><?php
                 foreach ($result[$numDay][$item] as $tache_key => $value) {
                     global $id_hospitalise;
                     $value = array("id_tache" => $result[$numDay][$item]["id_tache"], "jour__semaine_demie__heure_temps_0" => $numDay,
@@ -798,7 +798,6 @@ function print_planning2($result, $id_hospitalise): void
     }
     ?>
 
-    </table>
     <?php
 }
 
@@ -893,16 +892,16 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
     global $halfHour, $days, $id_hospitalise;
     global $userData;
 
-    echo "<table id='agenda' class='agenda'>";//THE GOOG
+    echo "<table id='agenda' class='agenda'>";
 
     listePatients($id_hospitalise);
     echo "<tr>";
     for ($i = -1; $i < 7; $i++) {
         if ($i == -1) {
-            echo "<td class='hours'><h2>h</h2></td>";
+            echo "<td class='hours'>hh:mm</td>";
         } else {
             $day = $days[$i];
-            echo "<td><h2>$day</h2></td>";
+            echo "<td class='day_week'>$day</td>";
         }
     }
     echo "</tr>";
@@ -912,7 +911,7 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
     global $joursVaisselle;
     for ($i = -1; $i < 7; $i++) {
         if ($i == -1) {
-            echo "<td></td>";
+            echo "<td class='hours'></td>";
         } else {
             echo "<td class='btn-new'>" .
                 ((isset($joursVaisselle[$i])) ?($joursVaisselle[$i]." (Vaisselle) ") :" ") .
@@ -932,7 +931,7 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
             ;//continue;
         for ($j = -1; $j < 7; $j++) {
             if ($j == -1) {
-                echo "<td class='hours half_hour notempty'>$halfHourValue</td>";
+                echo "<td class='hours half_hour notempty event_cal'>$halfHourValue</td>";
             } else {
                 if (isset($arrayResultDetails[$j][$halfHourValue])) { ?>
                     <td class="half_hour empty" id="day_<?php echo "$j $halfHourValue" ?>"
