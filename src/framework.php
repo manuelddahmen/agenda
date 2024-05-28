@@ -114,7 +114,9 @@ global $page, $pages, $themeName;
             }
 
         })();
-        //openWindow(url);
+
+        //    openWindow(url);
+    </script>
         <?php
         if (isset($_GET["accept_cookies"]) && $_GET["accept_cookies"] == "true") {
             // ++ Vérifier qu'il n'y ait pas de referrer
@@ -130,7 +132,7 @@ global $page, $pages, $themeName;
         } else {
             $show_cookie = true;
         }?>
-        <script defer src="cookieconsent.js>"></script>
+    <script defer src="cookiechoices.js"></script>
 
     </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>

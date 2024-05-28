@@ -435,12 +435,15 @@ echo $jour__semaine_demie__heure_temps;
                        value="Enregistrer et nouvelle tâche"/>
 
     </table>
-    <p id="errors"></p>
+    <p id="errors">
+        <?php
+        echo $message;
+        ?>
+    </p>
 </form>
 
 <?php
 
-echo $message;
 
 $params = array();
 if ($id_hospitalise != -1)

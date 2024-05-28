@@ -44,4 +44,5 @@ function printJsPhpErrors()
         global $js_start_errors;
 
         $js_start_errors[count($js_start_errors)] =  $sql;
+
     }
