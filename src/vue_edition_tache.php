@@ -24,7 +24,7 @@ require_once "initIdHospitalise.php";
 
 global $db;
 $db = new MyDB();
-
+echo isset($_GET["submit"]) ? "set" : "notset";
 $jour__semaine_demie__heure_temps = '-1:-1:-1';
 $jour__semaine_demie__heure_temps_0 = '0';
 $jour__semaine_demie__heure_temps_1 = '08.30';
@@ -44,6 +44,7 @@ if(is_scalar($id_hospitalise))
 
 initIdHospitalise();
 
+print_r($id_hospitalise);
 
 $data["jour__semaine_demie__heure_temps"] = $jour__semaine_demie__heure_temps;
 
@@ -99,7 +100,7 @@ if ($userData == NULL) {
     echo "<h2>Non connecté</h2>";
     exit(0);
 }
-$sql = "select th.chambre as id_hospitalises, ta.id as id_activite, te.id as id_employe, tt.id as id_tache, ta.nom_activite as nomActivite, tt.jour__semaine_demie__heure_temps as jour__semaine_demie__heure_temps, * from table_hospitalises th inner join table_taches tt on th.chambre = tt.id_hospitalises inner join table_activites ta on ta.id = tt.id_activite inner join table_employes te on ta.id_employe = te.id
+$sql = "select th.chambre as id_hospitalises, ta.id as id_activite, te.id as id_employe, tt.id as id_tache, ta.nom_activite as nomActivite, tt.jour__semaine_demie__heure_temps as jour__semaine_demie__heure_temps, * from table_hospitalises th inner join table_taches_patients ttp on th.chambre=ttp.id_patient inner join table_taches tt on ttp.id_tache = tt.id_activite inner join table_activites ta on ta.id = tt.id_activite inner join table_employes te on ta.id_employe = te.id
     where th.user_id=" . ($userData["id"]) . " and ta.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . ";";
 
 $stmt = $db->prepare($sql);
@@ -131,8 +132,8 @@ try {
         $result = $stmt->fetchAll();
         $id_tache = (int)($result[0]["maxId"]) + 1;
 
-        $sql = "insert into table_taches ( id, id_activite, jour__semaine_demie__heure_temps, user_id, id_hospitalises) values
-                (" . (int)$id_tache . ", $id_activite, '$jour__semaine_demie__heure_temps', " . ($userData['id']) . ", 1);";
+        $sql = "insert into table_taches ( id, id_activite, jour__semaine_demie__heure_temps, user_id) values
+                (" . (int)$id_tache . ", $id_activite, '$jour__semaine_demie__heure_temps', " . ($userData['id']) . ");";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -148,7 +149,7 @@ try {
         $stmt->execute();
         $id = $db->handle->lastInsertId() + 1;
         $countUpdatedAdd = 0;
-        foreach ($id_hospitalise as $chambre) {
+        foreach ($id_hospitalise as $i => $chambre) {
             //if (str_starts_with($i, "id_hospitalises_") || str_starts_with($i, "id_hospitalise")) {
                 $id++;
                 $sql = "insert into table_taches_patients  (id_patient, id_tache, user_id) values (" . $chambre . ", " . $id_tache . ", " . ($userData["id"]) . ");";
@@ -217,12 +218,12 @@ if(isset($_GET["notInclude"])) {
             $str.="&id_hospitalise=".$id;
         }
     } else if(isset($id_hospitalise)) {
-        $str.="&id_hospitalise=".$id;
+        $str .= "&id_hospitalise=" . $id_hospitalise;
     }
     $index = "index.php?page=advent" . $str;
     //header("Location: ."\n");
-    echo "<script type='text/javascript'> window.location = '$index'; </script>";
-    exit();
+    //echo "<script type='text/javascript'> window.location = '$index'; </script>";
+    //exit();
 }
 echo $jour__semaine_demie__heure_temps;
 ?>
@@ -463,7 +464,6 @@ if($jour__semaine_demie__heure_temps_2!=null)
     $params['field-like-'.$jour__semaine_demie__heure_temps] =$jour__semaine_demie__heure_temps_2;*/
 
 
-addError("Notice", $sql);
 //require_once "printTableWithGetters.php";
 
 //printTableWithGetter($sql, $params, "id_tache");
@@ -487,11 +487,8 @@ $newGetData->init();
 $result = joursTaches($id_hospitalise);
 require_once "footer.php";
 ?>
-<script language="JavaScript" type="text/javascript">
-    alert("<?php  echo $message; ?>");
     <?php
-    //printJsPhpErrors();
+    printJsPhpErrors();
     ?>
-</script>
 </body>
 </html>

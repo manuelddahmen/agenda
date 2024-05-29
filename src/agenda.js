@@ -546,10 +546,10 @@ function checkTache(button) {
         }
         let patients = document.getElementById("patients");
         if (listPatients === undefined || listPatients.length === 0) {
-            patients.classList.toggle("error", true);
-            patients.innerText = listPatients.length;
+            //patients.classList.toggle("error", true);
+            //patients.innerText = listPatients.length;
             //errors = errors + 1;
-            errorsText += "\nLa liste des patients est incorrecte. Pas de patient(es) choisi(es)"
+            //errorsText += "\nLa liste des patients est incorrecte. Pas de patient(es) choisi(es)"
         } else if (patients.innerText === "0" || patients.innerText === "Valide") {
             patients.classList.toggle("error", false);
             patients.style.backgroundColor = "#00F";
@@ -614,6 +614,8 @@ function checkTache(button) {
             return false;
         }
     } catch (exception) {
+        errorsDiv.innerHTML = "Il y a des erreurs, corrigez :) !!!\n\n" + errorsText;
+        errorsDiv.style.backgroundColor = "#F00";
         alert(exception);
         return false;
     }

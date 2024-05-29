@@ -111,15 +111,19 @@ class getdata_2
         if (count_chars($sql2) == 2)
             $sql2 = "";
         $sqlPatients = "select $sql1 th.chambre as chambre, nom, prenom "
-            . " from table_hospitalises th inner join table_taches_patients as ttp "
+            . " from table_hospitalises th "
+            . " inner join table_taches_patients as ttp "
             . " on th.chambre=ttp.id_patient "
-            . " inner join table_taches tt on ttp.id_patient = tt.id_hospitalises "
+            . " inner join table_taches tt on ttp.id_tache = tt.id "
             . " inner join table_activites ta on ta.id = tt.id_activite "
             . " and ttp.id_patient=th.chambre " . $sql21 . " "
             . "and  th.user_id=" . ($userData["id"]) . " and tt.user_id=" . ($userData["id"]) . " " . " and ta.user_id=" . ($userData["id"]) . " and ttp.user_id=" . ($userData["id"]) . " "
-            . " union "
-            . " select $sql1 chambre, nom, prenom    from table_hospitalises th join table_taches tt2 on th.chambre = tt2.id_hospitalises inner join table_activites ta on ta.id = tt2.id_activite "
-            . $sql22.";";
+            /*            . " union "
+                        . " select $sql1 chambre, nom, prenom from table_hospitalises th "
+                        . " inner join table_taches_patients ttp "
+                        . " on th.chambre=ttp.id_patient inner table_taches tt2 on tt2.id=ttp2.id_tache "
+                    ."join table_taches tt2 on tt2.id=th.chambre inner join table_activites ta on ta.id = tt2.id_activite "
+            */ . $sql22 . ";";
 
         if ($id_hospitalise > 0)
             $sqlPatient = "select * from table_hospitalises where user_id=" . ($userData["id"]) . ";";
@@ -300,7 +304,8 @@ function joursTaches($id_hospitalise): array
     $sql = "select tt.id as id_tache, te.id as id_employe, ta.id as id_activite, th.chambre as chambre, th.nom as nomPatient, th.prenom as prenomPatient, ta.nom_activite as nom_tache, te.nom as nomEmploye, te.prenom as prenomEmploye,
          tt.jour__semaine_demie__heure_temps as jour__semaine_demie__heure_temps, tt.id as id_tache, te.id as id_employe
          from table_hospitalises th
-         inner join table_taches tt on th.chambre = tt.id_hospitalises
+         inner join table_taches_patients ttp on th.chambre = ttp.id_patient
+         inner join table_taches tt on tt.id = ttp.id_tache
          inner join table_activites ta on tt.id_activite = ta.id
          inner join table_employes te on ta.id_employe = te.id
          $condition   
@@ -974,9 +979,10 @@ function fusionnerResultatPatientPatients2(array &$arrayResultDetails): void
             ?><td>
             <?php
 
-            $sql = "select nom_activite from table_taches as tt inner join table_hospitalises as th "
-                ." on th.chambre=tt.id_hospitalises inner join table_activites as ta "
-                ." on tt.id_activite=ta.id where id_activite=".((int)($value)).";";
+            $sql = "select nom_activite from table_taches tt inner join table_taches_patients ttp on tt.id_activite = ttp.id_tache
+                inner join table_hospitalises as th "
+                . " on th.chambre=ttp.id_patient inner join table_activites as ta "
+                . " on tt.id_activite=ta.id where tt.id_activite=" . ((int)($value)) . ";";
 
             $stmt = $db->prepare($sql);
             $stmt->execute();

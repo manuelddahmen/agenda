@@ -30,9 +30,10 @@ function printJsPhpErrors()
             let elementById = document.getElementById("errors");
             <?php
             foreach ($js_start_errors as $key => $text) { ?>
-                elementById.innerHTML += "<?php echo htmlspecialchars($text); ?>";
+            elementById.innerHTML += "<div class='error'><?php echo urlencode($text); ?></div>";
             <?php } ?>
         }
+
         printErrors();
     </script>
     <?php
