@@ -5805,3 +5805,18 @@ Stack trace:
 [04-Nov-2023 10:50:18 UTC] No error../data_agenda/database_agenda
 [04-Nov-2023 10:50:18 UTC] Constructor
 [04-Nov-2023 10:50:18 UTC] exists()
+[29-May-2024 07:52:30 UTC] PHP Deprecated:  Return type of SQLitePDO::beginTransaction() should either be compatible with PDO::beginTransaction(): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\Users\manue\PhpstormProjects\agenda3\src\SQLitePDO.php on line 40
+[29-May-2024 07:52:30 UTC] PHP Deprecated:  Return type of SQLitePDO::commit() should either be compatible with PDO::commit(): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\Users\manue\PhpstormProjects\agenda3\src\SQLitePDO.php on line 46
+[29-May-2024 07:52:30 UTC] PHP Deprecated:  Return type of SQLitePDO::query($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, ...$fetch_mode_args) should either be compatible with PDO::query(string $query, ?int $fetchMode = null, mixed ...$fetchModeArgs): PDOStatement|false, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\Users\manue\PhpstormProjects\agenda3\src\SQLitePDO.php on line 35
+[29-May-2024 07:52:30 UTC] PHP Deprecated:  Return type of SQLitePDO::rollBack() should either be compatible with PDO::rollBack(): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\Users\manue\PhpstormProjects\agenda3\src\SQLitePDO.php on line 52
+[29-May-2024 07:52:30 UTC] PHP Fatal error:  Uncaught PDOException: could not find driver in C:\Users\manue\PhpstormProjects\agenda3\src\SQLitePDO.php:28
+Stack trace:
+#0 C:\Users\manue\PhpstormProjects\agenda3\src\SQLitePDO.php(28): PDO->__construct('sqlite:C:\\Users...')
+#1 C:\Users\manue\PhpstormProjects\agenda3\src\MyDB.php(54): SQLitePDO->__construct('C:\\Users\\manue\\...')
+#2 C:\Users\manue\PhpstormProjects\agenda3\src\logon.php(28): MyDB->__construct()
+#3 C:\Users\manue\PhpstormProjects\agenda3\src\main_menu.php(24): checkLoginForm()
+#4 C:\Users\manue\PhpstormProjects\agenda3\src\navigation.php(85): require_once('C:\\Users\\manue\\...')
+#5 C:\Users\manue\PhpstormProjects\agenda3\src\framework.php(194): displayNav()
+#6 C:\Users\manue\PhpstormProjects\agenda3\src\index.php(43): require_once('C:\\Users\\manue\\...')
+#7 {main}
+  thrown in C:\Users\manue\PhpstormProjects\agenda3\src\SQLitePDO.php on line 28

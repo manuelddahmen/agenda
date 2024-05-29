@@ -22,7 +22,6 @@
 require_once "db.php";
 require_once "initIdHospitalise.php";
 
-initIdHospitalise();
 global $db;
 $db = new MyDB();
 
@@ -42,6 +41,8 @@ $jour__semaine_demie__heure_temps = $jour__semaine_demie__heure_temps_0 . ":" . 
 global $id_hospitalise;
 if(is_scalar($id_hospitalise))
     $id_hospitalise = array();
+
+initIdHospitalise();
 
 
 $data["jour__semaine_demie__heure_temps"] = $jour__semaine_demie__heure_temps;
@@ -314,7 +315,7 @@ echo $jour__semaine_demie__heure_temps;
                     "chkbox(this)", $id_hospitalise);
 
                 ?>
-                <div class="error" id="patients"><?php echo $cptChecked; ?></div>
+                <div class="valid-feedback" id="patients"><?php echo $cptChecked; ?></div>
                 <div>
                     <a class="btn-choose" href="#"
                        onclick="include2('<?php echo "ajax/request_form.php?page=pati&action=add&table=table_hospitalises&id=-1&idName=chambre"; ?>');"
@@ -486,6 +487,11 @@ $newGetData->init();
 $result = joursTaches($id_hospitalise);
 require_once "footer.php";
 ?>
-
+<script language="JavaScript" type="text/javascript">
+    alert("<?php  echo $message; ?>");
+    <?php
+    //printJsPhpErrors();
+    ?>
+</script>
 </body>
 </html>

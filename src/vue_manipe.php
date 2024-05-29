@@ -84,7 +84,6 @@ require_once "footer.php";
 </html>
 <?php
 ?>
-<script type="text/javascript" >
     let id = <?php
         global $id_hospitalise;
         if(is_scalar($id_hospitalise)) {
@@ -101,5 +100,5 @@ require_once "footer.php";
     if(elementById!=null) {
         elementById.checked = true;
     }
-
-</script>
+<?php
+?>
