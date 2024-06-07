@@ -70,21 +70,21 @@ function login(): void
             ?>
             <script src="https://accounts.google.com/gsi/client" async defer></script>
             <script>
-                function handleCredentialResponse(response) {
-                    console.log("Encoded JWT ID token: " + response.credential);
-                }
+                /*   function handleCredentialResponse(response) {
+                       console.log("Encoded JWT ID token: " + response.credential);
+                   }
 
-                window.onload = function () {
-                    google.accounts.id.initialize({
-                        client_id: "YOUR_GOOGLE_CLIENT_ID",
-                        callback: handleCredentialResponse
-                    });
-                    google.accounts.id.renderButton(
-                        document.getElementById("buttonDiv"),
-                        {theme: "outline", size: "large"}  // customization attributes
-                    );
-                    google.accounts.id.prompt(); // also display the One Tap dialog
-                }
+                   window.onload = function () {
+                       google.accounts.id.initialize({
+                           client_id: "YOUR_GOOGLE_CLIENT_ID",
+                           callback: handleCredentialResponse
+                       });
+                       google.accounts.id.renderButton(
+                           document.getElementById("buttonDiv"),
+                           {theme: "outline", size: "large"}  // customization attributes
+                       );
+                       google.accounts.id.prompt(); // also display the One Tap dialog
+                   }*/
             </script>
             <div id="g_id_onload"
                  data-client_id="AIzaSyB_38L9B3BcrAI5ecTl8FqTSgURqnM7p58"
