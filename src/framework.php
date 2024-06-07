@@ -26,7 +26,7 @@ global $db;
 global $page;
 global $pages;
 
-if(!isset($_GET["page"])) {
+if (!isset($_GET["page"])) {
     $page = "home";
 } else {
     $page = $_GET["page"];
@@ -37,17 +37,17 @@ $username = $username ?? (isset($_SESSION['username']) ? $_SESSION["username"] :
 require_once "js_runphp_errors.php";
 require_once "navigation.php";
 
-$title = "Agenda MSP Waremme - <strong>".(urldecode($pages["?page=$page"] ?? "Home"))."</strong>";
+$title = "Agenda MSP Waremme - <strong>" . (urldecode($pages["?page=$page"] ?? "Home")) . "</strong>";
 
 
-if(isset($username) && isset($db)) {
+if (isset($username) && isset($db)) {
     require_once "db.php";
     require_once "vue_agenda_date_mois.php";
     require_once "printTableWithGetters.php";
 }
 require_once "logon.php";
 $exit_after = false;
-if(function_exists("logon")) {
+if (function_exists("logon")) {
     if (!checkLoginForm()) {
         if (function_exists("login")) {
             login();
@@ -57,39 +57,38 @@ if(function_exists("logon")) {
     }
 }
 require_once "AgendaUser.php";
-if($username!=NULL) {
+if ($username != NULL) {
     $userDetails = new AgendaUser($username);
 
     $userDetails = $userDetails->getData();
 
-    if($userDetails!=NULL) {
+    if ($userDetails != NULL) {
         $themeName = $userDetails["theme_name"];
     }
 }
 global $page, $pages, $themeName;
-?><!DOCTYPE html><html>
+?><!DOCTYPE html>
+<html>
 <head>
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="../css/light/agenda.css" type="text/css">
     <link rel="stylesheet" href="../css/light/search_menu.css" type="text/css">
     <link rel="stylesheet" href="../css/light/print.css" type="text/css" media="print">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="https://www.gstatic.com/firebasejs/8.0/firebase-app.js"></script>
+    <script src="../js/google-firebase.js" type="module">
 
+    </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
-        <!-- Latest compiled and minified CSS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Latest compiled and minified CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Optional theme -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="agenda.js"></script>
     <script type="text/javascript" src="../js/notifications.js"></script>
 
@@ -117,25 +116,22 @@ global $page, $pages, $themeName;
 
         //    openWindow(url);
     </script>
-        <?php
-        if (isset($_GET["accept_cookies"]) && $_GET["accept_cookies"] == "true") {
-            // ++ Vérifier qu'il n'y ait pas de referrer
-            session_set_cookie_params(array("lifetime" => time() + 3600 * 24));
-            setcookie("accept_cookies", "true", time() + 60 * 60 * 24 * 30, "/",
-                "empty3.app", true, false);
-            session_commit();
-            header("Location: index.php\n");
-            exit;
-        }
-        if (isset($_COOKIE['accept_cookies'])) {
-            $show_cookie = false;
-        } else {
-            $show_cookie = true;
-        }?>
+    <?php
+    if (isset($_GET["accept_cookies"]) && $_GET["accept_cookies"] == "true") {
+        // ++ Vérifier qu'il n'y ait pas de referrer
+        session_set_cookie_params(array("lifetime" => time() + 3600 * 24));
+        setcookie("accept_cookies", "true", time() + 60 * 60 * 24 * 30, "/",
+            "empty3.app", true, false);
+        session_commit();
+        header("Location: index.php\n");
+        exit;
+    }
+    if (isset($_COOKIE['accept_cookies'])) {
+        $show_cookie = false;
+    } else {
+        $show_cookie = true;
+    } ?>
     <script defer src="cookiechoices.js"></script>
-
-    </script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
 
         function auth_popup(provider) {
@@ -152,15 +148,16 @@ global $page, $pages, $themeName;
 <body>
 <div class="" onload="page_onLoad();">
 
-<div id="title_page">
-            <a href="?">
-                <h1>
-                    <img height="40px" width="40px" src="../images/favicon.png"/><?php echo $title." - ". date("d-m-y"); ?>
+    <div id="title_page">
+        <a href="?">
+            <h1>
+                <img height="40px" width="40px"
+                     src="../images/favicon.png"/><?php echo $title . " - " . date("d-m-y"); ?>
 
-                </h1>
-            </a>
+            </h1>
+        </a>
     </div>
-<?php /*
+    <?php /*
 <div id="session_user">
     <ul id="isConnected"><?php if ($username==NULL ||strlen($username)==0) {
         echo "<li class='user_connection'><span class='none'>Pas d'utilisateur en session</span></li>";
@@ -191,45 +188,45 @@ global $page, $pages, $themeName;
 */
 
 
-displayNav();
+    displayNav();
 
 
-require_once "main_menu.php";
+    require_once "main_menu.php";
 
-//echo "UserId : ".$userData["id"];
+    //echo "UserId : ".$userData["id"];
 
-//require_once "search_menu.php";
+    //require_once "search_menu.php";
 
-echo "<a class='date' style='float: right' href='".make_link("?")."'>Aujourd'hui:" .date("d/m/Y")."</a><br/>";
-global $j, $m, $a;
-$timestamp = date_create("".($_GET['a']??$a)."-".($_GET['m']??$m)."-". ($_GET['j']??$j));
-//
-//if($timestamp!==false) {
-//    echo "<button style='float: right'>Date du calendrier: " . date("d/m/Y", $timestamp->getTimestamp()) . "</button><br/>";
-//    display_calendar($_GET['j'] ?? $j, $_GET['m'] ?? $m, $_GET['a'] ?? $a);
-//}
-//echo "<p><a style='float: right' href='".make_link("?page=help")."' target='_blank' ><img id='help_img' alt='Search helper' src='../images/help.png' /></a></p>";
+    echo "<a class='date' style='float: right' href='" . make_link("?") . "'>Aujourd'hui:" . date("d/m/Y") . "</a><br/>";
+    global $j, $m, $a;
+    $timestamp = date_create("" . ($_GET['a'] ?? $a) . "-" . ($_GET['m'] ?? $m) . "-" . ($_GET['j'] ?? $j));
+    //
+    //if($timestamp!==false) {
+    //    echo "<button style='float: right'>Date du calendrier: " . date("d/m/Y", $timestamp->getTimestamp()) . "</button><br/>";
+    //    display_calendar($_GET['j'] ?? $j, $_GET['m'] ?? $m, $_GET['a'] ?? $a);
+    //}
+    //echo "<p><a style='float: right' href='".make_link("?page=help")."' target='_blank' ><img id='help_img' alt='Search helper' src='../images/help.png' /></a></p>";
 
-global $loginForm;
-echo '<a href="?page=login">'.$loginForm.'</a>';
-global $pagesNames;
-$page_id = array_search("?page=".$page, $pagesNames);
-if($page_id>=0) {
-    $page_next = make_link($pagesNames[((int)($page_id)+1+count($pagesNames)) % (count($pagesNames))]);
-    $page_prev = make_link($pagesNames[((int)($page_id)-1+count($pagesNames)) % (count($pagesNames))]);
+    global $loginForm;
+    echo '<a href="?page=login">' . $loginForm . '</a>';
+    global $pagesNames;
+    $page_id = array_search("?page=" . $page, $pagesNames);
+    if ($page_id >= 0) {
+    $page_next = make_link($pagesNames[((int)($page_id) + 1 + count($pagesNames)) % (count($pagesNames))]);
+    $page_prev = make_link($pagesNames[((int)($page_id) - 1 + count($pagesNames)) % (count($pagesNames))]);
 
-    if($username==""||$username==NULL) {
+    if ($username == "" || $username == NULL) {
         $username = "anonyme";
     }
     ?>
-       <!--<h3 class="user nickname">Utilisateur: <?php echo $username; ?></h3>-->
-    <?php
+    <!--<h3 class="user nickname">Utilisateur: <?php echo $username; ?></h3>-->
+<?php
 }
 //if($exit_after) exit;
 
 
 global $username;
-if(!isset($username) || strlen($username)==0){
+if (!isset($username) || strlen($username) == 0) {
     $username = "anonyme";
 }
 ?>

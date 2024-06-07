@@ -21,21 +21,20 @@
 global $logins;
 $logins = array();
 
-require_once('../vendor/autoload.php');
+require __DIR__.'/../vendor/autoload.php';
+
 require_once('config.php');
 require_once "functions.php";
 //require_once "login.php";
 
-use Hybridauth\Hybridauth;
 
-global $config;
-try {
-    $hybridauth = new Hybridauth($config);
-    $adapters = $hybridauth->getConnectedAdapters();
-} catch (\Hybridauth\Exception\InvalidArgumentException|RuntimeException|\Hybridauth\Exception\UnexpectedValueException|Exception|Throwable $e) {
-    //print_r($e);
-}
+use Kreait\Firebase\Factory;
+$factory = (new Factory())
+    ->withProjectId('agendaapp')
+    ->withDatabaseUri('https://agendaapp-c3bb0-default-rtdb.europe-west1.firebasedatabase.app/');
 
+
+//$auth = $factory->createAuth();
 
 global $username;
 
@@ -81,40 +80,6 @@ if($name=="Google") {
 </ul>
     </div>
 <div id="login">
-
-<?php
-
-if ($adapters) : ?>
-    <h1>You are logged in:</h1>
-    <ul>
-        <?php foreach ($adapters as $name => $adapter) :
-            $userProfile = $adapter->getUserProfile(); ?>
-            <li>
-                <strong><?php echo $userProfile->displayName; ?></strong> from
-                <i><?php print $name; ?></i>
-                <span>(<a href="<?php print $config['callback'] . "?logout={$name}"; ?>&page=logout">Log Out</a>)</span>
-                <p>Entrer dans l'application en tant que <?php echo $username = $userProfile->email;
-
-                    $databaseFilenameBasedOnEmail = $userProfile->email;
-                    //str_replace("@", "-", $userProfile->email);
-                    $databaseFilenameBasedOnEmail = "../data_agenda/database_agenda_" . $databaseFilenameBasedOnEmail;
-                    if (file_exists($databaseFilenameBasedOnEmail)) {
-                        echo "Data exists for you";
-                        global $dbFilename;
-                        global $username;
-                        $username = $userProfile->email;
-                        $_SESSION["username"] = $username;
-                        $dbFilename = $databaseFilenameBasedOnEmail;
-                        $logins[] = array("username" => $username, "password" => "''", "authority"=>$name);
-                    } else {
-                        echo "No data associated with this account";
-                        echo "<a href='?create_user'>Créer la base de données.</a>";
-                    }
-                    ?></p>
-            </li>
-        <?php endforeach; ?>
-<?php endif; ?>
-    </ul>
 </div>
 <?php
 

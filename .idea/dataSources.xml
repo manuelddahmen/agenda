@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="database_agenda" uuid="fa15bc9e-fdf2-467d-b567-19e338f4b722">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>e12f2028-25ea-41a2-afd5-0adc9711229f</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\manue\PhpstormProjects\agenda3\data_agenda\database_agenda</jdbc-url>

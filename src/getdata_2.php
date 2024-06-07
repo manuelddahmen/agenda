@@ -220,9 +220,11 @@ function joursTaches($id_hospitalise): array
         $conditionTtp .= " and (0 ";
         $c = 0;
         foreach ($id_hospitalise as $key => $value) {
-            $condition .= " or th.chambre=$value ";
-            $conditionTtp .= " or ttp2.id_patient=$value ";
-            $c++;
+            if($value!=null) {
+                $condition .= " or th.chambre=$value ";
+                $conditionTtp .= " or ttp2.id_patient=$value ";
+                $c++;
+            }
         }
         if ($c == 0) {
             $condition .= " or 1 ) ";
