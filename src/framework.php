@@ -18,7 +18,8 @@
  *    limitations under the License.
  */
 
-global$userData; if (session_status() === PHP_SESSION_NONE) {
+global $userData;
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 global $username;
@@ -33,7 +34,7 @@ if (!isset($_GET["page"])) {
 }
 
 $username = $username ?? (isset($_SESSION['username']) ? $_SESSION["username"] : "");
-
+require __DIR__ . '/../vendor/autoload.php';
 require_once "js_runphp_errors.php";
 require_once "navigation.php";
 
@@ -81,8 +82,7 @@ global $page, $pages, $themeName;
 
     </script>
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
     <!-- Latest compiled and minified CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- Optional theme -->
@@ -136,7 +136,7 @@ global $page, $pages, $themeName;
 
         function auth_popup(provider) {
             // replace 'path/to/hybridauth' with the real path to this script
-            var authWindow = window.open('https://empty3.one/agenda/src/callback.php?provider=' + provider, 'authWindow', 'width=600,height=400,scrollbars=yes');
+            var authWindow = window.open('https://empty3.app/agenda/src/?page=login&?provider=' + provider, 'authWindow', 'width=600,height=400,scrollbars=yes');
             window.closeAuthWindow = function () {
                 authWindow.close();
             }

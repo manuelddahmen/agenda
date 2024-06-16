@@ -79,8 +79,14 @@ if($name=="Google") {
             adresse e-mail</a></li>
 </ul>
     </div>
-<div id="login">
-</div>
+    <div id="g_id_onload"
+         data-client_id="1053386986412-q05vuknkmq57aid34r52fitjq5ku1nuk.apps.googleusercontent.com"
+         data-context="signin"
+         data-login_uri="https://empty3.app/agenda/src/?page=login"
+         data-itp_support="true">
+    </div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 <?php
 
 }

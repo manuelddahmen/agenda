@@ -2,7 +2,7 @@
   "name": "manuelddahmen/agenda",
   "description": "Agenda",
   "minimum-stability": "stable",
-  "license": "paie!",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "manuelddahmen",
@@ -12,14 +12,12 @@
   "require": {
     "greenlion/php-sql-parser":">=v4.5.0",
     "ext-simplexml": "*",
-    "hybridauth/hybridauth": "*",
-    "ext-sqlite": "*",
     "ext-mysqli": "*",
     "ext-pdo": "*",
-    "ext-sysvsem": "*",
     "ext-curl": "*",
-    "ext-http": "*",
-    "ext-sqlite3": "*",
-    "ext-mbstring": "*"
+    "ext-mbstring": "*",
+    "google/apiclient": "*",
+    "firebase/php-jwt": "*",
+    "kreait/firebase-php": "^7.12"
   }
 }

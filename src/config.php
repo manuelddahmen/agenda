@@ -26,14 +26,14 @@
  */
 global $config;
 $config = [
-    'callback' => 'https://empty3.one/agenda/src/callback.php',
+    'callback' => 'https://empty3.app/agenda/src/?page=login',
     'providers' => [
 
         'Google' => [
             'enabled' => true,
             'keys' => [
-                'id' => '838858680256-lvnerq3ilnqnc1gd3sh6acubpia9vjr5.apps.googleusercontent.com',
-                'secret' => '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',
+                'id' => '1053386986412-q05vuknkmq57aid34r52fitjq5ku1nuk.apps.googleusercontent.com',
+                'secret' => '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',
             ],
             'scope' => 'email',
         ],
