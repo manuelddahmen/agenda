@@ -17,7 +17,6 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-require __DIR__ . '/../vendor/autoload.php';
 function login(): void
 {
 
@@ -87,10 +86,10 @@ function login(): void
                    }*/
             </script>
             <div id="g_id_onload"
-                 data-client_id="AIzaSyB_38L9B3BcrAI5ecTl8FqTSgURqnM7p58"
-                 data-login_uri="https://empty3.one/agenda/src/index.php"
-                 data-your_own_param_1_to_login="session_user_id"
-                 data-your_own_param_2_to_login="session_user_id">
+                 data-client_id="1053386986412-q05vuknkmq57aid34r52fitjq5ku1nuk.apps.googleusercontent.com"
+                 data-context="signin"
+                 data-login_uri="https://empty3.app/agenda/src/?page=login"
+                 data-itp_support="true">
             </div>
             <form action="index.php?page=login" method="POST">
                 <h1>Connexion</h1>

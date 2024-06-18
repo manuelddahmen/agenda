@@ -22,24 +22,24 @@ global $logins;
 $logins = array();
 
 require __DIR__.'/../vendor/autoload.php';
-
-require_once('config.php');
+require_once 'config.php';
 require_once "functions.php";
-//require_once "login.php";
+require_once "login.php";
+require_once "framework.php";
 
-
+// serviceAccount: servicewebuserauth@agendaapp-c3bb0.iam.gserviceaccount.com
 use Kreait\Firebase\Factory;
 $factory = (new Factory())
-    ->withProjectId('agendaapp')
+    //->withServiceAccount("servicewebuserauth@agendaapp-c3bb0.iam.gserviceaccount.com")
+    ->withProjectId('agendaapp-c3bb0')
     ->withDatabaseUri('https://agendaapp-c3bb0-default-rtdb.europe-west1.firebasedatabase.app/');
 
 
-//$auth = $factory->createAuth();
+$auth = $factory->createAuth();
 
 global $username;
 
 
-require_once "framework.php";
 
 global $show_cookie;
 if ($show_cookie) { ?>
@@ -58,7 +58,7 @@ if ($show_cookie) { ?>
 <a href="#" onclick="signOut();">Sign out</a>
 <ul id="login_list">
 
-    <?php foreach ($hybridauth->getProviders() as $name) { ?>
+    <?php /*foreach ($hybridauth->getProviders() as $name) { ?>
         <?php if (!isset($adapters[$name])) { ?>
             <li>
                 <a href="#" onclick="javascript:auth_popup('<?php print $name ?>');"><?php
@@ -77,19 +77,20 @@ if($name=="Google") {
 
     <li  id='login_site_link'><a href="?page=login_site_login" class="btn-choose btn">Connexion à l'application avec votre
             adresse e-mail</a></li>
+*/ ?>
 </ul>
     </div>
-    <div id="g_id_onload"
-         data-client_id="1053386986412-q05vuknkmq57aid34r52fitjq5ku1nuk.apps.googleusercontent.com"
-         data-context="signin"
-         data-login_uri="https://empty3.app/agenda/src/?page=login"
-         data-itp_support="true">
+    <div id="login">
     </div>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 <?php
 
 }
+
+
+if (!empty($_POST["credential"])) {
+    echo "Connection avec Google";
+}
+
 global $currentPage;
 $currentPage = "";
 if (isset($_GET["page"])) {

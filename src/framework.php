@@ -17,6 +17,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+require __DIR__ . '/../vendor/autoload.php';
 
 global $userData;
 if (session_status() === PHP_SESSION_NONE) {
@@ -34,7 +35,6 @@ if (!isset($_GET["page"])) {
 }
 
 $username = $username ?? (isset($_SESSION['username']) ? $_SESSION["username"] : "");
-require __DIR__ . '/../vendor/autoload.php';
 require_once "js_runphp_errors.php";
 require_once "navigation.php";
 
