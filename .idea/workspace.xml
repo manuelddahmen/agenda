@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="Ok">
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/framework.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/login.php" afterDir="false" />
@@ -175,7 +178,7 @@
     &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;import_schema_mapping&quot;: &quot;&lt;schema-mapping&gt;\n  &lt;databases&gt;\n    &lt;list&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;bd66b5e2-9038-48dd-a323-d68624344971&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;main&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;bd66b5e2-9038-48dd-a323-d68624344971&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;main&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;a76147b6-2191-43a9-8fbf-dd9f464893bf&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;main&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;3a7b113e-d6e5-4779-928e-68df8d240217&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;main&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n    &lt;/list&gt;\n  &lt;/databases&gt;\n&lt;/schema-mapping&gt;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Current/PhpstormProjects/empty3.app&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Current/empty3.app backup june 2024/public_html&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -183,13 +186,14 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\manue\\AppData\\Local\\Programs\\PhpStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+      &quot;sqlite&quot;,
+      &quot;mysql&quot;
     ],
     &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
       &quot;SQLite&quot;
@@ -461,7 +465,8 @@
       <workItem from="1717186722185" duration="5101000" />
       <workItem from="1717249583017" duration="11873000" />
       <workItem from="1718522405623" duration="20848000" />
-      <workItem from="1718693900795" duration="1184000" />
+      <workItem from="1718693900795" duration="15273000" />
+      <workItem from="1718822013123" duration="1358000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -806,7 +811,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="353" />
+    <option name="localTasksCounter" value="354" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

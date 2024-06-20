@@ -24,6 +24,15 @@
  * Set the Authorization callback URL to https://path/to/hybridauth/examples/example_07/callback.php
  * Understandably, you need to replace 'path/to/hybridauth' with the real path to this script.
  */
+
+$google = [
+    'enabled' => true,
+    'keys' => [
+        'id' => '1053386986412-q05vuknkmq57aid34r52fitjq5ku1nuk.apps.googleusercontent.com',
+        'secret' => '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',
+    ],
+    'scope' => 'email',
+];
 global $config;
 $config = [
     'callback' => 'https://empty3.app/agenda/src/?page=login',

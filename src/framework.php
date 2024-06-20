@@ -38,7 +38,7 @@ $username = $username ?? (isset($_SESSION['username']) ? $_SESSION["username"] :
 require_once "js_runphp_errors.php";
 require_once "navigation.php";
 
-$title = "Agenda MSP Waremme - <strong>" . (urldecode($pages["?page=$page"] ?? "Home")) . "</strong>";
+$title = "Agenda (planning de la semaine) - <strong>" . (urldecode($pages["?page=$page"] ?? "Home")) . "</strong>";
 
 
 if (isset($username) && isset($db)) {

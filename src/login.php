@@ -68,29 +68,13 @@ function login(): void
         if (!checkLoginForm()) {
             ?>
             <script src="https://accounts.google.com/gsi/client" async defer></script>
-            <script>
-                /*   function handleCredentialResponse(response) {
-                       console.log("Encoded JWT ID token: " + response.credential);
-                   }
-
-                   window.onload = function () {
-                       google.accounts.id.initialize({
-                           client_id: "YOUR_GOOGLE_CLIENT_ID",
-                           callback: handleCredentialResponse
-                       });
-                       google.accounts.id.renderButton(
-                           document.getElementById("buttonDiv"),
-                           {theme: "outline", size: "large"}  // customization attributes
-                       );
-                       google.accounts.id.prompt(); // also display the One Tap dialog
-                   }*/
-            </script>
             <div id="g_id_onload"
                  data-client_id="1053386986412-q05vuknkmq57aid34r52fitjq5ku1nuk.apps.googleusercontent.com"
                  data-context="signin"
-                 data-login_uri="https://empty3.app/agenda/src/?page=login"
+                 data-login_uri="https://empty3.app/agenda/src"
                  data-itp_support="true">
             </div>
+            <script src="https://accounts.google.com/gsi/client" async></script>
             <form action="index.php?page=login" method="POST">
                 <h1>Connexion</h1>
 

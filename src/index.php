@@ -18,7 +18,7 @@
  *    limitations under the License.
  */
 
-global $logins;
+global $logins, $google, $config;
 $logins = array();
 
 require __DIR__.'/../vendor/autoload.php';
@@ -28,15 +28,14 @@ require_once "login.php";
 require_once "framework.php";
 
 // serviceAccount: servicewebuserauth@agendaapp-c3bb0.iam.gserviceaccount.com
-use Kreait\Firebase\Factory;
+/*use Kreait\Firebase\Factory;
 $factory = (new Factory())
-    //->withServiceAccount("servicewebuserauth@agendaapp-c3bb0.iam.gserviceaccount.com")
     ->withProjectId('agendaapp-c3bb0')
-    ->withDatabaseUri('https://agendaapp-c3bb0-default-rtdb.europe-west1.firebasedatabase.app/');
+    ->withDatabaseUri('https://agendaapp-c3bb0-default-rtdb.europe-west1.firebasedatabase.app');
 
 
 $auth = $factory->createAuth();
-
+*/
 global $username;
 
 
