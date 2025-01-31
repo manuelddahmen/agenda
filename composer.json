@@ -18,6 +18,12 @@
     "ext-mbstring": "*",
     "google/apiclient": "*",
     "firebase/php-jwt": "*",
-    "kreait/firebase-php": "^7.12"
+    "kreait/firebase-php": "^7.12",
+    "league/oauth2-client": "^2.8",
+    "league/oauth2-facebook": "^2.2",
+    "league/oauth2-google": "^4.0",
+    "league/oauth2-instagram": "^3.1",
+    "league/oauth2-github": "^3.1",
+    "league/oauth2-linkedin": "^5.1"
   }
 }
