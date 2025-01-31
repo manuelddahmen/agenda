@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8db0532e-38fb-4025-9576-79ac066053e7" name="Default Changelist" comment="Ok">
+      <change afterPath="$PROJECT_DIR$/provider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <list id="9918f6a2-8793-4c69-9f87-00c6dec50ba9" name="Excluded (size)" comment="Excluded (size)" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +96,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpDebugGeneral">
+    <xdebug_debug_ports port="9003" />
+    <xdebug_debug_ports port="9000" />
+    <xdebug_debug_ports port="52304" />
+  </component>
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="835ac4c1-1c33-4fdb-a1da-e18f45c6ea12" name="Unnamed" port="801" />
@@ -123,9 +132,16 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/jakeasmith/http_build_url" />
       <path value="$PROJECT_DIR$/vendor/kreait/firebase-php" />
       <path value="$PROJECT_DIR$/vendor/kreait/firebase-tokens" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-client" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-facebook" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-github" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-google" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-instagram" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-linkedin" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
       <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
@@ -157,48 +173,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "PHP Built-in Web Server.builtin.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "git-widget-placeholder": "master",
-    "import_schema_mapping": "<schema-mapping>\n  <databases>\n    <list>\n      <schema-mapping-item>\n        <source-data-source-id>bd66b5e2-9038-48dd-a323-d68624344971</source-data-source-id>\n        <source-path>schema/&quot;main&quot;</source-path>\n        <target-data-source-id>bd66b5e2-9038-48dd-a323-d68624344971</target-data-source-id>\n        <target-path>schema/&quot;main&quot;</target-path>\n      </schema-mapping-item>\n      <schema-mapping-item>\n        <source-data-source-id>a76147b6-2191-43a9-8fbf-dd9f464893bf</source-data-source-id>\n        <source-path>schema/&quot;main&quot;</source-path>\n        <target-data-source-id>3a7b113e-d6e5-4779-928e-68df8d240217</target-data-source-id>\n        <target-path>schema/&quot;main&quot;</target-path>\n      </schema-mapping-item>\n    </list>\n  </databases>\n</schema-mapping>",
-    "last_opened_file_path": "D:/Current/empty3.app backup june 2024/public_html",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "database.query.execution",
-    "ts.external.directory.path": "C:\\Users\\manue\\AppData\\Local\\Programs\\PhpStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;PHP Built-in Web Server.builtin.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.oauth-2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;import_schema_mapping&quot;: &quot;&lt;schema-mapping&gt;\n  &lt;databases&gt;\n    &lt;list&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;bd66b5e2-9038-48dd-a323-d68624344971&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;main&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;bd66b5e2-9038-48dd-a323-d68624344971&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;main&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;a76147b6-2191-43a9-8fbf-dd9f464893bf&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;main&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;3a7b113e-d6e5-4779-928e-68df8d240217&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;main&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n    &lt;/list&gt;\n  &lt;/databases&gt;\n&lt;/schema-mapping&gt;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Current/empty3.app backup june 2024/public_html&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\jetbrains\\PhpStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite",
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;,
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "SQLite"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;SQLite&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "HTML",
-      "Markdown"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;HTML&quot;,
+      &quot;Markdown&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\manue\PhpstormProjects\agenda3" />
@@ -220,7 +237,7 @@
       <command value="escapeString" />
     </option>
   </component>
-  <component name="RunManager" selected="PHP Built-in Web Server.builtin">
+  <component name="RunManager" selected="PHPUnit.oauth-2">
     <configuration name="login.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://empty3.one/agenda/src/login.php">
       <method v="2" />
     </configuration>
@@ -228,6 +245,10 @@
       <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
         <browser start="true" />
       </EXTENSION>
+      <method v="2" />
+    </configuration>
+    <configuration name="oauth-2" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/oauth-2" />
       <method v="2" />
     </configuration>
     <configuration name="builtin" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/" port="801">
@@ -241,9 +262,11 @@
       <item itemvalue="Node.js.agenda.js" />
       <item itemvalue="PHP Built-in Web Server.builtin" />
       <item itemvalue="PHP Web Page.Agenda" />
+      <item itemvalue="PHPUnit.oauth-2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.oauth-2" />
         <item itemvalue="JavaScript Debug.login.php" />
         <item itemvalue="Node.js.agenda.js" />
       </list>
@@ -252,8 +275,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18034.69" />
-        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.18034.69" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PS-243.23654.168" />
+        <option value="bundled-php-predefined-a98d8de5180a-4c3855d0ab16-com.jetbrains.php.sharedIndexes-PS-243.23654.168" />
       </set>
     </attachedChunks>
   </component>
@@ -464,6 +487,7 @@
       <workItem from="1718693900795" duration="15273000" />
       <workItem from="1718822013123" duration="4998000" />
       <workItem from="1719984607771" duration="9197000" />
+      <workItem from="1738338717632" duration="6130000" />
     </task>
     <task id="LOCAL-00244" summary="AgendaWebApp -&gt; multiusers">
       <created>1669148964967</created>
@@ -808,7 +832,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681926161730</updated>
     </task>
-    <option name="localTasksCounter" value="355" />
+    <option name="localTasksCounter" value="356" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
