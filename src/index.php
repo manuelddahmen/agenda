@@ -51,12 +51,11 @@ if ($show_cookie) { ?>
 
         <?php if(!($username!=null && strlen($username)>0)) {
         ?>
-    <div id="signIn">
-    <h1>Sign in</h1>
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-<a href="#" onclick="signOut();">Sign out</a>
+    <!--
 <ul id="login_list">
-
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="signIn()">Sign In</button>
     <?php /*foreach ($hybridauth->getProviders() as $name) { ?>
         <?php if (!isset($adapters[$name])) { ?>
             <li>
@@ -77,18 +76,12 @@ if($name=="Google") {
     <li  id='login_site_link'><a href="?page=login_site_login" class="btn-choose btn">Connexion à l'application avec votre
             adresse e-mail</a></li>
 */ ?>
-</ul>
-    </div>
-    <div id="login">
-    </div>
+</ul>-->
 <?php
 
 }
 
 
-if (!empty($_POST["credential"])) {
-    echo "Connection avec Google";
-}
 
 global $currentPage;
 $currentPage = "";
@@ -106,7 +99,21 @@ echo $editAddDeleteStr;
 if(isset($username) && $currentPage=="")
     $currentPage = "tables";
 
+global $userData;
+if ($userData == NULL) {
+    $currentPage = "HomePage";
+}
+if (!empty($_POST["signup"])) {
+    $currentPage = "signup";
+}
+if (!empty($_POST["credential"])) {
+    echo "Connection avec Google";
+}
+?></div>
+    <div id="content">
+        <?php
 switch ($currentPage) {
+
     case "home":
         require_once "home.php";
         break;
@@ -126,6 +133,7 @@ switch ($currentPage) {
         break;
     case "create_data":
     case "create_user":
+    case "signup":
         require_once "create_user.php";
         break;
     case "delete_archive":
@@ -149,6 +157,8 @@ switch ($currentPage) {
         break;
     case "login":
     case "login_site_login":
+    case "HomePage";
+        require_once("home.php");
         if(isset($_POST["lost_password"])) {
             require_once "lost_password.php";
         } else {
@@ -190,6 +200,7 @@ switch ($currentPage) {
 }
 ?>
     </div>
+
 <?php
 session_commit();
 ?>

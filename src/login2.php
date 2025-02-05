@@ -77,41 +77,6 @@ function login2(): void
     } else {
         if (!checkLoginForm()) {
             ?>
-
-            <script src="https://accounts.google.com/gsi/client" async defer></script>
-            <script>
-                function handleCredentialResponse(response) {
-                    console.log("Encoded JWT ID token: " + response.credential);
-                }
-                window.onload = function () {
-                    google.accounts.id.initialize({
-                        client_id: "YOUR_GOOGLE_CLIENT_ID",
-                        callback: handleCredentialResponse
-                    });
-                    google.accounts.id.renderButton(
-                        document.getElementById("buttonDiv"),
-                        { theme: "outline", size: "large" }  // customization attributes
-                    );
-                    google.accounts.id.prompt(); // also display the One Tap dialog
-                }
-            </script>
-            <script src="https://www.google.com/recaptcha/api.js"></script>
-            <!--            <script type="text/typescript">
-                            import { initializeApp } from 'firebase/app';
-
-                            // TODO: Replace the following with your app's Firebase project configuration
-                            const firebaseConfig = {
-                            };
-
-                            const app = initializeApp(firebaseConfig);
-                        </script>
-            -->
-            <div id="g_id_onload"
-                 data-client_id="AIzaSyB_38L9B3BcrAI5ecTl8FqTSgURqnM7p58"
-                 data-login_uri="https://empty3.one/agenda/src/index.php?page=login"
-                 data-your_own_param_1_to_login="session_user_id"
-                 data-your_own_param_2_to_login="session_user_id">
-            </div>
             <form action="index.php?page=login" id="login-form" method="POST">
                 <table id="login">
                     <tr>
@@ -141,6 +106,13 @@ function login2(): void
                         <td>
                 <input type="submit" placeholder="Perte de mot de passe"
                        name="lost_password" id="lost_password" value="Récupérer mon mot de passe">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" placeholder="S'inscire"
+                                   name="signup" id="signup" value="S'inscrire en tant que nouvel(le) utilisateur(e)">
                         </td>
                     </tr>
                 </table>
@@ -175,7 +147,7 @@ function login2(): void
                      });
                  }
              </script>-->
-            <div id="content">
+            <div id="content_login">
                 <!-- tester si l'utilisateur est connecté -->
                 <?php
                 if (isset($_SESSION['username'])) {

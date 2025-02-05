@@ -54,5 +54,7 @@ if (isset($str)) {
     <p>L'application offre un canvas pour la création d'agenda de type "Horaires de la semaine. Avec plusieurs participants,
     plusieurs personnes responsables et de multiples occurences des activités via des tâches (nom non à but limitatif)</p>
     <p><a href="?page=privacy_policy">Politique en matière de vie privée</a></p>
-
+    <p><a href="https://empty3.app/android/privacy.html" target="_blank" rel="license">Politique de confidentialité</a>
+    </p>
+    <p><a href="https://empty3.app/android/privacy.html" target="_blank" rel="license">Conditions d'utilisation</a></p>
 </div>

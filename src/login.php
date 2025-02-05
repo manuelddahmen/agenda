@@ -96,7 +96,7 @@ function login(): void
             </form>
 
 
-            <div id="content">
+            <div id="content-login1">
                 <!-- tester si l'utilisateur est connecté -->
                 <?php
                 if (isset($_SESSION['username'])) {

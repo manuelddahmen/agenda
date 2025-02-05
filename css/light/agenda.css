@@ -81,14 +81,16 @@ li.sousmenu {
 
 
 li.sousmenu a {
-    border-radius: 30px;    background: #0d1e46;
+    border-radius: 30px;
+    background: #0d1e46;
     color: #dad3d3;
     border: darkgreen solid 2px;
     text-underline: #ffdcd8;
     padding: 10px;
     visibility: visible;
 }
-/*li.sousmenu.current,*/ li.sousmenu.current a {
+
+li.sousmenu.current a {
     color: #98c7c0;
     background-color: #3c0781;
 }
@@ -193,7 +195,7 @@ li.selected, #edit_tache, .edit_table_item, #edit_tache, .edit_table_item, #edit
 }
 #edit_tache select:hover, #edit_tache input:hover, #edit_tache button:hover {
     font-size: larger;
-    color: #FFFFFF;
+    color: #98c7c0;
     background-color: #0d1e46;
 }
 #edit_tache.error select:hover.error, #edit_tache input:hover.error, #edit_tache:hover.error,
@@ -266,11 +268,19 @@ table.calendrier td {
 .edit_table_item tr {
 }
 
-.edit_table_item, #edit_tache td {
+.edit_table_item input, .edit_table_item, #edit_tache td {
     border-left: none;
     border-right: none;
     border-top: #43315a;
     border-bottom: #43315a;
+    color: #ccf;
+
+
+}
+
+.edit_table_item {
+    color: #ccf;
+
 }
 table#table_tables{
     vertical-align: auto;
@@ -466,4 +476,28 @@ table.signature td  {
     height: 60px;
     border: #0d1e46;
     padding: 2em;
+}
+
+#app_privacy_policy {
+    padding: 20px;
+    display: block;
+    background-color: white;
+    border: 2px solid #999;
+    text-underline-style: none;
+    position: relative;
+    align-content: center;
+    float: left;
+}
+
+#content {
+    position: relative;
+}
+
+#app_description {
+    position: relative;
+}
+
+#login-form {
+    position: relative;
+    float: left;
 }

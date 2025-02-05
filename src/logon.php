@@ -37,15 +37,15 @@ function checkLoginForm(): bool
         if (checkLogin($_SESSION['username'], $_SESSION['password'])) {
             $username = $_SESSION['username'];
             $connected = true;
-            $loginForm = "<h3 for'loggedIn'>$username</h3>";
+            $loginForm = "<h3 for=loggedIn'>$username</h3>";
             return true;
         } else {
             $loginForm = "<li class='sousmenu '>Erreur login<a href='index.php?page=login'>Reconnectez-vous</a></li>";
             return false;
         }
     } else {
-        $loginForm = "<li class='sousmenu '>Erreur login (pas de session)<a href='index.php?page=login'>Reconnectez-vous</a></li><script type='text/javascript'>//document.location.href='index.php';</script>";
-        $loginForm .= "<li class='sousmenu '>Créer un compte<a href='index.php?page=create_user'>Créer un compte</a></li><script type='text/javascript'>//document.location.href='index.php';</script>";
+        //$loginForm = "<li class='sousmenu '>Erreur login (pas de session)<a href='index.php?page=login'>Reconnectez-vous</a></li><script type='text/javascript'>//document.location.href='index.php';</script>";
+        //$loginForm .= "<li class='sousmenu '>Créer un compte<a href='index.php?page=create_user'>Créer un compte</a></li><script type='text/javascript'>//document.location.href='index.php';</script>";
         if(isset($_SESSION["username"])) unset($_SESSION["username"]);
         if(isset($_SESSION["password"])) unset($_SESSION["password"]);
 

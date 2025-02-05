@@ -17,12 +17,13 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+global $password;
 
 class AgendaUser {
     private MyDB $db;
     private array $user_data = array();
 
-    public function __construct($username)
+    public function __construct($username, $email = NULL)
     {
         global $password;
         if($username!=null) {
@@ -32,12 +33,30 @@ class AgendaUser {
                 $db = $this->db = new MyDB();
             }
 
+            if ($email != NULL) {
+                $stmt = $db->prepare("select * from table_users where email=:email");// and :password=:passowrd
+                $stmt->bindParam("email", $email);
+                if ($stmt->execute()) {
+                    $var = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (is_array($var) && isset($var[0])) {
+                        $this->user_data = $var[0];
+                        print_r($this->user_data);
+                        $username = $this->user_data["username"];
+                        $password = $this->user_data["password"];
+                    }
+                }
+
+            }
+
             $stmt = $db->prepare("select * from table_users where username=:username");// and :password=:passowrd
             $stmt->bindParam("username", $username);
             if ($stmt->execute()) {
                 $var = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if (is_array($var) && isset($var[0])) {
                     $this->user_data = $var[0];
+                    print_r($this->user_data);
+                    $username = $this->user_data["username"];
+                    $password = $this->user_data["password"];
                 }
             }
         }

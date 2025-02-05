@@ -29,7 +29,6 @@ if(!isset($username) || strlen($username)==0){
 global $userData;
 if($userData==NULL) {
     echo "<h2>Non connecté</h2>";
-    exit(0);
 }
 if (isset($editAddDeleteStr)) {
     echo $editAddDeleteStr;

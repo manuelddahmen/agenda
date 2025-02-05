@@ -16,7 +16,7 @@
     "ext-pdo": "*",
     "ext-curl": "*",
     "ext-mbstring": "*",
-    "google/apiclient": "*",
+    "google/apiclient": "^2.18",
     "firebase/php-jwt": "*",
     "kreait/firebase-php": "^7.12",
     "league/oauth2-client": "^2.8",

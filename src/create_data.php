@@ -19,9 +19,9 @@
  */
 
 require_once "db.php";
-global $username, $db;
+global $username, $db, $currentPage;
 
-if(!isset($username) || strlen($username)==0 || $username=="anonyme"){
+if (!isset($username) || strlen($username) == 0 || $username == "anonyme" || $currentPage == "signup") {
     $username = null;
     $db = new MyDB();
     //print_r($db);

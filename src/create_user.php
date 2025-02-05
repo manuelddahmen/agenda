@@ -28,6 +28,5 @@ if($userData==NULL) {
 
     <?php
     echo "<h2>Non connecté</h2>";
-    exit(0);
 }
 ?>

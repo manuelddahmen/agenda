@@ -72,22 +72,47 @@ global $page, $pages, $themeName;
 <html>
 <head>
     <title><?php echo $title; ?></title>
+    <script>
+        window.onload = function () {
+            function handleCredentialResponse() {
+                alert("Login");
+            }
+
+            google.accounts.id.initialize({
+                client_id: '1053386986412-q05vuknkmq57aid34r52fitjq5ku1nuk.apps.googleusercontent.com',
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.prompt();
+        };
+        google.accounts.id.prompt((notification) => {
+            if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+                alert("Non connecté avec Google");
+            }
+        });
+        }
+        ;
+        google.accounts.id.renderButton(document.getElementById("signinDiv"), {
+            theme: 'outline',
+            size: 'large',
+            click_listener: onClickHandler
+        });
+
+
+        function onClickHandler() {
+            console.log("Sign in with Google button clicked...")
+        }
+
+    </script>
     <link rel="stylesheet" href="../css/light/agenda.css" type="text/css">
     <link rel="stylesheet" href="../css/light/search_menu.css" type="text/css">
     <link rel="stylesheet" href="../css/light/print.css" type="text/css" media="print">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="https://www.gstatic.com/firebasejs/8.0/firebase-app.js"></script>
-    <script src="../js/google-firebase.js" type="module">
-
-    </script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <!-- Latest compiled and minified CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- Optional theme -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="agenda.js"></script>
     <script type="text/javascript" src="../js/notifications.js"></script>
@@ -146,7 +171,21 @@ global $page, $pages, $themeName;
     </script>
 </head>
 <body>
-<div class="" onload="page_onLoad();">
+<script src="https://accounts.google.com/gsi/client" async></script>
+<div id="g_id_onload"
+     data-client_id="1053386986412-q05vuknkmq57aid34r52fitjq5ku1nuk.apps.googleusercontent.com"
+     data-login_uri="https://empty3.app/agenda/src/endpoint_google.php"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="sign_in_with"
+     data-shape="rectangular"
+     data-logo_alignment="left">
+</div>
+<div class=""><!-- onload="page_onLoad();"-->
 
     <div id="title_page">
         <a href="?">
