@@ -4,7 +4,7 @@
     "add-to-calendar-button": "^2.4.3",
     "bootstrap": "^5.3.2",
     "firebase": "^10.12.2",
-    "next-auth": "^5.0.0-beta.25"
+    "next-auth": "^5.0.0-beta.30"
   },
   "devDependencies": {
     "supabase": "^2.9.6"
