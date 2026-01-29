@@ -7,6 +7,6 @@
     "next-auth": "^5.0.0-beta.30"
   },
   "devDependencies": {
-    "supabase": "^2.9.6"
+    "supabase": "^2.72.9"
   }
 }
